@@ -1,0 +1,13 @@
+{
+	"RemapUnityFiles": 
+	{
+		"Module.FirebaseHelper.cpp.obj": [
+			"FirebaseHelper.cpp.obj",
+			"FirebaseHelperBPLibrary.cpp.obj"
+		],
+		"Module.FirebaseHelper.gen.cpp.obj": [
+			"FirebaseHelper.init.gen.cpp.obj",
+			"FirebaseHelperBPLibrary.gen.cpp.obj"
+		]
+	}
+}

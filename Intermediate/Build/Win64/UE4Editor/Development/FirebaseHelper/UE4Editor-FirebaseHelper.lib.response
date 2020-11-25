@@ -1,0 +1,14 @@
+/NOLOGO
+/errorReport:prompt
+/MACHINE:x64
+/SUBSYSTEM:WINDOWS
+/DEF
+/NAME:"UE4Editor-FirebaseHelper.dll"
+/IGNORE:4221
+/NODEFAULTLIB
+"C:\data\Projects\Unreal4\SimpleProject\Intermediate\Build\Win64\SimpleProjectEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h.obj"
+"C:\data\Projects\Unreal4\SimpleProject\Plugins\FirebaseHelper\Intermediate\Build\Win64\UE4Editor\Development\FirebaseHelper\Module.FirebaseHelper.cpp.obj"
+"C:\data\Projects\Unreal4\SimpleProject\Plugins\FirebaseHelper\Intermediate\Build\Win64\UE4Editor\Development\FirebaseHelper\Module.FirebaseHelper.gen.cpp.obj"
+"C:\data\Projects\Unreal4\SimpleProject\Plugins\FirebaseHelper\Intermediate\Build\Win64\UE4Editor\Development\FirebaseHelper\Default.rc2.res"
+/OUT:"C:\data\Projects\Unreal4\SimpleProject\Plugins\FirebaseHelper\Intermediate\Build\Win64\UE4Editor\Development\FirebaseHelper\UE4Editor-FirebaseHelper.lib"
+/INCLUDE:IMPLEMENT_MODULE_FirebaseHelper

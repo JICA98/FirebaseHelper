@@ -25,8 +25,8 @@ void EmptyLinkFunctionForGeneratedCodeFirebaseHelper_init() {}
 				SingletonFuncArray,
 				UE_ARRAY_COUNT(SingletonFuncArray),
 				PKG_CompiledIn | 0x00000000,
-				0xAED207CD,
-				0x53932518,
+				0x56A2973B,
+				0x508C8F0C,
 				METADATA_PARAMS(nullptr, 0)
 			};
 			UE4CodeGen_Private::ConstructUPackage(ReturnPackage, PackageParams);

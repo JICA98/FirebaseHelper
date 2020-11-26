@@ -3,11 +3,13 @@
 	{
 		"Module.FirebaseHelper.cpp.obj": [
 			"FirebaseHelper.cpp.obj",
-			"FirebaseHelperBPLibrary.cpp.obj"
+			"FirebaseHelperBPLibrary.cpp.obj",
+			"URealtimeDatabaseHelper.cpp.obj"
 		],
 		"Module.FirebaseHelper.gen.cpp.obj": [
 			"FirebaseHelper.init.gen.cpp.obj",
-			"FirebaseHelperBPLibrary.gen.cpp.obj"
+			"FirebaseHelperBPLibrary.gen.cpp.obj",
+			"URealtimeDatabaseHelper.gen.cpp.obj"
 		]
 	}
 }

@@ -1,5 +1,8 @@
 ﻿#pragma once
 
+#include "Kismet/BlueprintFunctionLibrary.h"
+#include "Runtime/Online/HTTP/Public/Http.h"
+#include "Templates/SharedPointer.h"
 #include "URealtimeDatabaseHelper.generated.h"
 
 USTRUCT(BlueprintType)
@@ -87,6 +90,18 @@ class URealtimeDatabaseHelper: public UBlueprintFunctionLibrary
 
 	GENERATED_UCLASS_BODY()
 public:
+	/*
+	* HTTP CALLBACK METHODS
+	*/
+
+	static void OnDeleteReceived(FHttpRequestPtr Request, FHttpResponsePtr Response, bool bWasSuccessful, FOperationComplete ResultCallback);
+
+	static void OnWriteReceived(FHttpRequestPtr Request, FHttpResponsePtr Response, bool bWasSuccessful, FOperationComplete ResultCallback);
+
+	static void OnReadReceived(FHttpRequestPtr Request, FHttpResponsePtr Response, bool bWasSuccessful, FOperationComplete ResultCallback);
+
+	static void OnListenerDataReceived(FHttpRequestPtr Request, int32 BytesSent, int32 BytesReceived, FOperationComplete ResultCallback, FFirebaseData RootData);
+
     /*
 	* REALTIME DATABASE HELPER FUNCTIONS
 	*/

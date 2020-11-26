@@ -16,6 +16,7 @@
 FString UFirebaseHelperBPLibrary::DatabaseURL = "";
 FString UFirebaseHelperBPLibrary::APIKey = "";
 FString UFirebaseHelperBPLibrary::AuthToken = "";
+FString UFirebaseHelperBPLibrary::AuthEndPoint = "https://identitytoolkit.googleapis.com/v1/";
 TSharedPtr<FJsonValue> FRealtimeValue::Value;
 
 UFirebaseHelperBPLibrary::UFirebaseHelperBPLibrary(const FObjectInitializer& ObjectInitializer)
@@ -93,19 +94,6 @@ void UFirebaseHelperBPLibrary::SetupFirebase() {
     }
 }
 
-void UFirebaseHelperBPLibrary::OnDeleteReceived(FHttpRequestPtr Request, FHttpResponsePtr Response, bool bWasSuccessful, FOperationComplete ResultCallback)
-{
-    FFirebaseData firebaseData = FFirebaseData();
-    firebaseData.Data = TMap<FString, FRealtimeValue>();
-    firebaseData.WasSuccessful  = bWasSuccessful;
-    firebaseData.Status = FString::FromInt(Response->GetResponseCode());
-    if (!bWasSuccessful)
-    {
-        UE_LOG(LogTemp, Error, TEXT("Error %s"), *Response->GetContentAsString()); 
-    }
-    if(ResultCallback.ExecuteIfBound(firebaseData)){}
-}
-
 
 void UFirebaseHelperBPLibrary::RealtimeDatabaseDelete(const FString& Path, const bool UseAuth,bool ReceiveDataSent, FOperationComplete ResultCallback)
 {
@@ -131,45 +119,8 @@ void UFirebaseHelperBPLibrary::RealtimeDatabaseDelete(const FString& Path, const
     
     HttpRequest->SetURL(FinalURL);
     UE_LOG(LogTemp, Error, TEXT("Error %s"), *FinalURL); 
-    HttpRequest->OnProcessRequestComplete().BindStatic(UFirebaseHelperBPLibrary::OnDeleteReceived, ResultCallback);
+    HttpRequest->OnProcessRequestComplete().BindStatic(URealtimeDatabaseHelper::OnDeleteReceived, ResultCallback);
     HttpRequest->ProcessRequest();
-}
-
-
-void UFirebaseHelperBPLibrary::OnWriteReceived(FHttpRequestPtr Request, FHttpResponsePtr Response, bool bWasSuccessful, FOperationComplete ResultCallback)
-{
-    FFirebaseData firebaseData = FFirebaseData();
-    firebaseData.Data = TMap<FString, FRealtimeValue>();
-    firebaseData.ExTag = Response->GetHeader("ETag");
-    UE_LOG(LogTemp, Error, TEXT("RequestReceived"));
-    firebaseData.WasSuccessful  = bWasSuccessful;
-    if (bWasSuccessful)
-    {
-        TSharedPtr<FJsonObject> JsonObject = MakeShareable(new FJsonObject());
-
-        const TSharedRef<TJsonReader<TCHAR>> JsonReader = TJsonReaderFactory<TCHAR>::Create(Response->GetContentAsString());
-
-        FJsonSerializer::Deserialize(JsonReader, JsonObject);
-        FString ss = Response->GetContentAsString();
-        TArray<FString> KeySet;
-        JsonObject->Values.GetKeys(KeySet);
-        for (FString Key : KeySet)
-        {
-            const TSharedPtr<FJsonValue> Value = JsonObject->Values[Key];
-            //UE_LOG(LogTemp, Warning, TEXT("%s %s"), *Key, *Value);
-            firebaseData.Data.Add(Key, FRealtimeValue(Value));    
-        }
-            
-        firebaseData.Status = "200";
-    }
-    else
-    {
-        int32 string = Response->GetResponseCode();
-        firebaseData.Status = "" + string;
-           
-        UE_LOG(LogTemp, Error, TEXT("Error %s"), string);
-    }
-	    
 }
 
 void UFirebaseHelperBPLibrary::RealtimeDatabaseWrite(const FString& Path, const FString& Content ,	bool Update,FRealtimeWriteOptions Options, FOperationComplete ResultCallback )
@@ -223,83 +174,8 @@ void UFirebaseHelperBPLibrary::RealtimeDatabaseWrite(const FString& Path, const 
 
     HttpRequest->SetContentAsString(Content);
 
-	HttpRequest->OnProcessRequestComplete().BindStatic(UFirebaseHelperBPLibrary::OnWriteReceived, ResultCallback);
+	HttpRequest->OnProcessRequestComplete().BindStatic(URealtimeDatabaseHelper::OnWriteReceived, ResultCallback);
     HttpRequest->ProcessRequest();
-}
-
-
-void UFirebaseHelperBPLibrary::OnListenerDataReceived(FHttpRequestPtr Request, int32 BytesSent, int32 BytesReceived, FOperationComplete ResultCallback, FFirebaseData RootData)
-{
-    //firebaseData.WasSuccessful = bWasSuccessful;
-    UE_LOG(LogTemp, Error, TEXT("Data %s"), *Request->GetResponse()->GetContentAsString());
-    UE_LOG(LogTemp, Error, TEXT("CODE %d"), Request->GetResponse()->GetResponseCode());
-    if (Request->GetResponse()->GetResponseCode() != 307)
-    {
-        TSharedPtr<FJsonObject> JsonObject = MakeShareable(new FJsonObject());
-        const FString Content = Request->GetResponse()->GetContentAsString();
-        const FString Data = Content.RightChop(Content.Find("data: ")+5);
-        const TSharedRef<TJsonReader<TCHAR>> JsonReader =
-                TJsonReaderFactory<TCHAR>::Create(Data);
-
-        FJsonSerializer::Deserialize(JsonReader, JsonObject);
-
-        TSharedPtr<FJsonObject> DataObject = JsonObject->GetObjectField("data");
-
-        
-        
-        if(JsonObject->GetStringField("path") == "/")
-        {
-            FFirebaseData TempData = FFirebaseData();
-            TArray<FString> KeySet;
-            DataObject->Values.GetKeys(KeySet);
-            for (FString Key : KeySet)
-            {
-                const TSharedPtr<FJsonValue> Value = JsonObject->Values[Key];
-                UE_LOG(LogTemp, Error, TEXT("Data %s %s"), *Key, *Value->AsString());
-                TempData.Data.Add(Key, FRealtimeValue(Value));    
-            }
-            RootData.Data = TempData.Data;
-
-        } else
-        {
-            TArray<FString> Children;
-            JsonObject->GetStringField("path").ParseIntoArray(Children, TEXT("/"), true);
-                  
-            TSharedPtr<FJsonValue> TempValue;
-            TSharedPtr<FJsonObject> TempObject = MakeShareable(new FJsonObject());
-
-            TArray<FString> KeySet;
-            RootData.Data.GetKeys(KeySet);
-            for(FString Key: KeySet)
-            {
-                TempObject->SetField(Key, RootData.Data[Key].Value);
-            }
-
-            
-            for(int32 i=0; i<Children.Num()-1; ++i)
-            {
-                TSharedPtr<FJsonObject> LoopObject = MakeShareable(new FJsonObject());
-                LoopObject->SetField(Children[i], TempObject->Values[Children[i]]);
-                TempObject = LoopObject;
-            }
-
-            TempObject->SetField(Children[Children.Num()-1], DataObject->Values["data"]);
-
-    
-            
-            
-        }
-        
-        RootData.ExTag = Request->GetHeader("ETag");
-        RootData.WasSuccessful = true;
-        RootData.Status = "0";
-        if(ResultCallback.ExecuteIfBound(RootData)){}
-    }
-    else
-    {
-        RootData.Status = FString::FromInt(Request->GetResponse()->GetResponseCode());
-        UE_LOG(LogTemp, Error, TEXT("Source Changed %d"), *RootData.Status);
-    }
 }
 
 FJsonObject GetObject(FJsonObject Object, FString MKey, TSharedPtr<FJsonValue> MVal)
@@ -411,7 +287,7 @@ void UFirebaseHelperBPLibrary::RealtimeDatabaseListener(const FString& Path, con
 
     FFirebaseData RootData = FFirebaseData();
 
-    HttpRequest->OnRequestProgress().BindStatic(UFirebaseHelperBPLibrary::OnListenerDataReceived, ListenerCallback, RootData);
+    HttpRequest->OnRequestProgress().BindStatic(URealtimeDatabaseHelper::OnListenerDataReceived, ListenerCallback, RootData);
 
     //HttpRequest->OnProcessRequestComplete();
 
@@ -419,37 +295,6 @@ void UFirebaseHelperBPLibrary::RealtimeDatabaseListener(const FString& Path, con
     HttpRequest->ProcessRequest();
 }
 
-
-void UFirebaseHelperBPLibrary::OnReadReceived(FHttpRequestPtr Request, FHttpResponsePtr Response, bool bWasSuccessful, FOperationComplete ResultCallback)
-{
-    FFirebaseData firebaseData = FFirebaseData();
-    firebaseData.Data = TMap<FString, FRealtimeValue>();
-    firebaseData.ExTag = Response->GetHeader("ETag");
-    firebaseData.WasSuccessful = bWasSuccessful;
-    if (bWasSuccessful)
-    {
-        TSharedPtr<FJsonObject> JsonObject = MakeShareable(new FJsonObject());
-
-        const TSharedRef<TJsonReader<TCHAR>> JsonReader = TJsonReaderFactory<TCHAR>::Create(Response->GetContentAsString());
-
-        FJsonSerializer::Deserialize(JsonReader, JsonObject);
-        FString ss = Response->GetContentAsString();
-        TArray<FString> KeySet;
-        JsonObject->Values.GetKeys(KeySet);
-        for (FString Key : KeySet)
-        {
-            const TSharedPtr<FJsonValue> Value = JsonObject->Values[Key];
-            firebaseData.Data.Add(Key, FRealtimeValue(Value));    
-        }
-        firebaseData.WasSuccessful = true;
-        firebaseData.Status = "200";
-    }
-    else
-    {
-        firebaseData.Status = "" + Response->GetResponseCode();
-        UE_LOG(LogTemp, Error, TEXT("Error %d"), *firebaseData.Status);
-    }
-}
 
 
 void UFirebaseHelperBPLibrary::RealtimeDatabaseRead(const FString& Path, const FRealtimeReadOptions RealtimeOptions, FOperationComplete ResultCallback) {
@@ -544,8 +389,192 @@ void UFirebaseHelperBPLibrary::RealtimeDatabaseRead(const FString& Path, const F
     }
     HttpRequest->SetURL(finalURL);
 
-    HttpRequest->OnProcessRequestComplete().BindStatic(UFirebaseHelperBPLibrary::OnReadReceived, ResultCallback);
+    HttpRequest->OnProcessRequestComplete().BindStatic(URealtimeDatabaseHelper::OnReadReceived, ResultCallback);
 
     //Processing
     HttpRequest->ProcessRequest();
 }
+
+void UFirebaseHelperBPLibrary::OnAuthResultReceived(FHttpRequestPtr Request, FHttpResponsePtr Response, bool bWasSuccessful, FAuthOperationComplete ResultCallback)
+{
+    FFirebaseAuthResult Result = FFirebaseAuthResult();
+    Result.WasSuccessful = Response->GetResponseCode() == 200;
+    if(Result.WasSuccessful)
+    {
+        TSharedPtr<FJsonObject> AuthObject = MakeShareable(new FJsonObject());
+        const TSharedRef<TJsonReader<TCHAR>> JsonReader = TJsonReaderFactory<TCHAR>::Create(Response->GetContentAsString());
+        FJsonSerializer::Deserialize(JsonReader, AuthObject);
+        if(AuthObject->HasField("idToken"))
+        {
+            Result.IdToken = AuthObject->GetStringField("idToken");
+        }
+        if(AuthObject->HasField("refreshToken"))
+        {
+            Result.RefreshToken = AuthObject->GetStringField("refreshToken");
+        }
+        if(AuthObject->HasField("expiresIn"))
+        {
+            Result.ExpiresIn = AuthObject->GetStringField("expiresIn");
+        }
+        if(AuthObject->HasField("token_type"))
+        {
+            Result.TokenType = AuthObject->GetStringField("token_type");
+        }
+        if(AuthObject->HasField("user_id"))
+        {
+            Result.UserId = AuthObject->GetStringField("user_id");
+        }
+        if(AuthObject->HasField("project_id"))
+        {
+            Result.ProjectId = AuthObject->GetStringField("project_id");
+        }
+        if(AuthObject->HasField("localId"))
+        {
+            Result.LocalId = AuthObject->GetStringField("localId");
+        }
+        if(AuthObject->HasField("email"))
+        {
+            Result.Email = AuthObject->GetStringField("email");
+        }
+        if(AuthObject->HasField("registered"))
+        {
+            Result.Registered = AuthObject->GetBoolField("registered");
+        }
+    } else
+    {
+        TSharedPtr<FJsonObject> ErrorObject = MakeShareable(new FJsonObject());
+        const TSharedRef<TJsonReader<TCHAR>> JsonReader = TJsonReaderFactory<TCHAR>::Create(Response->GetContentAsString());
+        FJsonSerializer::Deserialize(JsonReader, ErrorObject);
+
+        if(ErrorObject->HasField("error"))
+        {
+            Result.ErrorData.ErrorCode = ErrorObject->GetObjectField("error")->GetNumberField("code");
+            Result.ErrorData.ErrorMessage = ErrorObject->GetObjectField("error")->GetStringField("message");
+        }
+       
+        const FString ResultString = "Auth Result Unsuccessful with code "+ FString::FromInt(Response->GetResponseCode())
+            + " \nDescription " + Response->GetContentAsString();
+       UE_LOG(LogTemp, Error, TEXT("%s"), *ResultString);
+    }
+    if(ResultCallback.ExecuteIfBound(Result)){}
+}
+
+
+ void UFirebaseHelperBPLibrary::ExchangeCustomToken(const FString& CustomToken, FAuthOperationComplete AuthResultCallback)
+ {
+    TSharedPtr<IHttpRequest> HttpRequest = FHttpModule::Get().CreateRequest();
+    HttpRequest->SetVerb("POST");
+    HttpRequest->SetHeader(TEXT("User-Agent"), TEXT("X-UnrealEngine-Agent"));
+    HttpRequest->SetHeader(TEXT("Content-Type"), TEXT("application/json"));
+    const FString FinalURL = AuthEndPoint+"accounts:signInWithCustomToken?key="+APIKey;
+    //Content
+    //Content
+    TSharedPtr<FJsonObject> Content = MakeShareable(new FJsonObject());
+    Content->SetStringField("token", CustomToken);
+    Content->SetBoolField("returnSecureToken", true);
+
+    FString OutputString;
+    
+    const TSharedRef< TJsonWriter<> > Writer = TJsonWriterFactory<>::Create(&OutputString);
+    FJsonSerializer::Serialize(Content.ToSharedRef(), Writer);
+    
+    HttpRequest->SetContentAsString(OutputString);
+    HttpRequest->SetURL(FinalURL);
+    HttpRequest->OnProcessRequestComplete().BindStatic(UFirebaseHelperBPLibrary::OnAuthResultReceived, AuthResultCallback);
+    HttpRequest->ProcessRequest();
+ }
+
+
+void UFirebaseHelperBPLibrary::ExchangeRefreshToken(const FString& RefreshToken, FAuthOperationComplete AuthResultCallback)
+{
+    TSharedPtr<IHttpRequest> HttpRequest = FHttpModule::Get().CreateRequest();
+    HttpRequest->SetVerb("POST");
+    HttpRequest->SetHeader(TEXT("User-Agent"), TEXT("X-UnrealEngine-Agent"));
+    HttpRequest->SetHeader(TEXT("Content-Type"), TEXT("application/x-www-form-urlencoded"));
+    const FString FinalURL = AuthEndPoint+"token?key="+APIKey;
+    //Content
+    HttpRequest->SetContentAsString(TEXT("grant_type=refresh_token&refresh_token="+RefreshToken));
+    HttpRequest->SetURL(FinalURL);
+
+    HttpRequest->OnProcessRequestComplete().BindStatic(UFirebaseHelperBPLibrary::OnAuthResultReceived, AuthResultCallback);
+    HttpRequest->ProcessRequest(); 
+}
+
+
+void UFirebaseHelperBPLibrary::SignUpWithEmailAndPassword(const FString& Email, const FString& Password, FAuthOperationComplete AuthResultCallback)
+{
+    TSharedPtr<IHttpRequest> HttpRequest = FHttpModule::Get().CreateRequest();
+    HttpRequest->SetVerb("POST");
+    HttpRequest->SetHeader(TEXT("User-Agent"), TEXT("X-UnrealEngine-Agent"));
+    HttpRequest->SetHeader(TEXT("Content-Type"), TEXT("application/json"));
+    const FString FinalURL = AuthEndPoint+"accounts:signUp?key="+APIKey;
+    //Content
+    TSharedPtr<FJsonObject> Content = MakeShareable(new FJsonObject());
+    Content->SetStringField("email", Email);
+    Content->SetStringField("password", Password);
+    Content->SetBoolField("returnSecureToken", true);
+
+    FString OutputString;
+    
+    const TSharedRef< TJsonWriter<> > Writer = TJsonWriterFactory<>::Create(&OutputString);
+    FJsonSerializer::Serialize(Content.ToSharedRef(), Writer);
+    
+    HttpRequest->SetContentAsString(OutputString);
+    HttpRequest->SetURL(FinalURL);
+
+    HttpRequest->OnProcessRequestComplete().BindStatic(UFirebaseHelperBPLibrary::OnAuthResultReceived, AuthResultCallback);
+    HttpRequest->ProcessRequest(); 
+}
+
+void UFirebaseHelperBPLibrary::SignInWithEmailAndPassword(const FString& Email, const FString& Password, FAuthOperationComplete AuthResultCallback)
+{
+    TSharedPtr<IHttpRequest> HttpRequest = FHttpModule::Get().CreateRequest();
+    HttpRequest->SetVerb("POST");
+    HttpRequest->SetHeader(TEXT("User-Agent"), TEXT("X-UnrealEngine-Agent"));
+    HttpRequest->SetHeader(TEXT("Content-Type"), TEXT("application/json"));
+    const FString FinalURL = AuthEndPoint+"accounts:signInWithPassword?key="+APIKey;
+    //Content
+    TSharedPtr<FJsonObject> Content = MakeShareable(new FJsonObject());
+    Content->SetStringField("email", Email);
+    Content->SetStringField("password", Password);
+    Content->SetBoolField("returnSecureToken", true);
+
+    FString OutputString;
+    
+    const TSharedRef< TJsonWriter<> > Writer = TJsonWriterFactory<>::Create(&OutputString);
+    FJsonSerializer::Serialize(Content.ToSharedRef(), Writer);
+    
+    HttpRequest->SetContentAsString(OutputString);
+    HttpRequest->SetURL(FinalURL);
+
+    HttpRequest->OnProcessRequestComplete().BindStatic(UFirebaseHelperBPLibrary::OnAuthResultReceived, AuthResultCallback);
+    HttpRequest->ProcessRequest(); 
+}
+
+void UFirebaseHelperBPLibrary::SignInAnonymously(FAuthOperationComplete AuthResultCallback)
+{
+    TSharedPtr<IHttpRequest> HttpRequest = FHttpModule::Get().CreateRequest();
+    HttpRequest->SetVerb("POST");
+    HttpRequest->SetHeader(TEXT("User-Agent"), TEXT("X-UnrealEngine-Agent"));
+    HttpRequest->SetHeader(TEXT("Content-Type"), TEXT("application/json"));
+    const FString FinalURL = AuthEndPoint+"accounts:signUp?key="+APIKey;
+    //Content
+    TSharedPtr<FJsonObject> Content = MakeShareable(new FJsonObject());
+    Content->SetBoolField("returnSecureToken", true);
+
+    FString OutputString;
+    
+    const TSharedRef< TJsonWriter<> > Writer = TJsonWriterFactory<>::Create(&OutputString);
+    FJsonSerializer::Serialize(Content.ToSharedRef(), Writer);
+    
+    HttpRequest->SetContentAsString(OutputString);
+    HttpRequest->SetURL(FinalURL);
+    UE_LOG(LogTemp, Error, TEXT("%s"), *FinalURL);
+    HttpRequest->OnProcessRequestComplete().BindStatic(UFirebaseHelperBPLibrary::OnAuthResultReceived, AuthResultCallback);
+    HttpRequest->ProcessRequest(); 
+}
+
+
+
+
+

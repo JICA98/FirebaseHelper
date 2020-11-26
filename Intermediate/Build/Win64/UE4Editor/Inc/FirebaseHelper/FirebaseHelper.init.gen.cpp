@@ -13,6 +13,11 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeFirebaseHelper_init() {}
 	FIREBASEHELPER_API UFunction* Z_Construct_UDelegateFunction_FirebaseHelper_OperationComplete__DelegateSignature();
 	FIREBASEHELPER_API UFunction* Z_Construct_UDelegateFunction_FirebaseHelper_AuthOperationComplete__DelegateSignature();
+	FIREBASEHELPER_API UFunction* Z_Construct_UDelegateFunction_FirebaseHelper_OAuthOperationComplete__DelegateSignature();
+	FIREBASEHELPER_API UFunction* Z_Construct_UDelegateFunction_FirebaseHelper_FetchProviderComplete__DelegateSignature();
+	FIREBASEHELPER_API UFunction* Z_Construct_UDelegateFunction_FirebaseHelper_SendPasswordResetComplete__DelegateSignature();
+	FIREBASEHELPER_API UFunction* Z_Construct_UDelegateFunction_FirebaseHelper_EventComplete__DelegateSignature();
+	FIREBASEHELPER_API UFunction* Z_Construct_UDelegateFunction_FirebaseHelper_UsersDataComplete__DelegateSignature();
 	UPackage* Z_Construct_UPackage__Script_FirebaseHelper()
 	{
 		static UPackage* ReturnPackage = nullptr;
@@ -21,14 +26,19 @@ void EmptyLinkFunctionForGeneratedCodeFirebaseHelper_init() {}
 			static UObject* (*const SingletonFuncArray[])() = {
 				(UObject* (*)())Z_Construct_UDelegateFunction_FirebaseHelper_OperationComplete__DelegateSignature,
 				(UObject* (*)())Z_Construct_UDelegateFunction_FirebaseHelper_AuthOperationComplete__DelegateSignature,
+				(UObject* (*)())Z_Construct_UDelegateFunction_FirebaseHelper_OAuthOperationComplete__DelegateSignature,
+				(UObject* (*)())Z_Construct_UDelegateFunction_FirebaseHelper_FetchProviderComplete__DelegateSignature,
+				(UObject* (*)())Z_Construct_UDelegateFunction_FirebaseHelper_SendPasswordResetComplete__DelegateSignature,
+				(UObject* (*)())Z_Construct_UDelegateFunction_FirebaseHelper_EventComplete__DelegateSignature,
+				(UObject* (*)())Z_Construct_UDelegateFunction_FirebaseHelper_UsersDataComplete__DelegateSignature,
 			};
 			static const UE4CodeGen_Private::FPackageParams PackageParams = {
 				"/Script/FirebaseHelper",
 				SingletonFuncArray,
 				UE_ARRAY_COUNT(SingletonFuncArray),
 				PKG_CompiledIn | 0x00000000,
-				0xCFA6BA1B,
-				0x7D1BC745,
+				0x31882726,
+				0xF6831E57,
 				METADATA_PARAMS(nullptr, 0)
 			};
 			UE4CodeGen_Private::ConstructUPackage(ReturnPackage, PackageParams);

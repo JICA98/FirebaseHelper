@@ -2,14 +2,16 @@
 	"RemapUnityFiles": 
 	{
 		"Module.FirebaseHelper.cpp.obj": [
+			"FirebaseAuth.cpp.obj",
 			"FirebaseHelper.cpp.obj",
 			"FirebaseHelperBPLibrary.cpp.obj",
-			"URealtimeDatabaseHelper.cpp.obj"
+			"RealtimeDatabase.cpp.obj"
 		],
 		"Module.FirebaseHelper.gen.cpp.obj": [
+			"FirebaseAuth.gen.cpp.obj",
 			"FirebaseHelper.init.gen.cpp.obj",
 			"FirebaseHelperBPLibrary.gen.cpp.obj",
-			"URealtimeDatabaseHelper.gen.cpp.obj"
+			"RealtimeDatabase.gen.cpp.obj"
 		]
 	}
 }

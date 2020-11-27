@@ -20,7 +20,7 @@ settings using the google services file.
 
 ##### Currently Supported
 
-All Operations Under Firebase Realtime Database.
+All Operations Under Firebase Realtime Database. (Listener Yet to Implement)
 All Operations Under Firebase Auth are Supported.
 
 More Updates on the way.

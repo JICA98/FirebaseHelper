@@ -9,7 +9,6 @@
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 struct FFirebaseData;
- 
 struct FRealtimeValue;
  struct FRealtimeValue;
 struct FRealtimeReadOptions;
@@ -63,14 +62,6 @@ static inline void FOperationComplete_DelegateWrapper(const FScriptDelegate& Ope
 #define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_RealtimeDatabase_h_91_SPARSE_DATA
 #define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_RealtimeDatabase_h_91_RPC_WRAPPERS \
  \
-	DECLARE_FUNCTION(execMakeParentChildJson); \
-	DECLARE_FUNCTION(execJsonStringFromJsonString); \
-	DECLARE_FUNCTION(execJsonFieldFromNumberArray); \
-	DECLARE_FUNCTION(execJsonFieldFromStringArray); \
-	DECLARE_FUNCTION(execJsonFieldFromBoolArray); \
-	DECLARE_FUNCTION(execJsonStringFromBool); \
-	DECLARE_FUNCTION(execJsonStringFromString); \
-	DECLARE_FUNCTION(execJsonStringFromNumber); \
 	DECLARE_FUNCTION(execAsRealtimeObject); \
 	DECLARE_FUNCTION(execAsRealtimeArray); \
 	DECLARE_FUNCTION(execAsRealtimeBool); \
@@ -84,14 +75,6 @@ static inline void FOperationComplete_DelegateWrapper(const FScriptDelegate& Ope
 
 #define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_RealtimeDatabase_h_91_RPC_WRAPPERS_NO_PURE_DECLS \
  \
-	DECLARE_FUNCTION(execMakeParentChildJson); \
-	DECLARE_FUNCTION(execJsonStringFromJsonString); \
-	DECLARE_FUNCTION(execJsonFieldFromNumberArray); \
-	DECLARE_FUNCTION(execJsonFieldFromStringArray); \
-	DECLARE_FUNCTION(execJsonFieldFromBoolArray); \
-	DECLARE_FUNCTION(execJsonStringFromBool); \
-	DECLARE_FUNCTION(execJsonStringFromString); \
-	DECLARE_FUNCTION(execJsonStringFromNumber); \
 	DECLARE_FUNCTION(execAsRealtimeObject); \
 	DECLARE_FUNCTION(execAsRealtimeArray); \
 	DECLARE_FUNCTION(execAsRealtimeBool); \

@@ -4,7 +4,7 @@ A simple REST based Plugin for the Firebase API.
 
 * Realtime Database
 * Firebase Auth
-
+* Cloud Firestore
 #### **Installaton**
 
 1. Clone this Respository inside the Plugins folder of your project.
@@ -20,8 +20,9 @@ settings using the google services file.
 
 ##### Currently Supported
 
-All Operations Under Firebase Realtime Database. (Listener Yet to Implement)
-All Operations Under Firebase Auth are Supported.
+* All Operations Under Firebase Realtime Database. (Listener Yet to Implement)
+* All Operations Under Firebase Auth are Supported.
+* Cloud Firestore Under the Way.
 
 More Updates on the way.
 

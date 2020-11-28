@@ -8,6 +8,7 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
+ 
 #ifdef FIREBASEHELPER_FirebaseHelperBPLibrary_generated_h
 #error "FirebaseHelperBPLibrary.generated.h already included, missing '#pragma once' in FirebaseHelperBPLibrary.h"
 #endif
@@ -16,11 +17,31 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_FirebaseHelperBPLibrary_h_15_SPARSE_DATA
 #define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_FirebaseHelperBPLibrary_h_15_RPC_WRAPPERS \
  \
+	DECLARE_FUNCTION(execMakeParentChildJson); \
+	DECLARE_FUNCTION(execJsonStringFromJsonString); \
+	DECLARE_FUNCTION(execJsonFieldFromIntegerArray); \
+	DECLARE_FUNCTION(execJsonFieldFromNumberArray); \
+	DECLARE_FUNCTION(execJsonFieldFromStringArray); \
+	DECLARE_FUNCTION(execJsonFieldFromBoolArray); \
+	DECLARE_FUNCTION(execJsonStringFromBool); \
+	DECLARE_FUNCTION(execJsonStringFromString); \
+	DECLARE_FUNCTION(execJsonStringFromNumber); \
+	DECLARE_FUNCTION(execJsonStringFromInteger); \
 	DECLARE_FUNCTION(execSetupFirebase);
 
 
 #define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_FirebaseHelperBPLibrary_h_15_RPC_WRAPPERS_NO_PURE_DECLS \
  \
+	DECLARE_FUNCTION(execMakeParentChildJson); \
+	DECLARE_FUNCTION(execJsonStringFromJsonString); \
+	DECLARE_FUNCTION(execJsonFieldFromIntegerArray); \
+	DECLARE_FUNCTION(execJsonFieldFromNumberArray); \
+	DECLARE_FUNCTION(execJsonFieldFromStringArray); \
+	DECLARE_FUNCTION(execJsonFieldFromBoolArray); \
+	DECLARE_FUNCTION(execJsonStringFromBool); \
+	DECLARE_FUNCTION(execJsonStringFromString); \
+	DECLARE_FUNCTION(execJsonStringFromNumber); \
+	DECLARE_FUNCTION(execJsonStringFromInteger); \
 	DECLARE_FUNCTION(execSetupFirebase);
 
 

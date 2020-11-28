@@ -18,6 +18,8 @@ void EmptyLinkFunctionForGeneratedCodeFirebaseHelper_init() {}
 	FIREBASEHELPER_API UFunction* Z_Construct_UDelegateFunction_FirebaseHelper_EventComplete__DelegateSignature();
 	FIREBASEHELPER_API UFunction* Z_Construct_UDelegateFunction_FirebaseHelper_UsersDataComplete__DelegateSignature();
 	FIREBASEHELPER_API UFunction* Z_Construct_UDelegateFunction_FirebaseHelper_OperationComplete__DelegateSignature();
+	FIREBASEHELPER_API UFunction* Z_Construct_UDelegateFunction_FirebaseHelper_GetDocumentResult__DelegateSignature();
+	FIREBASEHELPER_API UFunction* Z_Construct_UDelegateFunction_FirebaseHelper_BatchDocumentsFetch__DelegateSignature();
 	UPackage* Z_Construct_UPackage__Script_FirebaseHelper()
 	{
 		static UPackage* ReturnPackage = nullptr;
@@ -31,14 +33,16 @@ void EmptyLinkFunctionForGeneratedCodeFirebaseHelper_init() {}
 				(UObject* (*)())Z_Construct_UDelegateFunction_FirebaseHelper_EventComplete__DelegateSignature,
 				(UObject* (*)())Z_Construct_UDelegateFunction_FirebaseHelper_UsersDataComplete__DelegateSignature,
 				(UObject* (*)())Z_Construct_UDelegateFunction_FirebaseHelper_OperationComplete__DelegateSignature,
+				(UObject* (*)())Z_Construct_UDelegateFunction_FirebaseHelper_GetDocumentResult__DelegateSignature,
+				(UObject* (*)())Z_Construct_UDelegateFunction_FirebaseHelper_BatchDocumentsFetch__DelegateSignature,
 			};
 			static const UE4CodeGen_Private::FPackageParams PackageParams = {
 				"/Script/FirebaseHelper",
 				SingletonFuncArray,
 				UE_ARRAY_COUNT(SingletonFuncArray),
 				PKG_CompiledIn | 0x00000000,
-				0x1511892D,
-				0xCE8073B9,
+				0x5DCDEAF6,
+				0x70EBBC8B,
 				METADATA_PARAMS(nullptr, 0)
 			};
 			UE4CodeGen_Private::ConstructUPackage(ReturnPackage, PackageParams);

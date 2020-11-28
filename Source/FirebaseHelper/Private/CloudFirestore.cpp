@@ -20,11 +20,11 @@ FString UCloudFirestore::StringArrayToDocumentPath(TArray<FString> DocumentPath)
     return FullPath;
 }
 
-FString UCloudFirestore::SetDataAsMapFirestore(FString FirestoreString, FString Key)
+FFireString UCloudFirestore::SetDataAsMapFirestore(FFireString FirestoreString, FString Key)
 {
     TSharedPtr<FJsonObject> JsonObject = MakeShareable(new FJsonObject());
     FString OutputString;
-    const TSharedRef<TJsonReader<>> Reader = TJsonReaderFactory<>::Create(FirestoreString);
+    const TSharedRef<TJsonReader<>> Reader = TJsonReaderFactory<>::Create(FirestoreString.Object);
 
     if (FJsonSerializer::Deserialize(Reader, JsonObject))
     {
@@ -35,14 +35,14 @@ FString UCloudFirestore::SetDataAsMapFirestore(FString FirestoreString, FString 
     const TSharedPtr<FJsonObject> MapObject = MakeShareable(new FJsonObject());
     MapObject->SetObjectField("mapValue", FieldObject);
     const TSharedPtr<FJsonObject> FirestoreObject = MakeShareable(new FJsonObject());
-    MapObject->SetObjectField(Key, FieldObject);
+    FirestoreObject->SetObjectField(Key, MapObject);
     const TSharedRef<TJsonWriter<>> Writer = TJsonWriterFactory<>::Create(&OutputString);
     FJsonSerializer::Serialize(FirestoreObject.ToSharedRef(), Writer);
-    return OutputString;
+    return FFireString(OutputString);
 }
 
 
-FFireString UCloudFirestore::FirestoreStringFromGeoPointMap(const TMap<FString, FLatLng> Map)
+FFireString UCloudFirestore::FirestoreStringFromGeoPointMap(const TMap<FString, FGeoPoint> Map)
 {
     const TSharedPtr<FJsonObject> JsonObject = MakeShareable(new FJsonObject());
     FString OutputString;
@@ -65,14 +65,14 @@ FFireString UCloudFirestore::FirestoreStringFromGeoPointMap(const TMap<FString, 
     return FFireString(OutputString);
 }
 
-FFireString UCloudFirestore::FirestoreStringFromGeoPointArray(const FString Key, const TArray<FLatLng> Array)
+FFireString UCloudFirestore::FirestoreStringFromGeoPointArray(const FString Key, const TArray<FGeoPoint> Array)
 {
     TSharedPtr<FJsonObject> JsonObject = MakeShareable(new FJsonObject());
     FString OutputString;
 
     TArray<TSharedPtr<FJsonValue>> ValueArray = {};
 
-    for (const FLatLng Element : Array)
+    for (const FGeoPoint Element : Array)
     {
         const TSharedPtr<FJsonObject> GeoPointObj = MakeShareable(new FJsonObject());
         GeoPointObj->SetNumberField("latitude", Element.Latitude);
@@ -167,7 +167,7 @@ FFireString UCloudFirestore::FirestoreStringFromString(const TMap<FString, FStri
     for (FString Element : KeySet)
     {
         const TSharedPtr<FJsonObject> ValueObj = MakeShareable(new FJsonObject());
-        ValueObj->SetField("doubleValue", MakeShareable(new FJsonValueString(Map[Element])));
+        ValueObj->SetField("stringValue", MakeShareable(new FJsonValueString(Map[Element])));
         JsonObject->SetObjectField(Element, ValueObj);
     }
 
@@ -177,15 +177,15 @@ FFireString UCloudFirestore::FirestoreStringFromString(const TMap<FString, FStri
     return FFireString(OutputString);
 }
 
-FFireString UCloudFirestore::FirestoreStringFromJsonString(const TArray<FString> Children)
+FFireString UCloudFirestore::FirestoreStringFromJsonString(const TArray<FFireString> Children)
 {
     TSharedPtr<FJsonObject> ParentObject = MakeShareable(new FJsonObject());
     FString OutputString;
 
-    for (FString Child : Children)
+    for (FFireString Child : Children)
     {
         TSharedPtr<FJsonObject> JsonObject = MakeShareable(new FJsonObject());
-        const TSharedRef<TJsonReader<>> Reader = TJsonReaderFactory<>::Create(Child);
+        const TSharedRef<TJsonReader<>> Reader = TJsonReaderFactory<>::Create(Child.Object);
 
         if (FJsonSerializer::Deserialize(Reader, JsonObject))
         {
@@ -454,6 +454,10 @@ void UCloudFirestore::GetDocumentFirestoreString(FString DocumentPath, FGetDocum
     HttpRequest->SetHeader(TEXT("User-Agent"), TEXT("X-UnrealEngine-Agent"));
     HttpRequest->SetHeader(TEXT("Content-Type"), TEXT("application/json"));
     HttpRequest->SetHeader(TEXT("Accepts"), TEXT("application/json"));
+    if(UFirebaseHelperBPLibrary::AuthToken != "")
+    {
+        HttpRequest->SetHeader("Authorization","Bearer " + UFirebaseHelperBPLibrary::AuthToken);
+    }
 
     FString FinalUrl = UFirebaseHelperBPLibrary::FirestoreEndPoint+
             "projects/"+UFirebaseHelperBPLibrary::ProjectId+"/databases/(default)/documents/"+DocumentPath
@@ -465,6 +469,7 @@ void UCloudFirestore::GetDocumentFirestoreString(FString DocumentPath, FGetDocum
             FinalUrl += "&mask.FieldPaths=" + Field;
         }
     }
+  
     HttpRequest->SetURL(FinalUrl);
     HttpRequest->OnProcessRequestComplete().BindStatic(OnDocumentReceived, ResultCallback);
     HttpRequest->ProcessRequest();
@@ -479,6 +484,10 @@ void UCloudFirestore::GetMultipleDocumentsDifferent(TArray<FString> DocumentPath
     HttpRequest->SetHeader(TEXT("Content-Type"), TEXT("application/json"));
     HttpRequest->SetHeader(TEXT("Accepts"), TEXT("application/json"));
 
+    if(UFirebaseHelperBPLibrary::AuthToken != "")
+    {
+        HttpRequest->SetHeader("Authorization","Bearer " + UFirebaseHelperBPLibrary::AuthToken);
+    }
     FString FinalUrl = UFirebaseHelperBPLibrary::FirestoreEndPoint+"projects/"
     +UFirebaseHelperBPLibrary::ProjectId+"/databases/(default)/documents:batchGet"+"?key=" + UFirebaseHelperBPLibrary::APIKey;
     //Content
@@ -527,6 +536,10 @@ void UCloudFirestore::CreateDocument(FFireString FirestoreData,FString Collectio
     HttpRequest->SetHeader(TEXT("User-Agent"), TEXT("X-UnrealEngine-Agent"));
     HttpRequest->SetHeader(TEXT("Content-Type"), TEXT("application/json"));
     HttpRequest->SetHeader(TEXT("Accepts"), TEXT("application/json"));
+    if(UFirebaseHelperBPLibrary::AuthToken != "")
+    {
+        HttpRequest->SetHeader("Authorization","Bearer " + UFirebaseHelperBPLibrary::AuthToken);
+    }
 
     FString FinalUrl = UFirebaseHelperBPLibrary::FirestoreEndPoint+
             "projects/"+UFirebaseHelperBPLibrary::ProjectId+"/databases/(default)/documents/"+CollectionPath
@@ -535,7 +548,7 @@ void UCloudFirestore::CreateDocument(FFireString FirestoreData,FString Collectio
     {
         for(FString Field: FieldsToReturn)
         {
-            FinalUrl += "&mask.FieldPaths=" + Field;
+            FinalUrl += "&mask.fieldPaths=" + Field;
         }
     }
 
@@ -565,6 +578,226 @@ void UCloudFirestore::CreateDocument(FFireString FirestoreData,FString Collectio
     HttpRequest->OnProcessRequestComplete().BindStatic(OnDocumentReceived, ResultCallback);
     HttpRequest->ProcessRequest();
 }
+
+void UCloudFirestore::OnDocumentDeleteReceived(FHttpRequestPtr Request, FHttpResponsePtr Response, bool bWasSuccessful, FDeleteDocumentResult ResultCallback)
+{
+    bWasSuccessful = true;
+    FDocumentSnapshot DocumentSnapshot = FDocumentSnapshot();
+    FErrorData ErrorData = FErrorData();
+   if(Response != nullptr)
+   {
+       TSharedPtr<FJsonObject> ErrorObject = MakeShareable(new FJsonObject());
+       const TSharedRef<TJsonReader<TCHAR>> JsonReader = TJsonReaderFactory<TCHAR>::Create(
+           Response->GetContentAsString());
+       FJsonSerializer::Deserialize(JsonReader, ErrorObject);
+
+       if (ErrorObject->HasField("error"))
+       {
+           bWasSuccessful = false;
+           ErrorData.Code = ErrorObject->GetObjectField("error")->GetNumberField("code");
+           ErrorData.Message = ErrorObject->GetObjectField("error")->GetStringField("message");
+           ErrorData.Status = ErrorObject->GetObjectField("error")->GetStringField("status");
+           const FString ResultString = "Operation Unsuccessful with code " + FString::FromInt(
+              Response->GetResponseCode())
+          + " \nDescription " + Response->GetContentAsString();
+           UE_LOG(LogTemp, Error, TEXT("%s"), *ResultString);
+       }
+   }
+    if(ResultCallback.ExecuteIfBound( ErrorData,bWasSuccessful )){}
+}
+
+
+void UCloudFirestore::DeleteDocument(FString DocumentPath, FDeleteDocumentResult ResultCallback)
+{
+    TSharedRef<IHttpRequest> HttpRequest = FHttpModule::Get().CreateRequest();
+    HttpRequest->SetVerb("DELETE");
+    HttpRequest->SetHeader(TEXT("User-Agent"), TEXT("X-UnrealEngine-Agent"));
+    HttpRequest->SetHeader(TEXT("Content-Type"), TEXT("application/json"));
+    HttpRequest->SetHeader(TEXT("Accepts"), TEXT("application/json"));
+    if(UFirebaseHelperBPLibrary::AuthToken != "")
+    {
+        HttpRequest->SetHeader("Authorization","Bearer " + UFirebaseHelperBPLibrary::AuthToken);
+    }
+
+    const FString FinalUrl = UFirebaseHelperBPLibrary::FirestoreEndPoint+
+            "projects/"+UFirebaseHelperBPLibrary::ProjectId+"/databases/(default)/documents/"+DocumentPath
+                +"?key=" + UFirebaseHelperBPLibrary::APIKey;
+    HttpRequest->SetURL(FinalUrl);
+    HttpRequest->OnProcessRequestComplete().BindStatic(OnDocumentDeleteReceived, ResultCallback);
+    HttpRequest->ProcessRequest();
+}
+
+void UCloudFirestore::OnMultipleDocumentsReceived(FHttpRequestPtr Request, FHttpResponsePtr Response, bool bWasSuccessful, FListDocumentsResult ResultCallback)
+{
+    bWasSuccessful = false;
+    FMultipleDocuments MultipleDocuments = FMultipleDocuments();
+    FString NextPageToken = "";
+    FErrorData ErrorData = FErrorData();
+   if(Response != nullptr)
+   {
+       UE_LOG(LogTemp, Error, TEXT("%s"), *Response->GetContentAsString());
+       TSharedPtr<FJsonObject> ArrayObject = MakeShareable(new FJsonObject());
+       const TSharedRef< TJsonReader<> > Reader = TJsonReaderFactory<>::Create(Response->GetContentAsString());
+
+       if(FJsonSerializer::Deserialize(Reader, ArrayObject))
+       {
+          if(ArrayObject->HasField("documents"))
+          {
+              bWasSuccessful = true;
+              for(TSharedPtr<FJsonValue> DocumentPtr: ArrayObject->GetArrayField("documents"))
+              {
+                  TSharedPtr<FJsonObject> JsonObject = DocumentPtr->AsObject();
+                  FDocumentSnapshot DocumentSnapshot = FDocumentSnapshot();
+                  if(JsonObject->HasField("name"))
+                  {
+                      DocumentSnapshot.ResourceName = JsonObject->GetStringField("name");
+                      TMap<FString, FJsonValueB> Fields = {};
+                      if(JsonObject->HasField("fields"))
+                      {
+                          TMap<FString, TSharedPtr<FJsonValue>> TempMap = JsonObject->GetObjectField("fields")->Values;
+                          TArray<FString> KeySet = {};
+                          TempMap.GetKeys(KeySet);
+                          for(FString Key: KeySet)
+                          {
+                              TMap<FString, TSharedPtr<FJsonValue>> ObjectMap = TempMap[Key]->AsObject()->Values;
+                              TArray<FString> Keys;
+                              ObjectMap.GetKeys(Keys);
+                              FString KKeyE = Keys.Pop();
+                              Fields.Add(Key, FJsonValueB(ObjectMap[KKeyE], KKeyE));
+                          }
+                      }
+                      DocumentSnapshot.Fields = Fields;
+                      DocumentSnapshot.CreateTime = JsonObject->GetStringField("createTime");
+                      DocumentSnapshot.UpdateTime = JsonObject->GetStringField("updateTime");
+                  }
+                  MultipleDocuments.DocumentSnapshots.Add(DocumentSnapshot);
+              }
+           if(ArrayObject->HasField("nextPageToken"))
+           {
+               NextPageToken = ArrayObject->GetStringField("nextPageToken");
+           }   
+          }
+       }
+   }
+    if(!bWasSuccessful)
+    {
+        TSharedPtr<FJsonObject> ErrorObject = MakeShareable(new FJsonObject());
+        const TSharedRef<TJsonReader<TCHAR>> JsonReader = TJsonReaderFactory<TCHAR>::Create(
+            Response->GetContentAsString());
+        FJsonSerializer::Deserialize(JsonReader, ErrorObject);
+
+        if (ErrorObject->HasField("error"))
+        {
+            ErrorData.Code = ErrorObject->GetObjectField("error")->GetNumberField("code");
+            ErrorData.Message = ErrorObject->GetObjectField("error")->GetStringField("message");
+            ErrorData.Status = ErrorObject->GetObjectField("error")->GetStringField("status");
+        }
+
+        const FString ResultString = "Operation Unsuccessful with code " + FString::FromInt(
+                Response->GetResponseCode())
+            + " \nDescription " + Response->GetContentAsString();
+        UE_LOG(LogTemp, Error, TEXT("%s"), *ResultString);
+    }
+    if(ResultCallback.ExecuteIfBound(MultipleDocuments, NextPageToken, bWasSuccessful, ErrorData )){}
+}
+
+
+void UCloudFirestore::ListDocuments(FString CollectionPath, FListDocumentsResult ResultCallback, TArray<FString> FieldsToReturn, FListOptions ListOptions,  EOrderBy OrderBy)
+{
+    TSharedRef<IHttpRequest> HttpRequest = FHttpModule::Get().CreateRequest();
+    HttpRequest->SetVerb("GET");
+    HttpRequest->SetHeader(TEXT("User-Agent"), TEXT("X-UnrealEngine-Agent"));
+    HttpRequest->SetHeader(TEXT("Content-Type"), TEXT("application/json"));
+    HttpRequest->SetHeader(TEXT("Accepts"), TEXT("application/json"));
+    if(UFirebaseHelperBPLibrary::AuthToken != "")
+    {
+        HttpRequest->SetHeader("Authorization","Bearer " + UFirebaseHelperBPLibrary::AuthToken);
+    }
+
+     FString FinalUrl = UFirebaseHelperBPLibrary::FirestoreEndPoint+
+            "projects/"+UFirebaseHelperBPLibrary::ProjectId+"/databases/(default)/documents/"+CollectionPath
+                +"?key=" + UFirebaseHelperBPLibrary::APIKey;
+    if(ListOptions.PageSize!=0)
+    {
+        FinalUrl += "&pageSize="+FString::FromInt(ListOptions.PageSize);
+    }
+    if(ListOptions.ShowMissing)
+    {
+        FinalUrl += "&showMissing=true";
+    }
+    if(ListOptions.PageToken!="")
+    {
+        FinalUrl += "&pageToken="+ListOptions.PageToken;
+    }
+
+    if(FieldsToReturn.Num()!=0)
+    {
+        for(FString Field: FieldsToReturn)
+        {
+            FinalUrl += "&mask.fieldPaths=" + Field;
+        }
+    }
+    
+    HttpRequest->SetURL(FinalUrl);
+    HttpRequest->OnProcessRequestComplete().BindStatic(OnMultipleDocumentsReceived, ResultCallback);
+    HttpRequest->ProcessRequest();
+}
+
+void UCloudFirestore::UpdateDocument(FFireString FirestoreData, FString CollectionPath, FString DocumentId, FGetDocumentResult ResultCallback, TArray<FString> FieldsToReturn, TArray<FString> FieldsToUpdate)
+{
+    TSharedRef<IHttpRequest> HttpRequest = FHttpModule::Get().CreateRequest();
+    HttpRequest->SetVerb("PATCH");
+    HttpRequest->SetHeader(TEXT("User-Agent"), TEXT("X-UnrealEngine-Agent"));
+    HttpRequest->SetHeader(TEXT("Content-Type"), TEXT("application/json"));
+    HttpRequest->SetHeader(TEXT("Accepts"), TEXT("application/json"));
+    if(UFirebaseHelperBPLibrary::AuthToken != "")
+    {
+        HttpRequest->SetHeader("Authorization","Bearer " + UFirebaseHelperBPLibrary::AuthToken);
+    }
+
+    FString FinalUrl = UFirebaseHelperBPLibrary::FirestoreEndPoint+
+            "projects/"+UFirebaseHelperBPLibrary::ProjectId+"/databases/(default)/documents/"+CollectionPath+"/"+DocumentId
+                +"?key=" + UFirebaseHelperBPLibrary::APIKey;
+    if(FieldsToReturn.Num()!=0)
+    {
+        for(FString Field: FieldsToReturn)
+        {
+            FinalUrl += "&mask.fieldPaths=" + Field;
+        }
+    }
+    if(FieldsToUpdate.Num()!=0)
+    {
+        for(FString Field: FieldsToUpdate)
+        {
+            FinalUrl += "&updateMask.fieldPaths=" + Field;
+        }
+    }
+
+    //Content
+    TSharedPtr<FJsonObject> Content = MakeShareable(new FJsonObject());
+    TSharedPtr<FJsonObject> FirestoreDataObject = MakeShareable(new FJsonObject());
+
+    const TSharedRef<TJsonReader<TCHAR>> JsonReader = TJsonReaderFactory<TCHAR>::Create(FirestoreData.Object);
+    
+    FJsonSerializer::Deserialize(JsonReader, FirestoreDataObject);
+
+    Content->SetObjectField("fields", FirestoreDataObject);
+    
+    FString OutputString;
+    
+    const TSharedRef<TJsonWriter<>> Writer = TJsonWriterFactory<>::Create(&OutputString);
+    FJsonSerializer::Serialize(Content.ToSharedRef(), Writer);
+    UE_LOG(LogTemp, Warning, TEXT("%s"), *OutputString);
+    
+    HttpRequest->SetContentAsString(OutputString);
+    HttpRequest->SetURL(FinalUrl);
+    HttpRequest->OnProcessRequestComplete().BindStatic(OnDocumentReceived, ResultCallback);
+    HttpRequest->ProcessRequest();
+}
+
+
+
+
 
 
 

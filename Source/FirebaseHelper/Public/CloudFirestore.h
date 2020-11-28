@@ -7,6 +7,9 @@
 #include "CloudFirestore.generated.h"
 
 UENUM(BlueprintType)
+enum EOrderBy {None, Priority, Desc, Name };
+
+UENUM(BlueprintType)
 enum EValueType {BooleanValue,IntegerValue,DoubleValue,TimestampValue,
         StringValue,BytesValue,ReferenceValue,GeoPointValue,ArrayValue,MapValue  };
 
@@ -70,22 +73,42 @@ struct FFireString
 {
     GENERATED_BODY()
 public:
+    UPROPERTY(BlueprintReadWrite)
     FString Object;
     FFireString()
     {
-        Object = "";
     }
-    FFireString(FString Object)
+    FFireString(FString UObject)
     {
-        FFireString().Object = Object;
+        Object = UObject;
     }
     
 };
 
+USTRUCT(BlueprintType)
+struct FListOptions
+{
+    GENERATED_BODY()
+public:
+    //By Default Everything. The maximum number of documents to return.
+    UPROPERTY(BlueprintReadWrite)
+      int32  PageSize=0;      
+    //The nextPageToken value returned from a previous List request, if any.
+    UPROPERTY(BlueprintReadWrite)
+    FString PageToken="";
+    //If the list should show missing documents. A missing document is a document that does not exist but has sub-documents. These documents will be returned with a key but will not have fields, Document.create_time, or Document.update_time set.
+    //Requests with showMissing may not specify where or orderBy.
+    UPROPERTY(BlueprintReadWrite)
+    bool ShowMissing=false;
+};
 
 DECLARE_DYNAMIC_DELEGATE_ThreeParams(FGetDocumentResult, FDocumentSnapshot, DocumentSnapshot, bool, WasSuccessfull, FErrorData, ErrorData);
 DECLARE_DYNAMIC_DELEGATE_FourParams(FBatchDocumentsFetch, FMultipleDocuments, FoundDocuments, FString,
     MissingDocuments, bool, WasSuccessfull, FErrorData, ErrorData );
+
+DECLARE_DYNAMIC_DELEGATE_TwoParams(FDeleteDocumentResult, FErrorData, ErrorData, bool, WasSucessful);
+DECLARE_DYNAMIC_DELEGATE_FourParams(FListDocumentsResult, FMultipleDocuments, FoundDocuments, FString,
+    NextPageToken, bool, WasSuccessful, FErrorData, ErrorData );
 
 
 UCLASS(BlueprintType)
@@ -100,48 +123,52 @@ public:
 
     static void OnBatchDocumentsFetch(FHttpRequestPtr Request, FHttpResponsePtr Response, bool bWasSuccessful, FBatchDocumentsFetch ResultCallback);
 
+    static void OnDocumentDeleteReceived(FHttpRequestPtr Request, FHttpResponsePtr Response, bool bWasSuccessful, FDeleteDocumentResult ResultCallback);
+
+    static void OnMultipleDocumentsReceived(FHttpRequestPtr Request, FHttpResponsePtr Response, bool bWasSuccessful, FListDocumentsResult ResultCallback);
+
     /*
     * CloudFirestore Helper Methods
     */
     UFUNCTION(BlueprintCallable, meta = (DisplayName = "SetData as Map", Keywords = "Cloud Firestore Document Path" ), Category = "CloudFirestore")
-    static FString SetDataAsMapFirestore(FString FirestoreString, FString Key);
+    static FFireString SetDataAsMapFirestore(FFireString FirestoreString, FString Key);
     
     UFUNCTION(BlueprintCallable, meta = (DisplayName = "StringArray to DocumentPath", Keywords = "Cloud Firestore Document Path" ), Category = "CloudFirestore")
     static FString StringArrayToDocumentPath(TArray<FString> DocumentPath);
 
-    UFUNCTION(BlueprintCallable, meta = (DisplayName = "GeoPointMap to FirestoreString", Keywords = "Firebase Helper"), Category = "CloudFirestoreHelper")
-    static FFireString FirestoreStringFromGeoPointMap(const TMap<FString, FLatLng> Map);
+    UFUNCTION(BlueprintCallable, meta = (DisplayName = "GeoPointMap to FireString", Keywords = "Firebase Helper"), Category = "CloudFirestoreHelper")
+    static FFireString FirestoreStringFromGeoPointMap(const TMap<FString, FGeoPoint> Map);
 
-    UFUNCTION(BlueprintCallable, meta = (DisplayName = "GeoPointArray to FirestoreString", Keywords = "Firebase Helper"), Category = "CloudFirestoreHelper")
-    static FFireString FirestoreStringFromGeoPointArray(const FString Key, const TArray<FLatLng> Array);
+    UFUNCTION(BlueprintCallable, meta = (DisplayName = "GeoPointArray to FireString", Keywords = "Firebase Helper"), Category = "CloudFirestoreHelper")
+    static FFireString FirestoreStringFromGeoPointArray(const FString Key, const TArray<FGeoPoint> Array);
 
     
-    UFUNCTION(BlueprintCallable, meta = (DisplayName = "Integer Map to FirestoreString", Keywords = "Firebase Helper"), Category = "CloudFirestoreHelper")
+    UFUNCTION(BlueprintCallable, meta = (DisplayName = "Integer Map to FireString", Keywords = "Firebase Helper"), Category = "CloudFirestoreHelper")
     static FFireString FirestoreStringFromInteger(const TMap<FString,  int32> Map);
     
-    UFUNCTION(BlueprintCallable, meta = (DisplayName = "Float Map to FirestoreString", Keywords = "Firebase Helper"), Category = "CloudFirestoreHelper")
+    UFUNCTION(BlueprintCallable, meta = (DisplayName = "Float Map to FireString", Keywords = "Firebase Helper"), Category = "CloudFirestoreHelper")
     static FFireString FirestoreStringFromNumber(const TMap<FString,  float> Map);
 
-    UFUNCTION(BlueprintCallable, meta = (DisplayName = "String Map to FirestoreString", Keywords = "Firebase Helper"), Category = "CloudFirestoreHelper")
+    UFUNCTION(BlueprintCallable, meta = (DisplayName = "String Map to FireString", Keywords = "Firebase Helper"), Category = "CloudFirestoreHelper")
     static FFireString FirestoreStringFromString(const TMap<FString,  FString> Map);
 
-    UFUNCTION(BlueprintCallable, meta = (DisplayName = "Boolean Map to FirestoreString", Keywords = "Firebase Helper"), Category = "CloudFirestoreHelper")
+    UFUNCTION(BlueprintCallable, meta = (DisplayName = "Boolean Map to FireString", Keywords = "Firebase Helper"), Category = "CloudFirestoreHelper")
     static FFireString FirestoreStringFromBool(const TMap<FString,  bool> Map);
 
-    UFUNCTION(BlueprintCallable, meta = (DisplayName = "Boolean Array to FirestoreString", Keywords = "Firebase Helper"), Category = "CloudFirestoreHelper")
+    UFUNCTION(BlueprintCallable, meta = (DisplayName = "Boolean Array to FireString", Keywords = "Firebase Helper"), Category = "CloudFirestoreHelper")
     static FFireString FirestoreStringFieldFromBoolArray(const FString Key, const TArray<bool> Array);
 
-    UFUNCTION(BlueprintCallable, meta = (DisplayName = "String Array to FirestoreString", Keywords = "Firebase Helper"), Category = "CloudFirestoreHelper")
+    UFUNCTION(BlueprintCallable, meta = (DisplayName = "String Array to FireString", Keywords = "Firebase Helper"), Category = "CloudFirestoreHelper")
     static FFireString FirestoreStringFieldFromStringArray(const FString Key, const TArray<FString> Array);
 
-    UFUNCTION(BlueprintCallable, meta = (DisplayName = "Float Array to FirestoreString", Keywords = "Firebase Helper"), Category = "CloudFirestoreHelper")
+    UFUNCTION(BlueprintCallable, meta = (DisplayName = "Float Array to FireString", Keywords = "Firebase Helper"), Category = "CloudFirestoreHelper")
     static FFireString FirestoreStringFieldFromNumberArray(const FString Key, const TArray<float> Array);
 
-    UFUNCTION(BlueprintCallable, meta = (DisplayName = "Integer Array to FirestoreString", Keywords = "Firebase Helper"), Category = "CloudFirestoreHelper")
+    UFUNCTION(BlueprintCallable, meta = (DisplayName = "Integer Array to FireString", Keywords = "Firebase Helper"), Category = "CloudFirestoreHelper")
     static FFireString FirestoreStringFieldFromIntegerArray(const FString Key, const TArray<int32> Array);
 
-    UFUNCTION(BlueprintCallable, meta = (DisplayName = "Combine JsonString to FirestoreString", Keywords = "Firebase Helper"), Category = "CloudFirestoreHelper")
-    static FFireString FirestoreStringFromJsonString(const TArray<FString> Children);
+    UFUNCTION(BlueprintCallable, meta = (DisplayName = "Combine FFireString to FireString", Keywords = "Firebase Helper"), Category = "CloudFirestoreHelper")
+    static FFireString FirestoreStringFromJsonString(const TArray<FFireString> Children);
 
     /*
     * CloudFirestore Core Methods
@@ -160,7 +187,19 @@ public:
     //Creates a new Firestore document.
     UFUNCTION(BlueprintCallable, meta = (DisplayName = "Create Document Firestore", Keywords = "Cloud Firestore Document", AutoCreateRefTerm="FieldsToReturn" ), Category = "CloudFirestore")
     static void CreateDocument(FFireString FirestoreData, FString CollectionPath, FGetDocumentResult ResultCallback, TArray<FString> FieldsToReturn,FString OptionalDocumentId="");
-   
+
+    //Deletes a document.
+    UFUNCTION(BlueprintCallable, meta = (DisplayName = "Delete Document Firestore", Keywords = "Cloud Firestore Document" ), Category = "CloudFirestore")
+    static void DeleteDocument(FString DocumentPath, FDeleteDocumentResult ResultCallback);
+
+    //List Documents in a Collection
+    UFUNCTION(BlueprintCallable, meta = (DisplayName = "List Documents Firestore", Keywords = "Cloud Firestore Document", AutoCreateRefTerm="ListOptions" ), Category = "CloudFirestore")
+    static void ListDocuments(FString CollectionPath,FListDocumentsResult ResultCallback, TArray<FString> FieldsToReturn, FListOptions ListOptions, EOrderBy OrderBy=None);
+
+    //Updates/Inserts a Firestore document.
+    UFUNCTION(BlueprintCallable, meta = (DisplayName = "Updates/Inserts Firestore Document", Keywords = "Cloud Firestore Document", AutoCreateRefTerm="FieldsToReturn" ), Category = "CloudFirestore")
+    static void UpdateDocument(FFireString FirestoreData, FString CollectionPath,FString DocumentId, FGetDocumentResult ResultCallback, TArray<FString> FieldsToReturn, TArray<FString> FieldsToUpdate);
+
 };
 
 

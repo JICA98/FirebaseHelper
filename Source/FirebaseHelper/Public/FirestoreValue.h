@@ -9,17 +9,17 @@
  Unless specified otherwise, this must conform to the WGS84 standard. Values must be within normalized ranges.
  */
 USTRUCT(BlueprintType)
-struct FLatLng
+struct FGeoPoint
 {
 	GENERATED_BODY()
 	
 public:
-	FLatLng()
+	FGeoPoint()
 	{
 		Latitude = 0.0;
 		Longitude = 0.0;
 	}
-	FLatLng(float Lat, float Lon)
+	FGeoPoint(float Lat, float Lon)
 	{
 		Latitude = Lat;
 		Longitude = Lon;
@@ -89,7 +89,7 @@ public:
 	
 	//Object (LatLng) A geo point value representing a point on the surface of Earth.
 	UFUNCTION(BlueprintCallable, meta = (DisplayName = "Get GeoPoint Value", Keywords = "Cloud Firestore Boolean"), Category = "CloudFirestore")
-	static	FLatLng GeoPointValue(FJsonValueB Value) ;
+	static	FGeoPoint GeoPointValue(FJsonValueB Value) ;
 
 	//Object (ArrayValue) An array value. Cannot directly contain another array value, though can contain an map which contains another array.
 	UFUNCTION(BlueprintCallable, meta = (DisplayName = "Get Array of Firestore Values", Keywords = "Cloud Firestore Boolean"), Category = "CloudFirestore")

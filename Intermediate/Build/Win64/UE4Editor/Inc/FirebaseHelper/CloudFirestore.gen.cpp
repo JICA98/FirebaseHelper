@@ -13,20 +13,114 @@
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeCloudFirestore() {}
 // Cross Module References
-	FIREBASEHELPER_API UFunction* Z_Construct_UDelegateFunction_FirebaseHelper_BatchDocumentsFetch__DelegateSignature();
+	FIREBASEHELPER_API UFunction* Z_Construct_UDelegateFunction_FirebaseHelper_ListDocumentsResult__DelegateSignature();
 	UPackage* Z_Construct_UPackage__Script_FirebaseHelper();
 	FIREBASEHELPER_API UScriptStruct* Z_Construct_UScriptStruct_FErrorData();
 	FIREBASEHELPER_API UScriptStruct* Z_Construct_UScriptStruct_FMultipleDocuments();
+	FIREBASEHELPER_API UFunction* Z_Construct_UDelegateFunction_FirebaseHelper_DeleteDocumentResult__DelegateSignature();
+	FIREBASEHELPER_API UFunction* Z_Construct_UDelegateFunction_FirebaseHelper_BatchDocumentsFetch__DelegateSignature();
 	FIREBASEHELPER_API UFunction* Z_Construct_UDelegateFunction_FirebaseHelper_GetDocumentResult__DelegateSignature();
 	FIREBASEHELPER_API UScriptStruct* Z_Construct_UScriptStruct_FDocumentSnapshot();
 	FIREBASEHELPER_API UEnum* Z_Construct_UEnum_FirebaseHelper_EValueType();
+	FIREBASEHELPER_API UEnum* Z_Construct_UEnum_FirebaseHelper_EOrderBy();
+	FIREBASEHELPER_API UScriptStruct* Z_Construct_UScriptStruct_FListOptions();
 	FIREBASEHELPER_API UScriptStruct* Z_Construct_UScriptStruct_FFireString();
 	FIREBASEHELPER_API UScriptStruct* Z_Construct_UScriptStruct_FJsonValueB();
 	FIREBASEHELPER_API UClass* Z_Construct_UClass_UCloudFirestore_NoRegister();
 	FIREBASEHELPER_API UClass* Z_Construct_UClass_UCloudFirestore();
 	ENGINE_API UClass* Z_Construct_UClass_UBlueprintFunctionLibrary();
-	FIREBASEHELPER_API UScriptStruct* Z_Construct_UScriptStruct_FLatLng();
+	FIREBASEHELPER_API UScriptStruct* Z_Construct_UScriptStruct_FGeoPoint();
 // End Cross Module References
+	struct Z_Construct_UDelegateFunction_FirebaseHelper_ListDocumentsResult__DelegateSignature_Statics
+	{
+		struct _Script_FirebaseHelper_eventListDocumentsResult_Parms
+		{
+			FMultipleDocuments FoundDocuments;
+			FString NextPageToken;
+			bool WasSuccessful;
+			FErrorData ErrorData;
+		};
+		static const UE4CodeGen_Private::FStructPropertyParams NewProp_ErrorData;
+		static void NewProp_WasSuccessful_SetBit(void* Obj);
+		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_WasSuccessful;
+		static const UE4CodeGen_Private::FStrPropertyParams NewProp_NextPageToken;
+		static const UE4CodeGen_Private::FStructPropertyParams NewProp_FoundDocuments;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UE4CodeGen_Private::FStructPropertyParams Z_Construct_UDelegateFunction_FirebaseHelper_ListDocumentsResult__DelegateSignature_Statics::NewProp_ErrorData = { "ErrorData", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(_Script_FirebaseHelper_eventListDocumentsResult_Parms, ErrorData), Z_Construct_UScriptStruct_FErrorData, METADATA_PARAMS(nullptr, 0) };
+	void Z_Construct_UDelegateFunction_FirebaseHelper_ListDocumentsResult__DelegateSignature_Statics::NewProp_WasSuccessful_SetBit(void* Obj)
+	{
+		((_Script_FirebaseHelper_eventListDocumentsResult_Parms*)Obj)->WasSuccessful = 1;
+	}
+	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UDelegateFunction_FirebaseHelper_ListDocumentsResult__DelegateSignature_Statics::NewProp_WasSuccessful = { "WasSuccessful", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(_Script_FirebaseHelper_eventListDocumentsResult_Parms), &Z_Construct_UDelegateFunction_FirebaseHelper_ListDocumentsResult__DelegateSignature_Statics::NewProp_WasSuccessful_SetBit, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FStrPropertyParams Z_Construct_UDelegateFunction_FirebaseHelper_ListDocumentsResult__DelegateSignature_Statics::NewProp_NextPageToken = { "NextPageToken", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(_Script_FirebaseHelper_eventListDocumentsResult_Parms, NextPageToken), METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FStructPropertyParams Z_Construct_UDelegateFunction_FirebaseHelper_ListDocumentsResult__DelegateSignature_Statics::NewProp_FoundDocuments = { "FoundDocuments", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(_Script_FirebaseHelper_eventListDocumentsResult_Parms, FoundDocuments), Z_Construct_UScriptStruct_FMultipleDocuments, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UDelegateFunction_FirebaseHelper_ListDocumentsResult__DelegateSignature_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UDelegateFunction_FirebaseHelper_ListDocumentsResult__DelegateSignature_Statics::NewProp_ErrorData,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UDelegateFunction_FirebaseHelper_ListDocumentsResult__DelegateSignature_Statics::NewProp_WasSuccessful,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UDelegateFunction_FirebaseHelper_ListDocumentsResult__DelegateSignature_Statics::NewProp_NextPageToken,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UDelegateFunction_FirebaseHelper_ListDocumentsResult__DelegateSignature_Statics::NewProp_FoundDocuments,
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UDelegateFunction_FirebaseHelper_ListDocumentsResult__DelegateSignature_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/CloudFirestore.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UDelegateFunction_FirebaseHelper_ListDocumentsResult__DelegateSignature_Statics::FuncParams = { (UObject*(*)())Z_Construct_UPackage__Script_FirebaseHelper, nullptr, "ListDocumentsResult__DelegateSignature", nullptr, nullptr, sizeof(_Script_FirebaseHelper_eventListDocumentsResult_Parms), Z_Construct_UDelegateFunction_FirebaseHelper_ListDocumentsResult__DelegateSignature_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UDelegateFunction_FirebaseHelper_ListDocumentsResult__DelegateSignature_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00120000, 0, 0, METADATA_PARAMS(Z_Construct_UDelegateFunction_FirebaseHelper_ListDocumentsResult__DelegateSignature_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UDelegateFunction_FirebaseHelper_ListDocumentsResult__DelegateSignature_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UDelegateFunction_FirebaseHelper_ListDocumentsResult__DelegateSignature()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UDelegateFunction_FirebaseHelper_ListDocumentsResult__DelegateSignature_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UDelegateFunction_FirebaseHelper_DeleteDocumentResult__DelegateSignature_Statics
+	{
+		struct _Script_FirebaseHelper_eventDeleteDocumentResult_Parms
+		{
+			FErrorData ErrorData;
+			bool WasSucessful;
+		};
+		static void NewProp_WasSucessful_SetBit(void* Obj);
+		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_WasSucessful;
+		static const UE4CodeGen_Private::FStructPropertyParams NewProp_ErrorData;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+	void Z_Construct_UDelegateFunction_FirebaseHelper_DeleteDocumentResult__DelegateSignature_Statics::NewProp_WasSucessful_SetBit(void* Obj)
+	{
+		((_Script_FirebaseHelper_eventDeleteDocumentResult_Parms*)Obj)->WasSucessful = 1;
+	}
+	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UDelegateFunction_FirebaseHelper_DeleteDocumentResult__DelegateSignature_Statics::NewProp_WasSucessful = { "WasSucessful", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(_Script_FirebaseHelper_eventDeleteDocumentResult_Parms), &Z_Construct_UDelegateFunction_FirebaseHelper_DeleteDocumentResult__DelegateSignature_Statics::NewProp_WasSucessful_SetBit, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FStructPropertyParams Z_Construct_UDelegateFunction_FirebaseHelper_DeleteDocumentResult__DelegateSignature_Statics::NewProp_ErrorData = { "ErrorData", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(_Script_FirebaseHelper_eventDeleteDocumentResult_Parms, ErrorData), Z_Construct_UScriptStruct_FErrorData, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UDelegateFunction_FirebaseHelper_DeleteDocumentResult__DelegateSignature_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UDelegateFunction_FirebaseHelper_DeleteDocumentResult__DelegateSignature_Statics::NewProp_WasSucessful,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UDelegateFunction_FirebaseHelper_DeleteDocumentResult__DelegateSignature_Statics::NewProp_ErrorData,
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UDelegateFunction_FirebaseHelper_DeleteDocumentResult__DelegateSignature_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/CloudFirestore.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UDelegateFunction_FirebaseHelper_DeleteDocumentResult__DelegateSignature_Statics::FuncParams = { (UObject*(*)())Z_Construct_UPackage__Script_FirebaseHelper, nullptr, "DeleteDocumentResult__DelegateSignature", nullptr, nullptr, sizeof(_Script_FirebaseHelper_eventDeleteDocumentResult_Parms), Z_Construct_UDelegateFunction_FirebaseHelper_DeleteDocumentResult__DelegateSignature_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UDelegateFunction_FirebaseHelper_DeleteDocumentResult__DelegateSignature_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00120000, 0, 0, METADATA_PARAMS(Z_Construct_UDelegateFunction_FirebaseHelper_DeleteDocumentResult__DelegateSignature_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UDelegateFunction_FirebaseHelper_DeleteDocumentResult__DelegateSignature_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UDelegateFunction_FirebaseHelper_DeleteDocumentResult__DelegateSignature()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UDelegateFunction_FirebaseHelper_DeleteDocumentResult__DelegateSignature_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
 	struct Z_Construct_UDelegateFunction_FirebaseHelper_BatchDocumentsFetch__DelegateSignature_Statics
 	{
 		struct _Script_FirebaseHelper_eventBatchDocumentsFetch_Parms
@@ -190,6 +284,182 @@ void EmptyLinkFunctionForGeneratedCodeCloudFirestore() {}
 		}
 		return ReturnEnum;
 	}
+	static UEnum* EOrderBy_StaticEnum()
+	{
+		static UEnum* Singleton = nullptr;
+		if (!Singleton)
+		{
+			Singleton = GetStaticEnum(Z_Construct_UEnum_FirebaseHelper_EOrderBy, Z_Construct_UPackage__Script_FirebaseHelper(), TEXT("EOrderBy"));
+		}
+		return Singleton;
+	}
+	template<> FIREBASEHELPER_API UEnum* StaticEnum<EOrderBy>()
+	{
+		return EOrderBy_StaticEnum();
+	}
+	static FCompiledInDeferEnum Z_CompiledInDeferEnum_UEnum_EOrderBy(EOrderBy_StaticEnum, TEXT("/Script/FirebaseHelper"), TEXT("EOrderBy"), false, nullptr, nullptr);
+	uint32 Get_Z_Construct_UEnum_FirebaseHelper_EOrderBy_Hash() { return 3778457184U; }
+	UEnum* Z_Construct_UEnum_FirebaseHelper_EOrderBy()
+	{
+#if WITH_HOT_RELOAD
+		UPackage* Outer = Z_Construct_UPackage__Script_FirebaseHelper();
+		static UEnum* ReturnEnum = FindExistingEnumIfHotReloadOrDynamic(Outer, TEXT("EOrderBy"), 0, Get_Z_Construct_UEnum_FirebaseHelper_EOrderBy_Hash(), false);
+#else
+		static UEnum* ReturnEnum = nullptr;
+#endif // WITH_HOT_RELOAD
+		if (!ReturnEnum)
+		{
+			static const UE4CodeGen_Private::FEnumeratorParam Enumerators[] = {
+				{ "None", (int64)None },
+				{ "Priority", (int64)Priority },
+				{ "Desc", (int64)Desc },
+				{ "Name", (int64)Name },
+			};
+#if WITH_METADATA
+			const UE4CodeGen_Private::FMetaDataPairParam Enum_MetaDataParams[] = {
+				{ "BlueprintType", "true" },
+				{ "Desc.Name", "Desc" },
+				{ "ModuleRelativePath", "Public/CloudFirestore.h" },
+				{ "Name.Name", "Name" },
+				{ "None.Name", "None" },
+				{ "Priority.Name", "Priority" },
+			};
+#endif
+			static const UE4CodeGen_Private::FEnumParams EnumParams = {
+				(UObject*(*)())Z_Construct_UPackage__Script_FirebaseHelper,
+				nullptr,
+				"EOrderBy",
+				"EOrderBy",
+				Enumerators,
+				UE_ARRAY_COUNT(Enumerators),
+				RF_Public|RF_Transient|RF_MarkAsNative,
+				UE4CodeGen_Private::EDynamicType::NotDynamic,
+				(uint8)UEnum::ECppForm::Regular,
+				METADATA_PARAMS(Enum_MetaDataParams, UE_ARRAY_COUNT(Enum_MetaDataParams))
+			};
+			UE4CodeGen_Private::ConstructUEnum(ReturnEnum, EnumParams);
+		}
+		return ReturnEnum;
+	}
+class UScriptStruct* FListOptions::StaticStruct()
+{
+	static class UScriptStruct* Singleton = NULL;
+	if (!Singleton)
+	{
+		extern FIREBASEHELPER_API uint32 Get_Z_Construct_UScriptStruct_FListOptions_Hash();
+		Singleton = GetStaticStruct(Z_Construct_UScriptStruct_FListOptions, Z_Construct_UPackage__Script_FirebaseHelper(), TEXT("ListOptions"), sizeof(FListOptions), Get_Z_Construct_UScriptStruct_FListOptions_Hash());
+	}
+	return Singleton;
+}
+template<> FIREBASEHELPER_API UScriptStruct* StaticStruct<FListOptions>()
+{
+	return FListOptions::StaticStruct();
+}
+static FCompiledInDeferStruct Z_CompiledInDeferStruct_UScriptStruct_FListOptions(FListOptions::StaticStruct, TEXT("/Script/FirebaseHelper"), TEXT("ListOptions"), false, nullptr, nullptr);
+static struct FScriptStruct_FirebaseHelper_StaticRegisterNativesFListOptions
+{
+	FScriptStruct_FirebaseHelper_StaticRegisterNativesFListOptions()
+	{
+		UScriptStruct::DeferCppStructOps(FName(TEXT("ListOptions")),new UScriptStruct::TCppStructOps<FListOptions>);
+	}
+} ScriptStruct_FirebaseHelper_StaticRegisterNativesFListOptions;
+	struct Z_Construct_UScriptStruct_FListOptions_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Struct_MetaDataParams[];
+#endif
+		static void* NewStructOps();
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_ShowMissing_MetaData[];
+#endif
+		static void NewProp_ShowMissing_SetBit(void* Obj);
+		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_ShowMissing;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_PageToken_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FStrPropertyParams NewProp_PageToken;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_PageSize_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FIntPropertyParams NewProp_PageSize;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+		static const UE4CodeGen_Private::FStructParams ReturnStructParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FListOptions_Statics::Struct_MetaDataParams[] = {
+		{ "BlueprintType", "true" },
+		{ "ModuleRelativePath", "Public/CloudFirestore.h" },
+	};
+#endif
+	void* Z_Construct_UScriptStruct_FListOptions_Statics::NewStructOps()
+	{
+		return (UScriptStruct::ICppStructOps*)new UScriptStruct::TCppStructOps<FListOptions>();
+	}
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FListOptions_Statics::NewProp_ShowMissing_MetaData[] = {
+		{ "Category", "ListOptions" },
+		{ "Comment", "//If the list should show missing documents. A missing document is a document that does not exist but has sub-documents. These documents will be returned with a key but will not have fields, Document.create_time, or Document.update_time set.\n//Requests with showMissing may not specify where or orderBy.\n" },
+		{ "ModuleRelativePath", "Public/CloudFirestore.h" },
+		{ "ToolTip", "If the list should show missing documents. A missing document is a document that does not exist but has sub-documents. These documents will be returned with a key but will not have fields, Document.create_time, or Document.update_time set.\nRequests with showMissing may not specify where or orderBy." },
+	};
+#endif
+	void Z_Construct_UScriptStruct_FListOptions_Statics::NewProp_ShowMissing_SetBit(void* Obj)
+	{
+		((FListOptions*)Obj)->ShowMissing = 1;
+	}
+	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UScriptStruct_FListOptions_Statics::NewProp_ShowMissing = { "ShowMissing", nullptr, (EPropertyFlags)0x0010000000000004, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(FListOptions), &Z_Construct_UScriptStruct_FListOptions_Statics::NewProp_ShowMissing_SetBit, METADATA_PARAMS(Z_Construct_UScriptStruct_FListOptions_Statics::NewProp_ShowMissing_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FListOptions_Statics::NewProp_ShowMissing_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FListOptions_Statics::NewProp_PageToken_MetaData[] = {
+		{ "Category", "ListOptions" },
+		{ "Comment", "//The nextPageToken value returned from a previous List request, if any.\n" },
+		{ "ModuleRelativePath", "Public/CloudFirestore.h" },
+		{ "ToolTip", "The nextPageToken value returned from a previous List request, if any." },
+	};
+#endif
+	const UE4CodeGen_Private::FStrPropertyParams Z_Construct_UScriptStruct_FListOptions_Statics::NewProp_PageToken = { "PageToken", nullptr, (EPropertyFlags)0x0010000000000004, UE4CodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FListOptions, PageToken), METADATA_PARAMS(Z_Construct_UScriptStruct_FListOptions_Statics::NewProp_PageToken_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FListOptions_Statics::NewProp_PageToken_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FListOptions_Statics::NewProp_PageSize_MetaData[] = {
+		{ "Category", "ListOptions" },
+		{ "Comment", "//By Default Everything. The maximum number of documents to return.\n" },
+		{ "ModuleRelativePath", "Public/CloudFirestore.h" },
+		{ "ToolTip", "By Default Everything. The maximum number of documents to return." },
+	};
+#endif
+	const UE4CodeGen_Private::FIntPropertyParams Z_Construct_UScriptStruct_FListOptions_Statics::NewProp_PageSize = { "PageSize", nullptr, (EPropertyFlags)0x0010000000000004, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FListOptions, PageSize), METADATA_PARAMS(Z_Construct_UScriptStruct_FListOptions_Statics::NewProp_PageSize_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FListOptions_Statics::NewProp_PageSize_MetaData)) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UScriptStruct_FListOptions_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FListOptions_Statics::NewProp_ShowMissing,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FListOptions_Statics::NewProp_PageToken,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FListOptions_Statics::NewProp_PageSize,
+	};
+	const UE4CodeGen_Private::FStructParams Z_Construct_UScriptStruct_FListOptions_Statics::ReturnStructParams = {
+		(UObject* (*)())Z_Construct_UPackage__Script_FirebaseHelper,
+		nullptr,
+		&NewStructOps,
+		"ListOptions",
+		sizeof(FListOptions),
+		alignof(FListOptions),
+		Z_Construct_UScriptStruct_FListOptions_Statics::PropPointers,
+		UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FListOptions_Statics::PropPointers),
+		RF_Public|RF_Transient|RF_MarkAsNative,
+		EStructFlags(0x00000001),
+		METADATA_PARAMS(Z_Construct_UScriptStruct_FListOptions_Statics::Struct_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FListOptions_Statics::Struct_MetaDataParams))
+	};
+	UScriptStruct* Z_Construct_UScriptStruct_FListOptions()
+	{
+#if WITH_HOT_RELOAD
+		extern uint32 Get_Z_Construct_UScriptStruct_FListOptions_Hash();
+		UPackage* Outer = Z_Construct_UPackage__Script_FirebaseHelper();
+		static UScriptStruct* ReturnStruct = FindExistingStructIfHotReloadOrDynamic(Outer, TEXT("ListOptions"), sizeof(FListOptions), Get_Z_Construct_UScriptStruct_FListOptions_Hash(), false);
+#else
+		static UScriptStruct* ReturnStruct = nullptr;
+#endif
+		if (!ReturnStruct)
+		{
+			UE4CodeGen_Private::ConstructUScriptStruct(ReturnStruct, Z_Construct_UScriptStruct_FListOptions_Statics::ReturnStructParams);
+		}
+		return ReturnStruct;
+	}
+	uint32 Get_Z_Construct_UScriptStruct_FListOptions_Hash() { return 2640580753U; }
 class UScriptStruct* FFireString::StaticStruct()
 {
 	static class UScriptStruct* Singleton = NULL;
@@ -218,6 +488,11 @@ static struct FScriptStruct_FirebaseHelper_StaticRegisterNativesFFireString
 		static const UE4CodeGen_Private::FMetaDataPairParam Struct_MetaDataParams[];
 #endif
 		static void* NewStructOps();
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_Object_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FStrPropertyParams NewProp_Object;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const UE4CodeGen_Private::FStructParams ReturnStructParams;
 	};
 #if WITH_METADATA
@@ -232,6 +507,16 @@ static struct FScriptStruct_FirebaseHelper_StaticRegisterNativesFFireString
 	{
 		return (UScriptStruct::ICppStructOps*)new UScriptStruct::TCppStructOps<FFireString>();
 	}
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FFireString_Statics::NewProp_Object_MetaData[] = {
+		{ "Category", "FireString" },
+		{ "ModuleRelativePath", "Public/CloudFirestore.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FStrPropertyParams Z_Construct_UScriptStruct_FFireString_Statics::NewProp_Object = { "Object", nullptr, (EPropertyFlags)0x0010000000000004, UE4CodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FFireString, Object), METADATA_PARAMS(Z_Construct_UScriptStruct_FFireString_Statics::NewProp_Object_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FFireString_Statics::NewProp_Object_MetaData)) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UScriptStruct_FFireString_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FFireString_Statics::NewProp_Object,
+	};
 	const UE4CodeGen_Private::FStructParams Z_Construct_UScriptStruct_FFireString_Statics::ReturnStructParams = {
 		(UObject* (*)())Z_Construct_UPackage__Script_FirebaseHelper,
 		nullptr,
@@ -239,8 +524,8 @@ static struct FScriptStruct_FirebaseHelper_StaticRegisterNativesFFireString
 		"FireString",
 		sizeof(FFireString),
 		alignof(FFireString),
-		nullptr,
-		0,
+		Z_Construct_UScriptStruct_FFireString_Statics::PropPointers,
+		UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FFireString_Statics::PropPointers),
 		RF_Public|RF_Transient|RF_MarkAsNative,
 		EStructFlags(0x00000001),
 		METADATA_PARAMS(Z_Construct_UScriptStruct_FFireString_Statics::Struct_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FFireString_Statics::Struct_MetaDataParams))
@@ -260,7 +545,7 @@ static struct FScriptStruct_FirebaseHelper_StaticRegisterNativesFFireString
 		}
 		return ReturnStruct;
 	}
-	uint32 Get_Z_Construct_UScriptStruct_FFireString_Hash() { return 3768756915U; }
+	uint32 Get_Z_Construct_UScriptStruct_FFireString_Hash() { return 3125977090U; }
 class UScriptStruct* FErrorData::StaticStruct()
 {
 	static class UScriptStruct* Singleton = NULL;
@@ -590,6 +875,40 @@ static struct FScriptStruct_FirebaseHelper_StaticRegisterNativesFDocumentSnapsho
 		return ReturnStruct;
 	}
 	uint32 Get_Z_Construct_UScriptStruct_FDocumentSnapshot_Hash() { return 4060436302U; }
+	DEFINE_FUNCTION(UCloudFirestore::execUpdateDocument)
+	{
+		P_GET_STRUCT(FFireString,Z_Param_FirestoreData);
+		P_GET_PROPERTY(FStrProperty,Z_Param_CollectionPath);
+		P_GET_PROPERTY(FStrProperty,Z_Param_DocumentId);
+		P_GET_PROPERTY(FDelegateProperty,Z_Param_ResultCallback);
+		P_GET_TARRAY(FString,Z_Param_FieldsToReturn);
+		P_GET_TARRAY(FString,Z_Param_FieldsToUpdate);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		UCloudFirestore::UpdateDocument(Z_Param_FirestoreData,Z_Param_CollectionPath,Z_Param_DocumentId,FGetDocumentResult(Z_Param_ResultCallback),Z_Param_FieldsToReturn,Z_Param_FieldsToUpdate);
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(UCloudFirestore::execListDocuments)
+	{
+		P_GET_PROPERTY(FStrProperty,Z_Param_CollectionPath);
+		P_GET_PROPERTY(FDelegateProperty,Z_Param_ResultCallback);
+		P_GET_TARRAY(FString,Z_Param_FieldsToReturn);
+		P_GET_STRUCT(FListOptions,Z_Param_ListOptions);
+		P_GET_PROPERTY(FByteProperty,Z_Param_OrderBy);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		UCloudFirestore::ListDocuments(Z_Param_CollectionPath,FListDocumentsResult(Z_Param_ResultCallback),Z_Param_FieldsToReturn,Z_Param_ListOptions,EOrderBy(Z_Param_OrderBy));
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(UCloudFirestore::execDeleteDocument)
+	{
+		P_GET_PROPERTY(FStrProperty,Z_Param_DocumentPath);
+		P_GET_PROPERTY(FDelegateProperty,Z_Param_ResultCallback);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		UCloudFirestore::DeleteDocument(Z_Param_DocumentPath,FDeleteDocumentResult(Z_Param_ResultCallback));
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(UCloudFirestore::execCreateDocument)
 	{
 		P_GET_STRUCT(FFireString,Z_Param_FirestoreData);
@@ -624,7 +943,7 @@ static struct FScriptStruct_FirebaseHelper_StaticRegisterNativesFDocumentSnapsho
 	}
 	DEFINE_FUNCTION(UCloudFirestore::execFirestoreStringFromJsonString)
 	{
-		P_GET_TARRAY(FString,Z_Param_Children);
+		P_GET_TARRAY(FFireString,Z_Param_Children);
 		P_FINISH;
 		P_NATIVE_BEGIN;
 		*(FFireString*)Z_Param__Result=UCloudFirestore::FirestoreStringFromJsonString(Z_Param_Children);
@@ -701,7 +1020,7 @@ static struct FScriptStruct_FirebaseHelper_StaticRegisterNativesFDocumentSnapsho
 	DEFINE_FUNCTION(UCloudFirestore::execFirestoreStringFromGeoPointArray)
 	{
 		P_GET_PROPERTY(FStrProperty,Z_Param_Key);
-		P_GET_TARRAY(FLatLng,Z_Param_Array);
+		P_GET_TARRAY(FGeoPoint,Z_Param_Array);
 		P_FINISH;
 		P_NATIVE_BEGIN;
 		*(FFireString*)Z_Param__Result=UCloudFirestore::FirestoreStringFromGeoPointArray(Z_Param_Key,Z_Param_Array);
@@ -709,7 +1028,7 @@ static struct FScriptStruct_FirebaseHelper_StaticRegisterNativesFDocumentSnapsho
 	}
 	DEFINE_FUNCTION(UCloudFirestore::execFirestoreStringFromGeoPointMap)
 	{
-		P_GET_TMAP(FString,FLatLng,Z_Param_Map);
+		P_GET_TMAP(FString,FGeoPoint,Z_Param_Map);
 		P_FINISH;
 		P_NATIVE_BEGIN;
 		*(FFireString*)Z_Param__Result=UCloudFirestore::FirestoreStringFromGeoPointMap(Z_Param_Map);
@@ -725,11 +1044,11 @@ static struct FScriptStruct_FirebaseHelper_StaticRegisterNativesFDocumentSnapsho
 	}
 	DEFINE_FUNCTION(UCloudFirestore::execSetDataAsMapFirestore)
 	{
-		P_GET_PROPERTY(FStrProperty,Z_Param_FirestoreString);
+		P_GET_STRUCT(FFireString,Z_Param_FirestoreString);
 		P_GET_PROPERTY(FStrProperty,Z_Param_Key);
 		P_FINISH;
 		P_NATIVE_BEGIN;
-		*(FString*)Z_Param__Result=UCloudFirestore::SetDataAsMapFirestore(Z_Param_FirestoreString,Z_Param_Key);
+		*(FFireString*)Z_Param__Result=UCloudFirestore::SetDataAsMapFirestore(Z_Param_FirestoreString,Z_Param_Key);
 		P_NATIVE_END;
 	}
 	void UCloudFirestore::StaticRegisterNativesUCloudFirestore()
@@ -737,6 +1056,7 @@ static struct FScriptStruct_FirebaseHelper_StaticRegisterNativesFDocumentSnapsho
 		UClass* Class = UCloudFirestore::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
 			{ "CreateDocument", &UCloudFirestore::execCreateDocument },
+			{ "DeleteDocument", &UCloudFirestore::execDeleteDocument },
 			{ "FirestoreStringFieldFromBoolArray", &UCloudFirestore::execFirestoreStringFieldFromBoolArray },
 			{ "FirestoreStringFieldFromIntegerArray", &UCloudFirestore::execFirestoreStringFieldFromIntegerArray },
 			{ "FirestoreStringFieldFromNumberArray", &UCloudFirestore::execFirestoreStringFieldFromNumberArray },
@@ -750,8 +1070,10 @@ static struct FScriptStruct_FirebaseHelper_StaticRegisterNativesFDocumentSnapsho
 			{ "FirestoreStringFromString", &UCloudFirestore::execFirestoreStringFromString },
 			{ "GetDocumentFirestoreString", &UCloudFirestore::execGetDocumentFirestoreString },
 			{ "GetMultipleDocumentsDifferent", &UCloudFirestore::execGetMultipleDocumentsDifferent },
+			{ "ListDocuments", &UCloudFirestore::execListDocuments },
 			{ "SetDataAsMapFirestore", &UCloudFirestore::execSetDataAsMapFirestore },
 			{ "StringArrayToDocumentPath", &UCloudFirestore::execStringArrayToDocumentPath },
+			{ "UpdateDocument", &UCloudFirestore::execUpdateDocument },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 	}
@@ -813,6 +1135,47 @@ static struct FScriptStruct_FirebaseHelper_StaticRegisterNativesFDocumentSnapsho
 		}
 		return ReturnFunction;
 	}
+	struct Z_Construct_UFunction_UCloudFirestore_DeleteDocument_Statics
+	{
+		struct CloudFirestore_eventDeleteDocument_Parms
+		{
+			FString DocumentPath;
+			FScriptDelegate ResultCallback;
+		};
+		static const UE4CodeGen_Private::FDelegatePropertyParams NewProp_ResultCallback;
+		static const UE4CodeGen_Private::FStrPropertyParams NewProp_DocumentPath;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UE4CodeGen_Private::FDelegatePropertyParams Z_Construct_UFunction_UCloudFirestore_DeleteDocument_Statics::NewProp_ResultCallback = { "ResultCallback", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Delegate, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(CloudFirestore_eventDeleteDocument_Parms, ResultCallback), Z_Construct_UDelegateFunction_FirebaseHelper_DeleteDocumentResult__DelegateSignature, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FStrPropertyParams Z_Construct_UFunction_UCloudFirestore_DeleteDocument_Statics::NewProp_DocumentPath = { "DocumentPath", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(CloudFirestore_eventDeleteDocument_Parms, DocumentPath), METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UCloudFirestore_DeleteDocument_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UCloudFirestore_DeleteDocument_Statics::NewProp_ResultCallback,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UCloudFirestore_DeleteDocument_Statics::NewProp_DocumentPath,
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UCloudFirestore_DeleteDocument_Statics::Function_MetaDataParams[] = {
+		{ "Category", "CloudFirestore" },
+		{ "Comment", "//Deletes a document.\n" },
+		{ "DisplayName", "Delete Document Firestore" },
+		{ "Keywords", "Cloud Firestore Document" },
+		{ "ModuleRelativePath", "Public/CloudFirestore.h" },
+		{ "ToolTip", "Deletes a document." },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_UCloudFirestore_DeleteDocument_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UCloudFirestore, nullptr, "DeleteDocument", nullptr, nullptr, sizeof(CloudFirestore_eventDeleteDocument_Parms), Z_Construct_UFunction_UCloudFirestore_DeleteDocument_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UCloudFirestore_DeleteDocument_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04022401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UCloudFirestore_DeleteDocument_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UCloudFirestore_DeleteDocument_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_UCloudFirestore_DeleteDocument()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_UCloudFirestore_DeleteDocument_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
 	struct Z_Construct_UFunction_UCloudFirestore_FirestoreStringFieldFromBoolArray_Statics
 	{
 		struct CloudFirestore_eventFirestoreStringFieldFromBoolArray_Parms
@@ -860,7 +1223,7 @@ static struct FScriptStruct_FirebaseHelper_StaticRegisterNativesFDocumentSnapsho
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UCloudFirestore_FirestoreStringFieldFromBoolArray_Statics::Function_MetaDataParams[] = {
 		{ "Category", "CloudFirestoreHelper" },
-		{ "DisplayName", "Boolean Array to FirestoreString" },
+		{ "DisplayName", "Boolean Array to FireString" },
 		{ "Keywords", "Firebase Helper" },
 		{ "ModuleRelativePath", "Public/CloudFirestore.h" },
 	};
@@ -922,7 +1285,7 @@ static struct FScriptStruct_FirebaseHelper_StaticRegisterNativesFDocumentSnapsho
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UCloudFirestore_FirestoreStringFieldFromIntegerArray_Statics::Function_MetaDataParams[] = {
 		{ "Category", "CloudFirestoreHelper" },
-		{ "DisplayName", "Integer Array to FirestoreString" },
+		{ "DisplayName", "Integer Array to FireString" },
 		{ "Keywords", "Firebase Helper" },
 		{ "ModuleRelativePath", "Public/CloudFirestore.h" },
 	};
@@ -984,7 +1347,7 @@ static struct FScriptStruct_FirebaseHelper_StaticRegisterNativesFDocumentSnapsho
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UCloudFirestore_FirestoreStringFieldFromNumberArray_Statics::Function_MetaDataParams[] = {
 		{ "Category", "CloudFirestoreHelper" },
-		{ "DisplayName", "Float Array to FirestoreString" },
+		{ "DisplayName", "Float Array to FireString" },
 		{ "Keywords", "Firebase Helper" },
 		{ "ModuleRelativePath", "Public/CloudFirestore.h" },
 	};
@@ -1046,7 +1409,7 @@ static struct FScriptStruct_FirebaseHelper_StaticRegisterNativesFDocumentSnapsho
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UCloudFirestore_FirestoreStringFieldFromStringArray_Statics::Function_MetaDataParams[] = {
 		{ "Category", "CloudFirestoreHelper" },
-		{ "DisplayName", "String Array to FirestoreString" },
+		{ "DisplayName", "String Array to FireString" },
 		{ "Keywords", "Firebase Helper" },
 		{ "ModuleRelativePath", "Public/CloudFirestore.h" },
 	};
@@ -1099,7 +1462,7 @@ static struct FScriptStruct_FirebaseHelper_StaticRegisterNativesFDocumentSnapsho
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UCloudFirestore_FirestoreStringFromBool_Statics::Function_MetaDataParams[] = {
 		{ "Category", "CloudFirestoreHelper" },
-		{ "DisplayName", "Boolean Map to FirestoreString" },
+		{ "DisplayName", "Boolean Map to FireString" },
 		{ "Keywords", "Firebase Helper" },
 		{ "ModuleRelativePath", "Public/CloudFirestore.h" },
 	};
@@ -1119,7 +1482,7 @@ static struct FScriptStruct_FirebaseHelper_StaticRegisterNativesFDocumentSnapsho
 		struct CloudFirestore_eventFirestoreStringFromGeoPointArray_Parms
 		{
 			FString Key;
-			TArray<FLatLng> Array;
+			TArray<FGeoPoint> Array;
 			FFireString ReturnValue;
 		};
 		static const UE4CodeGen_Private::FStructPropertyParams NewProp_ReturnValue;
@@ -1145,7 +1508,7 @@ static struct FScriptStruct_FirebaseHelper_StaticRegisterNativesFDocumentSnapsho
 	};
 #endif
 	const UE4CodeGen_Private::FArrayPropertyParams Z_Construct_UFunction_UCloudFirestore_FirestoreStringFromGeoPointArray_Statics::NewProp_Array = { "Array", nullptr, (EPropertyFlags)0x0010000000000082, UE4CodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(CloudFirestore_eventFirestoreStringFromGeoPointArray_Parms, Array), EArrayPropertyFlags::None, METADATA_PARAMS(Z_Construct_UFunction_UCloudFirestore_FirestoreStringFromGeoPointArray_Statics::NewProp_Array_MetaData, UE_ARRAY_COUNT(Z_Construct_UFunction_UCloudFirestore_FirestoreStringFromGeoPointArray_Statics::NewProp_Array_MetaData)) };
-	const UE4CodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UCloudFirestore_FirestoreStringFromGeoPointArray_Statics::NewProp_Array_Inner = { "Array", nullptr, (EPropertyFlags)0x0000000000000000, UE4CodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, Z_Construct_UScriptStruct_FLatLng, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UCloudFirestore_FirestoreStringFromGeoPointArray_Statics::NewProp_Array_Inner = { "Array", nullptr, (EPropertyFlags)0x0000000000000000, UE4CodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, Z_Construct_UScriptStruct_FGeoPoint, METADATA_PARAMS(nullptr, 0) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UCloudFirestore_FirestoreStringFromGeoPointArray_Statics::NewProp_Key_MetaData[] = {
 		{ "NativeConst", "" },
@@ -1161,7 +1524,7 @@ static struct FScriptStruct_FirebaseHelper_StaticRegisterNativesFDocumentSnapsho
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UCloudFirestore_FirestoreStringFromGeoPointArray_Statics::Function_MetaDataParams[] = {
 		{ "Category", "CloudFirestoreHelper" },
-		{ "DisplayName", "GeoPointArray to FirestoreString" },
+		{ "DisplayName", "GeoPointArray to FireString" },
 		{ "Keywords", "Firebase Helper" },
 		{ "ModuleRelativePath", "Public/CloudFirestore.h" },
 	};
@@ -1180,7 +1543,7 @@ static struct FScriptStruct_FirebaseHelper_StaticRegisterNativesFDocumentSnapsho
 	{
 		struct CloudFirestore_eventFirestoreStringFromGeoPointMap_Parms
 		{
-			TMap<FString,FLatLng> Map;
+			TMap<FString,FGeoPoint> Map;
 			FFireString ReturnValue;
 		};
 		static const UE4CodeGen_Private::FStructPropertyParams NewProp_ReturnValue;
@@ -1204,7 +1567,7 @@ static struct FScriptStruct_FirebaseHelper_StaticRegisterNativesFDocumentSnapsho
 #endif
 	const UE4CodeGen_Private::FMapPropertyParams Z_Construct_UFunction_UCloudFirestore_FirestoreStringFromGeoPointMap_Statics::NewProp_Map = { "Map", nullptr, (EPropertyFlags)0x0010000000000082, UE4CodeGen_Private::EPropertyGenFlags::Map, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(CloudFirestore_eventFirestoreStringFromGeoPointMap_Parms, Map), EMapPropertyFlags::None, METADATA_PARAMS(Z_Construct_UFunction_UCloudFirestore_FirestoreStringFromGeoPointMap_Statics::NewProp_Map_MetaData, UE_ARRAY_COUNT(Z_Construct_UFunction_UCloudFirestore_FirestoreStringFromGeoPointMap_Statics::NewProp_Map_MetaData)) };
 	const UE4CodeGen_Private::FStrPropertyParams Z_Construct_UFunction_UCloudFirestore_FirestoreStringFromGeoPointMap_Statics::NewProp_Map_Key_KeyProp = { "Map_Key", nullptr, (EPropertyFlags)0x0000000000000000, UE4CodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, METADATA_PARAMS(nullptr, 0) };
-	const UE4CodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UCloudFirestore_FirestoreStringFromGeoPointMap_Statics::NewProp_Map_ValueProp = { "Map", nullptr, (EPropertyFlags)0x0000000000000000, UE4CodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, 1, Z_Construct_UScriptStruct_FLatLng, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UCloudFirestore_FirestoreStringFromGeoPointMap_Statics::NewProp_Map_ValueProp = { "Map", nullptr, (EPropertyFlags)0x0000000000000000, UE4CodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, 1, Z_Construct_UScriptStruct_FGeoPoint, METADATA_PARAMS(nullptr, 0) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UCloudFirestore_FirestoreStringFromGeoPointMap_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UCloudFirestore_FirestoreStringFromGeoPointMap_Statics::NewProp_ReturnValue,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UCloudFirestore_FirestoreStringFromGeoPointMap_Statics::NewProp_Map,
@@ -1214,7 +1577,7 @@ static struct FScriptStruct_FirebaseHelper_StaticRegisterNativesFDocumentSnapsho
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UCloudFirestore_FirestoreStringFromGeoPointMap_Statics::Function_MetaDataParams[] = {
 		{ "Category", "CloudFirestoreHelper" },
-		{ "DisplayName", "GeoPointMap to FirestoreString" },
+		{ "DisplayName", "GeoPointMap to FireString" },
 		{ "Keywords", "Firebase Helper" },
 		{ "ModuleRelativePath", "Public/CloudFirestore.h" },
 	};
@@ -1267,7 +1630,7 @@ static struct FScriptStruct_FirebaseHelper_StaticRegisterNativesFDocumentSnapsho
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UCloudFirestore_FirestoreStringFromInteger_Statics::Function_MetaDataParams[] = {
 		{ "Category", "CloudFirestoreHelper" },
-		{ "DisplayName", "Integer Map to FirestoreString" },
+		{ "DisplayName", "Integer Map to FireString" },
 		{ "Keywords", "Firebase Helper" },
 		{ "ModuleRelativePath", "Public/CloudFirestore.h" },
 	};
@@ -1286,7 +1649,7 @@ static struct FScriptStruct_FirebaseHelper_StaticRegisterNativesFDocumentSnapsho
 	{
 		struct CloudFirestore_eventFirestoreStringFromJsonString_Parms
 		{
-			TArray<FString> Children;
+			TArray<FFireString> Children;
 			FFireString ReturnValue;
 		};
 		static const UE4CodeGen_Private::FStructPropertyParams NewProp_ReturnValue;
@@ -1294,7 +1657,7 @@ static struct FScriptStruct_FirebaseHelper_StaticRegisterNativesFDocumentSnapsho
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_Children_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FArrayPropertyParams NewProp_Children;
-		static const UE4CodeGen_Private::FStrPropertyParams NewProp_Children_Inner;
+		static const UE4CodeGen_Private::FStructPropertyParams NewProp_Children_Inner;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
@@ -1308,7 +1671,7 @@ static struct FScriptStruct_FirebaseHelper_StaticRegisterNativesFDocumentSnapsho
 	};
 #endif
 	const UE4CodeGen_Private::FArrayPropertyParams Z_Construct_UFunction_UCloudFirestore_FirestoreStringFromJsonString_Statics::NewProp_Children = { "Children", nullptr, (EPropertyFlags)0x0010000000000082, UE4CodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(CloudFirestore_eventFirestoreStringFromJsonString_Parms, Children), EArrayPropertyFlags::None, METADATA_PARAMS(Z_Construct_UFunction_UCloudFirestore_FirestoreStringFromJsonString_Statics::NewProp_Children_MetaData, UE_ARRAY_COUNT(Z_Construct_UFunction_UCloudFirestore_FirestoreStringFromJsonString_Statics::NewProp_Children_MetaData)) };
-	const UE4CodeGen_Private::FStrPropertyParams Z_Construct_UFunction_UCloudFirestore_FirestoreStringFromJsonString_Statics::NewProp_Children_Inner = { "Children", nullptr, (EPropertyFlags)0x0000000000000000, UE4CodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UCloudFirestore_FirestoreStringFromJsonString_Statics::NewProp_Children_Inner = { "Children", nullptr, (EPropertyFlags)0x0000000000000000, UE4CodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, Z_Construct_UScriptStruct_FFireString, METADATA_PARAMS(nullptr, 0) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UCloudFirestore_FirestoreStringFromJsonString_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UCloudFirestore_FirestoreStringFromJsonString_Statics::NewProp_ReturnValue,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UCloudFirestore_FirestoreStringFromJsonString_Statics::NewProp_Children,
@@ -1317,7 +1680,7 @@ static struct FScriptStruct_FirebaseHelper_StaticRegisterNativesFDocumentSnapsho
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UCloudFirestore_FirestoreStringFromJsonString_Statics::Function_MetaDataParams[] = {
 		{ "Category", "CloudFirestoreHelper" },
-		{ "DisplayName", "Combine JsonString to FirestoreString" },
+		{ "DisplayName", "Combine FFireString to FireString" },
 		{ "Keywords", "Firebase Helper" },
 		{ "ModuleRelativePath", "Public/CloudFirestore.h" },
 	};
@@ -1370,7 +1733,7 @@ static struct FScriptStruct_FirebaseHelper_StaticRegisterNativesFDocumentSnapsho
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UCloudFirestore_FirestoreStringFromNumber_Statics::Function_MetaDataParams[] = {
 		{ "Category", "CloudFirestoreHelper" },
-		{ "DisplayName", "Float Map to FirestoreString" },
+		{ "DisplayName", "Float Map to FireString" },
 		{ "Keywords", "Firebase Helper" },
 		{ "ModuleRelativePath", "Public/CloudFirestore.h" },
 	};
@@ -1423,7 +1786,7 @@ static struct FScriptStruct_FirebaseHelper_StaticRegisterNativesFDocumentSnapsho
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UCloudFirestore_FirestoreStringFromString_Statics::Function_MetaDataParams[] = {
 		{ "Category", "CloudFirestoreHelper" },
-		{ "DisplayName", "String Map to FirestoreString" },
+		{ "DisplayName", "String Map to FireString" },
 		{ "Keywords", "Firebase Helper" },
 		{ "ModuleRelativePath", "Public/CloudFirestore.h" },
 	};
@@ -1539,26 +1902,84 @@ static struct FScriptStruct_FirebaseHelper_StaticRegisterNativesFDocumentSnapsho
 		}
 		return ReturnFunction;
 	}
-	struct Z_Construct_UFunction_UCloudFirestore_SetDataAsMapFirestore_Statics
+	struct Z_Construct_UFunction_UCloudFirestore_ListDocuments_Statics
 	{
-		struct CloudFirestore_eventSetDataAsMapFirestore_Parms
+		struct CloudFirestore_eventListDocuments_Parms
 		{
-			FString FirestoreString;
-			FString Key;
-			FString ReturnValue;
+			FString CollectionPath;
+			FScriptDelegate ResultCallback;
+			TArray<FString> FieldsToReturn;
+			FListOptions ListOptions;
+			TEnumAsByte<EOrderBy> OrderBy;
 		};
-		static const UE4CodeGen_Private::FStrPropertyParams NewProp_ReturnValue;
-		static const UE4CodeGen_Private::FStrPropertyParams NewProp_Key;
-		static const UE4CodeGen_Private::FStrPropertyParams NewProp_FirestoreString;
+		static const UE4CodeGen_Private::FBytePropertyParams NewProp_OrderBy;
+		static const UE4CodeGen_Private::FStructPropertyParams NewProp_ListOptions;
+		static const UE4CodeGen_Private::FArrayPropertyParams NewProp_FieldsToReturn;
+		static const UE4CodeGen_Private::FStrPropertyParams NewProp_FieldsToReturn_Inner;
+		static const UE4CodeGen_Private::FDelegatePropertyParams NewProp_ResultCallback;
+		static const UE4CodeGen_Private::FStrPropertyParams NewProp_CollectionPath;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
 #endif
 		static const UE4CodeGen_Private::FFunctionParams FuncParams;
 	};
-	const UE4CodeGen_Private::FStrPropertyParams Z_Construct_UFunction_UCloudFirestore_SetDataAsMapFirestore_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UE4CodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(CloudFirestore_eventSetDataAsMapFirestore_Parms, ReturnValue), METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FBytePropertyParams Z_Construct_UFunction_UCloudFirestore_ListDocuments_Statics::NewProp_OrderBy = { "OrderBy", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(CloudFirestore_eventListDocuments_Parms, OrderBy), Z_Construct_UEnum_FirebaseHelper_EOrderBy, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UCloudFirestore_ListDocuments_Statics::NewProp_ListOptions = { "ListOptions", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(CloudFirestore_eventListDocuments_Parms, ListOptions), Z_Construct_UScriptStruct_FListOptions, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FArrayPropertyParams Z_Construct_UFunction_UCloudFirestore_ListDocuments_Statics::NewProp_FieldsToReturn = { "FieldsToReturn", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(CloudFirestore_eventListDocuments_Parms, FieldsToReturn), EArrayPropertyFlags::None, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FStrPropertyParams Z_Construct_UFunction_UCloudFirestore_ListDocuments_Statics::NewProp_FieldsToReturn_Inner = { "FieldsToReturn", nullptr, (EPropertyFlags)0x0000000000000000, UE4CodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FDelegatePropertyParams Z_Construct_UFunction_UCloudFirestore_ListDocuments_Statics::NewProp_ResultCallback = { "ResultCallback", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Delegate, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(CloudFirestore_eventListDocuments_Parms, ResultCallback), Z_Construct_UDelegateFunction_FirebaseHelper_ListDocumentsResult__DelegateSignature, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FStrPropertyParams Z_Construct_UFunction_UCloudFirestore_ListDocuments_Statics::NewProp_CollectionPath = { "CollectionPath", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(CloudFirestore_eventListDocuments_Parms, CollectionPath), METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UCloudFirestore_ListDocuments_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UCloudFirestore_ListDocuments_Statics::NewProp_OrderBy,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UCloudFirestore_ListDocuments_Statics::NewProp_ListOptions,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UCloudFirestore_ListDocuments_Statics::NewProp_FieldsToReturn,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UCloudFirestore_ListDocuments_Statics::NewProp_FieldsToReturn_Inner,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UCloudFirestore_ListDocuments_Statics::NewProp_ResultCallback,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UCloudFirestore_ListDocuments_Statics::NewProp_CollectionPath,
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UCloudFirestore_ListDocuments_Statics::Function_MetaDataParams[] = {
+		{ "AutoCreateRefTerm", "ListOptions" },
+		{ "Category", "CloudFirestore" },
+		{ "Comment", "//List Documents in a Collection\n" },
+		{ "CPP_Default_OrderBy", "None" },
+		{ "DisplayName", "List Documents Firestore" },
+		{ "Keywords", "Cloud Firestore Document" },
+		{ "ModuleRelativePath", "Public/CloudFirestore.h" },
+		{ "ToolTip", "List Documents in a Collection" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_UCloudFirestore_ListDocuments_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UCloudFirestore, nullptr, "ListDocuments", nullptr, nullptr, sizeof(CloudFirestore_eventListDocuments_Parms), Z_Construct_UFunction_UCloudFirestore_ListDocuments_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UCloudFirestore_ListDocuments_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04022401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UCloudFirestore_ListDocuments_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UCloudFirestore_ListDocuments_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_UCloudFirestore_ListDocuments()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_UCloudFirestore_ListDocuments_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_UCloudFirestore_SetDataAsMapFirestore_Statics
+	{
+		struct CloudFirestore_eventSetDataAsMapFirestore_Parms
+		{
+			FFireString FirestoreString;
+			FString Key;
+			FFireString ReturnValue;
+		};
+		static const UE4CodeGen_Private::FStructPropertyParams NewProp_ReturnValue;
+		static const UE4CodeGen_Private::FStrPropertyParams NewProp_Key;
+		static const UE4CodeGen_Private::FStructPropertyParams NewProp_FirestoreString;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UE4CodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UCloudFirestore_SetDataAsMapFirestore_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UE4CodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(CloudFirestore_eventSetDataAsMapFirestore_Parms, ReturnValue), Z_Construct_UScriptStruct_FFireString, METADATA_PARAMS(nullptr, 0) };
 	const UE4CodeGen_Private::FStrPropertyParams Z_Construct_UFunction_UCloudFirestore_SetDataAsMapFirestore_Statics::NewProp_Key = { "Key", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(CloudFirestore_eventSetDataAsMapFirestore_Parms, Key), METADATA_PARAMS(nullptr, 0) };
-	const UE4CodeGen_Private::FStrPropertyParams Z_Construct_UFunction_UCloudFirestore_SetDataAsMapFirestore_Statics::NewProp_FirestoreString = { "FirestoreString", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(CloudFirestore_eventSetDataAsMapFirestore_Parms, FirestoreString), METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UCloudFirestore_SetDataAsMapFirestore_Statics::NewProp_FirestoreString = { "FirestoreString", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(CloudFirestore_eventSetDataAsMapFirestore_Parms, FirestoreString), Z_Construct_UScriptStruct_FFireString, METADATA_PARAMS(nullptr, 0) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UCloudFirestore_SetDataAsMapFirestore_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UCloudFirestore_SetDataAsMapFirestore_Statics::NewProp_ReturnValue,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UCloudFirestore_SetDataAsMapFirestore_Statics::NewProp_Key,
@@ -1626,6 +2047,70 @@ static struct FScriptStruct_FirebaseHelper_StaticRegisterNativesFDocumentSnapsho
 		}
 		return ReturnFunction;
 	}
+	struct Z_Construct_UFunction_UCloudFirestore_UpdateDocument_Statics
+	{
+		struct CloudFirestore_eventUpdateDocument_Parms
+		{
+			FFireString FirestoreData;
+			FString CollectionPath;
+			FString DocumentId;
+			FScriptDelegate ResultCallback;
+			TArray<FString> FieldsToReturn;
+			TArray<FString> FieldsToUpdate;
+		};
+		static const UE4CodeGen_Private::FArrayPropertyParams NewProp_FieldsToUpdate;
+		static const UE4CodeGen_Private::FStrPropertyParams NewProp_FieldsToUpdate_Inner;
+		static const UE4CodeGen_Private::FArrayPropertyParams NewProp_FieldsToReturn;
+		static const UE4CodeGen_Private::FStrPropertyParams NewProp_FieldsToReturn_Inner;
+		static const UE4CodeGen_Private::FDelegatePropertyParams NewProp_ResultCallback;
+		static const UE4CodeGen_Private::FStrPropertyParams NewProp_DocumentId;
+		static const UE4CodeGen_Private::FStrPropertyParams NewProp_CollectionPath;
+		static const UE4CodeGen_Private::FStructPropertyParams NewProp_FirestoreData;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UE4CodeGen_Private::FArrayPropertyParams Z_Construct_UFunction_UCloudFirestore_UpdateDocument_Statics::NewProp_FieldsToUpdate = { "FieldsToUpdate", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(CloudFirestore_eventUpdateDocument_Parms, FieldsToUpdate), EArrayPropertyFlags::None, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FStrPropertyParams Z_Construct_UFunction_UCloudFirestore_UpdateDocument_Statics::NewProp_FieldsToUpdate_Inner = { "FieldsToUpdate", nullptr, (EPropertyFlags)0x0000000000000000, UE4CodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FArrayPropertyParams Z_Construct_UFunction_UCloudFirestore_UpdateDocument_Statics::NewProp_FieldsToReturn = { "FieldsToReturn", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(CloudFirestore_eventUpdateDocument_Parms, FieldsToReturn), EArrayPropertyFlags::None, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FStrPropertyParams Z_Construct_UFunction_UCloudFirestore_UpdateDocument_Statics::NewProp_FieldsToReturn_Inner = { "FieldsToReturn", nullptr, (EPropertyFlags)0x0000000000000000, UE4CodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FDelegatePropertyParams Z_Construct_UFunction_UCloudFirestore_UpdateDocument_Statics::NewProp_ResultCallback = { "ResultCallback", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Delegate, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(CloudFirestore_eventUpdateDocument_Parms, ResultCallback), Z_Construct_UDelegateFunction_FirebaseHelper_GetDocumentResult__DelegateSignature, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FStrPropertyParams Z_Construct_UFunction_UCloudFirestore_UpdateDocument_Statics::NewProp_DocumentId = { "DocumentId", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(CloudFirestore_eventUpdateDocument_Parms, DocumentId), METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FStrPropertyParams Z_Construct_UFunction_UCloudFirestore_UpdateDocument_Statics::NewProp_CollectionPath = { "CollectionPath", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(CloudFirestore_eventUpdateDocument_Parms, CollectionPath), METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UCloudFirestore_UpdateDocument_Statics::NewProp_FirestoreData = { "FirestoreData", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(CloudFirestore_eventUpdateDocument_Parms, FirestoreData), Z_Construct_UScriptStruct_FFireString, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UCloudFirestore_UpdateDocument_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UCloudFirestore_UpdateDocument_Statics::NewProp_FieldsToUpdate,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UCloudFirestore_UpdateDocument_Statics::NewProp_FieldsToUpdate_Inner,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UCloudFirestore_UpdateDocument_Statics::NewProp_FieldsToReturn,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UCloudFirestore_UpdateDocument_Statics::NewProp_FieldsToReturn_Inner,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UCloudFirestore_UpdateDocument_Statics::NewProp_ResultCallback,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UCloudFirestore_UpdateDocument_Statics::NewProp_DocumentId,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UCloudFirestore_UpdateDocument_Statics::NewProp_CollectionPath,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UCloudFirestore_UpdateDocument_Statics::NewProp_FirestoreData,
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UCloudFirestore_UpdateDocument_Statics::Function_MetaDataParams[] = {
+		{ "AutoCreateRefTerm", "FieldsToReturn" },
+		{ "Category", "CloudFirestore" },
+		{ "Comment", "//Updates/Inserts a Firestore document.\n" },
+		{ "DisplayName", "Updates/Inserts Firestore Document" },
+		{ "Keywords", "Cloud Firestore Document" },
+		{ "ModuleRelativePath", "Public/CloudFirestore.h" },
+		{ "ToolTip", "Updates/Inserts a Firestore document." },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_UCloudFirestore_UpdateDocument_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UCloudFirestore, nullptr, "UpdateDocument", nullptr, nullptr, sizeof(CloudFirestore_eventUpdateDocument_Parms), Z_Construct_UFunction_UCloudFirestore_UpdateDocument_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UCloudFirestore_UpdateDocument_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04022401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UCloudFirestore_UpdateDocument_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UCloudFirestore_UpdateDocument_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_UCloudFirestore_UpdateDocument()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_UCloudFirestore_UpdateDocument_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
 	UClass* Z_Construct_UClass_UCloudFirestore_NoRegister()
 	{
 		return UCloudFirestore::StaticClass();
@@ -1646,21 +2131,24 @@ static struct FScriptStruct_FirebaseHelper_StaticRegisterNativesFDocumentSnapsho
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_UCloudFirestore_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_UCloudFirestore_CreateDocument, "CreateDocument" }, // 3137575360
-		{ &Z_Construct_UFunction_UCloudFirestore_FirestoreStringFieldFromBoolArray, "FirestoreStringFieldFromBoolArray" }, // 295090209
-		{ &Z_Construct_UFunction_UCloudFirestore_FirestoreStringFieldFromIntegerArray, "FirestoreStringFieldFromIntegerArray" }, // 1444992862
-		{ &Z_Construct_UFunction_UCloudFirestore_FirestoreStringFieldFromNumberArray, "FirestoreStringFieldFromNumberArray" }, // 3113107438
-		{ &Z_Construct_UFunction_UCloudFirestore_FirestoreStringFieldFromStringArray, "FirestoreStringFieldFromStringArray" }, // 2414521558
-		{ &Z_Construct_UFunction_UCloudFirestore_FirestoreStringFromBool, "FirestoreStringFromBool" }, // 992452678
-		{ &Z_Construct_UFunction_UCloudFirestore_FirestoreStringFromGeoPointArray, "FirestoreStringFromGeoPointArray" }, // 703546712
-		{ &Z_Construct_UFunction_UCloudFirestore_FirestoreStringFromGeoPointMap, "FirestoreStringFromGeoPointMap" }, // 3944994006
-		{ &Z_Construct_UFunction_UCloudFirestore_FirestoreStringFromInteger, "FirestoreStringFromInteger" }, // 3820572797
-		{ &Z_Construct_UFunction_UCloudFirestore_FirestoreStringFromJsonString, "FirestoreStringFromJsonString" }, // 1272339396
-		{ &Z_Construct_UFunction_UCloudFirestore_FirestoreStringFromNumber, "FirestoreStringFromNumber" }, // 1816187660
-		{ &Z_Construct_UFunction_UCloudFirestore_FirestoreStringFromString, "FirestoreStringFromString" }, // 2971746464
+		{ &Z_Construct_UFunction_UCloudFirestore_DeleteDocument, "DeleteDocument" }, // 2503302579
+		{ &Z_Construct_UFunction_UCloudFirestore_FirestoreStringFieldFromBoolArray, "FirestoreStringFieldFromBoolArray" }, // 3215656036
+		{ &Z_Construct_UFunction_UCloudFirestore_FirestoreStringFieldFromIntegerArray, "FirestoreStringFieldFromIntegerArray" }, // 1725774851
+		{ &Z_Construct_UFunction_UCloudFirestore_FirestoreStringFieldFromNumberArray, "FirestoreStringFieldFromNumberArray" }, // 1907600739
+		{ &Z_Construct_UFunction_UCloudFirestore_FirestoreStringFieldFromStringArray, "FirestoreStringFieldFromStringArray" }, // 1663977921
+		{ &Z_Construct_UFunction_UCloudFirestore_FirestoreStringFromBool, "FirestoreStringFromBool" }, // 1705034243
+		{ &Z_Construct_UFunction_UCloudFirestore_FirestoreStringFromGeoPointArray, "FirestoreStringFromGeoPointArray" }, // 1257451588
+		{ &Z_Construct_UFunction_UCloudFirestore_FirestoreStringFromGeoPointMap, "FirestoreStringFromGeoPointMap" }, // 3473811940
+		{ &Z_Construct_UFunction_UCloudFirestore_FirestoreStringFromInteger, "FirestoreStringFromInteger" }, // 2119249220
+		{ &Z_Construct_UFunction_UCloudFirestore_FirestoreStringFromJsonString, "FirestoreStringFromJsonString" }, // 4096630679
+		{ &Z_Construct_UFunction_UCloudFirestore_FirestoreStringFromNumber, "FirestoreStringFromNumber" }, // 1314260032
+		{ &Z_Construct_UFunction_UCloudFirestore_FirestoreStringFromString, "FirestoreStringFromString" }, // 858248722
 		{ &Z_Construct_UFunction_UCloudFirestore_GetDocumentFirestoreString, "GetDocumentFirestoreString" }, // 3295523482
 		{ &Z_Construct_UFunction_UCloudFirestore_GetMultipleDocumentsDifferent, "GetMultipleDocumentsDifferent" }, // 4216930662
-		{ &Z_Construct_UFunction_UCloudFirestore_SetDataAsMapFirestore, "SetDataAsMapFirestore" }, // 2906185878
+		{ &Z_Construct_UFunction_UCloudFirestore_ListDocuments, "ListDocuments" }, // 113416297
+		{ &Z_Construct_UFunction_UCloudFirestore_SetDataAsMapFirestore, "SetDataAsMapFirestore" }, // 1968238258
 		{ &Z_Construct_UFunction_UCloudFirestore_StringArrayToDocumentPath, "StringArrayToDocumentPath" }, // 1904298415
+		{ &Z_Construct_UFunction_UCloudFirestore_UpdateDocument, "UpdateDocument" }, // 298915021
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCloudFirestore_Statics::Class_MetaDataParams[] = {
@@ -1696,7 +2184,7 @@ static struct FScriptStruct_FirebaseHelper_StaticRegisterNativesFDocumentSnapsho
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(UCloudFirestore, 1048886493);
+	IMPLEMENT_CLASS(UCloudFirestore, 1926603798);
 	template<> FIREBASEHELPER_API UClass* StaticClass<UCloudFirestore>()
 	{
 		return UCloudFirestore::StaticClass();

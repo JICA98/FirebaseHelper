@@ -10,7 +10,7 @@
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 struct FJsonValueB;
  struct FJsonValueB;
-struct FLatLng;
+struct FGeoPoint;
 #ifdef FIREBASEHELPER_FirestoreValue_generated_h
 #error "FirestoreValue.generated.h already included, missing '#pragma once' in FirestoreValue.h"
 #endif
@@ -24,11 +24,11 @@ struct FLatLng;
 template<> FIREBASEHELPER_API UScriptStruct* StaticStruct<struct FJsonValueB>();
 
 #define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_FirestoreValue_h_14_GENERATED_BODY \
-	friend struct Z_Construct_UScriptStruct_FLatLng_Statics; \
+	friend struct Z_Construct_UScriptStruct_FGeoPoint_Statics; \
 	FIREBASEHELPER_API static class UScriptStruct* StaticStruct();
 
 
-template<> FIREBASEHELPER_API UScriptStruct* StaticStruct<struct FLatLng>();
+template<> FIREBASEHELPER_API UScriptStruct* StaticStruct<struct FGeoPoint>();
 
 #define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_FirestoreValue_h_60_SPARSE_DATA
 #define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_FirestoreValue_h_60_RPC_WRAPPERS \

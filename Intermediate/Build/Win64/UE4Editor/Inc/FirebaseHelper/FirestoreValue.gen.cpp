@@ -15,7 +15,7 @@ void EmptyLinkFunctionForGeneratedCodeFirestoreValue() {}
 // Cross Module References
 	FIREBASEHELPER_API UScriptStruct* Z_Construct_UScriptStruct_FJsonValueB();
 	UPackage* Z_Construct_UPackage__Script_FirebaseHelper();
-	FIREBASEHELPER_API UScriptStruct* Z_Construct_UScriptStruct_FLatLng();
+	FIREBASEHELPER_API UScriptStruct* Z_Construct_UScriptStruct_FGeoPoint();
 	FIREBASEHELPER_API UClass* Z_Construct_UClass_UFirestoreValue_NoRegister();
 	FIREBASEHELPER_API UClass* Z_Construct_UClass_UFirestoreValue();
 	ENGINE_API UClass* Z_Construct_UClass_UBlueprintFunctionLibrary();
@@ -104,29 +104,29 @@ static struct FScriptStruct_FirebaseHelper_StaticRegisterNativesFJsonValueB
 		return ReturnStruct;
 	}
 	uint32 Get_Z_Construct_UScriptStruct_FJsonValueB_Hash() { return 2209148777U; }
-class UScriptStruct* FLatLng::StaticStruct()
+class UScriptStruct* FGeoPoint::StaticStruct()
 {
 	static class UScriptStruct* Singleton = NULL;
 	if (!Singleton)
 	{
-		extern FIREBASEHELPER_API uint32 Get_Z_Construct_UScriptStruct_FLatLng_Hash();
-		Singleton = GetStaticStruct(Z_Construct_UScriptStruct_FLatLng, Z_Construct_UPackage__Script_FirebaseHelper(), TEXT("LatLng"), sizeof(FLatLng), Get_Z_Construct_UScriptStruct_FLatLng_Hash());
+		extern FIREBASEHELPER_API uint32 Get_Z_Construct_UScriptStruct_FGeoPoint_Hash();
+		Singleton = GetStaticStruct(Z_Construct_UScriptStruct_FGeoPoint, Z_Construct_UPackage__Script_FirebaseHelper(), TEXT("GeoPoint"), sizeof(FGeoPoint), Get_Z_Construct_UScriptStruct_FGeoPoint_Hash());
 	}
 	return Singleton;
 }
-template<> FIREBASEHELPER_API UScriptStruct* StaticStruct<FLatLng>()
+template<> FIREBASEHELPER_API UScriptStruct* StaticStruct<FGeoPoint>()
 {
-	return FLatLng::StaticStruct();
+	return FGeoPoint::StaticStruct();
 }
-static FCompiledInDeferStruct Z_CompiledInDeferStruct_UScriptStruct_FLatLng(FLatLng::StaticStruct, TEXT("/Script/FirebaseHelper"), TEXT("LatLng"), false, nullptr, nullptr);
-static struct FScriptStruct_FirebaseHelper_StaticRegisterNativesFLatLng
+static FCompiledInDeferStruct Z_CompiledInDeferStruct_UScriptStruct_FGeoPoint(FGeoPoint::StaticStruct, TEXT("/Script/FirebaseHelper"), TEXT("GeoPoint"), false, nullptr, nullptr);
+static struct FScriptStruct_FirebaseHelper_StaticRegisterNativesFGeoPoint
 {
-	FScriptStruct_FirebaseHelper_StaticRegisterNativesFLatLng()
+	FScriptStruct_FirebaseHelper_StaticRegisterNativesFGeoPoint()
 	{
-		UScriptStruct::DeferCppStructOps(FName(TEXT("LatLng")),new UScriptStruct::TCppStructOps<FLatLng>);
+		UScriptStruct::DeferCppStructOps(FName(TEXT("GeoPoint")),new UScriptStruct::TCppStructOps<FGeoPoint>);
 	}
-} ScriptStruct_FirebaseHelper_StaticRegisterNativesFLatLng;
-	struct Z_Construct_UScriptStruct_FLatLng_Statics
+} ScriptStruct_FirebaseHelper_StaticRegisterNativesFGeoPoint;
+	struct Z_Construct_UScriptStruct_FGeoPoint_Statics
 	{
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam Struct_MetaDataParams[];
@@ -144,66 +144,66 @@ static struct FScriptStruct_FirebaseHelper_StaticRegisterNativesFLatLng
 		static const UE4CodeGen_Private::FStructParams ReturnStructParams;
 	};
 #if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FLatLng_Statics::Struct_MetaDataParams[] = {
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FGeoPoint_Statics::Struct_MetaDataParams[] = {
 		{ "BlueprintType", "true" },
 		{ "Comment", "/*\n An object representing a latitude/longitude pair.\n This is expressed as a pair of doubles representing degrees latitude and degrees longitude.\n Unless specified otherwise, this must conform to the WGS84 standard. Values must be within normalized ranges.\n */" },
 		{ "ModuleRelativePath", "Public/FirestoreValue.h" },
 		{ "ToolTip", "An object representing a latitude/longitude pair.\nThis is expressed as a pair of doubles representing degrees latitude and degrees longitude.\nUnless specified otherwise, this must conform to the WGS84 standard. Values must be within normalized ranges." },
 	};
 #endif
-	void* Z_Construct_UScriptStruct_FLatLng_Statics::NewStructOps()
+	void* Z_Construct_UScriptStruct_FGeoPoint_Statics::NewStructOps()
 	{
-		return (UScriptStruct::ICppStructOps*)new UScriptStruct::TCppStructOps<FLatLng>();
+		return (UScriptStruct::ICppStructOps*)new UScriptStruct::TCppStructOps<FGeoPoint>();
 	}
 #if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FLatLng_Statics::NewProp_Longitude_MetaData[] = {
-		{ "Category", "LatLng" },
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FGeoPoint_Statics::NewProp_Longitude_MetaData[] = {
+		{ "Category", "GeoPoint" },
 		{ "Comment", "//The latitude in degrees. It must be in the range [-90.0, +90.0].\n" },
 		{ "ModuleRelativePath", "Public/FirestoreValue.h" },
 		{ "ToolTip", "The latitude in degrees. It must be in the range [-90.0, +90.0]." },
 	};
 #endif
-	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UScriptStruct_FLatLng_Statics::NewProp_Longitude = { "Longitude", nullptr, (EPropertyFlags)0x0010000000000004, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FLatLng, Longitude), METADATA_PARAMS(Z_Construct_UScriptStruct_FLatLng_Statics::NewProp_Longitude_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FLatLng_Statics::NewProp_Longitude_MetaData)) };
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UScriptStruct_FGeoPoint_Statics::NewProp_Longitude = { "Longitude", nullptr, (EPropertyFlags)0x0010000000000004, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FGeoPoint, Longitude), METADATA_PARAMS(Z_Construct_UScriptStruct_FGeoPoint_Statics::NewProp_Longitude_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FGeoPoint_Statics::NewProp_Longitude_MetaData)) };
 #if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FLatLng_Statics::NewProp_Latitude_MetaData[] = {
-		{ "Category", "LatLng" },
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FGeoPoint_Statics::NewProp_Latitude_MetaData[] = {
+		{ "Category", "GeoPoint" },
 		{ "ModuleRelativePath", "Public/FirestoreValue.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UScriptStruct_FLatLng_Statics::NewProp_Latitude = { "Latitude", nullptr, (EPropertyFlags)0x0010000000000004, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FLatLng, Latitude), METADATA_PARAMS(Z_Construct_UScriptStruct_FLatLng_Statics::NewProp_Latitude_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FLatLng_Statics::NewProp_Latitude_MetaData)) };
-	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UScriptStruct_FLatLng_Statics::PropPointers[] = {
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FLatLng_Statics::NewProp_Longitude,
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FLatLng_Statics::NewProp_Latitude,
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UScriptStruct_FGeoPoint_Statics::NewProp_Latitude = { "Latitude", nullptr, (EPropertyFlags)0x0010000000000004, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FGeoPoint, Latitude), METADATA_PARAMS(Z_Construct_UScriptStruct_FGeoPoint_Statics::NewProp_Latitude_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FGeoPoint_Statics::NewProp_Latitude_MetaData)) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UScriptStruct_FGeoPoint_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FGeoPoint_Statics::NewProp_Longitude,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FGeoPoint_Statics::NewProp_Latitude,
 	};
-	const UE4CodeGen_Private::FStructParams Z_Construct_UScriptStruct_FLatLng_Statics::ReturnStructParams = {
+	const UE4CodeGen_Private::FStructParams Z_Construct_UScriptStruct_FGeoPoint_Statics::ReturnStructParams = {
 		(UObject* (*)())Z_Construct_UPackage__Script_FirebaseHelper,
 		nullptr,
 		&NewStructOps,
-		"LatLng",
-		sizeof(FLatLng),
-		alignof(FLatLng),
-		Z_Construct_UScriptStruct_FLatLng_Statics::PropPointers,
-		UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FLatLng_Statics::PropPointers),
+		"GeoPoint",
+		sizeof(FGeoPoint),
+		alignof(FGeoPoint),
+		Z_Construct_UScriptStruct_FGeoPoint_Statics::PropPointers,
+		UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FGeoPoint_Statics::PropPointers),
 		RF_Public|RF_Transient|RF_MarkAsNative,
 		EStructFlags(0x00000001),
-		METADATA_PARAMS(Z_Construct_UScriptStruct_FLatLng_Statics::Struct_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FLatLng_Statics::Struct_MetaDataParams))
+		METADATA_PARAMS(Z_Construct_UScriptStruct_FGeoPoint_Statics::Struct_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FGeoPoint_Statics::Struct_MetaDataParams))
 	};
-	UScriptStruct* Z_Construct_UScriptStruct_FLatLng()
+	UScriptStruct* Z_Construct_UScriptStruct_FGeoPoint()
 	{
 #if WITH_HOT_RELOAD
-		extern uint32 Get_Z_Construct_UScriptStruct_FLatLng_Hash();
+		extern uint32 Get_Z_Construct_UScriptStruct_FGeoPoint_Hash();
 		UPackage* Outer = Z_Construct_UPackage__Script_FirebaseHelper();
-		static UScriptStruct* ReturnStruct = FindExistingStructIfHotReloadOrDynamic(Outer, TEXT("LatLng"), sizeof(FLatLng), Get_Z_Construct_UScriptStruct_FLatLng_Hash(), false);
+		static UScriptStruct* ReturnStruct = FindExistingStructIfHotReloadOrDynamic(Outer, TEXT("GeoPoint"), sizeof(FGeoPoint), Get_Z_Construct_UScriptStruct_FGeoPoint_Hash(), false);
 #else
 		static UScriptStruct* ReturnStruct = nullptr;
 #endif
 		if (!ReturnStruct)
 		{
-			UE4CodeGen_Private::ConstructUScriptStruct(ReturnStruct, Z_Construct_UScriptStruct_FLatLng_Statics::ReturnStructParams);
+			UE4CodeGen_Private::ConstructUScriptStruct(ReturnStruct, Z_Construct_UScriptStruct_FGeoPoint_Statics::ReturnStructParams);
 		}
 		return ReturnStruct;
 	}
-	uint32 Get_Z_Construct_UScriptStruct_FLatLng_Hash() { return 2288635759U; }
+	uint32 Get_Z_Construct_UScriptStruct_FGeoPoint_Hash() { return 3363496584U; }
 	DEFINE_FUNCTION(UFirestoreValue::execMapValue)
 	{
 		P_GET_STRUCT(FJsonValueB,Z_Param_Value);
@@ -225,7 +225,7 @@ static struct FScriptStruct_FirebaseHelper_StaticRegisterNativesFLatLng
 		P_GET_STRUCT(FJsonValueB,Z_Param_Value);
 		P_FINISH;
 		P_NATIVE_BEGIN;
-		*(FLatLng*)Z_Param__Result=UFirestoreValue::GeoPointValue(Z_Param_Value);
+		*(FGeoPoint*)Z_Param__Result=UFirestoreValue::GeoPointValue(Z_Param_Value);
 		P_NATIVE_END;
 	}
 	DEFINE_FUNCTION(UFirestoreValue::execReferenceValue)
@@ -478,7 +478,7 @@ static struct FScriptStruct_FirebaseHelper_StaticRegisterNativesFLatLng
 		struct FirestoreValue_eventGeoPointValue_Parms
 		{
 			FJsonValueB Value;
-			FLatLng ReturnValue;
+			FGeoPoint ReturnValue;
 		};
 		static const UE4CodeGen_Private::FStructPropertyParams NewProp_ReturnValue;
 		static const UE4CodeGen_Private::FStructPropertyParams NewProp_Value;
@@ -488,7 +488,7 @@ static struct FScriptStruct_FirebaseHelper_StaticRegisterNativesFLatLng
 #endif
 		static const UE4CodeGen_Private::FFunctionParams FuncParams;
 	};
-	const UE4CodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UFirestoreValue_GeoPointValue_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UE4CodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FirestoreValue_eventGeoPointValue_Parms, ReturnValue), Z_Construct_UScriptStruct_FLatLng, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UFirestoreValue_GeoPointValue_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UE4CodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FirestoreValue_eventGeoPointValue_Parms, ReturnValue), Z_Construct_UScriptStruct_FGeoPoint, METADATA_PARAMS(nullptr, 0) };
 	const UE4CodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UFirestoreValue_GeoPointValue_Statics::NewProp_Value = { "Value", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FirestoreValue_eventGeoPointValue_Parms, Value), Z_Construct_UScriptStruct_FJsonValueB, METADATA_PARAMS(nullptr, 0) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UFirestoreValue_GeoPointValue_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UFirestoreValue_GeoPointValue_Statics::NewProp_ReturnValue,
@@ -748,7 +748,7 @@ static struct FScriptStruct_FirebaseHelper_StaticRegisterNativesFLatLng
 		{ &Z_Construct_UFunction_UFirestoreValue_BooleanValue, "BooleanValue" }, // 896709540
 		{ &Z_Construct_UFunction_UFirestoreValue_BytesValue, "BytesValue" }, // 48512686
 		{ &Z_Construct_UFunction_UFirestoreValue_FloatValue, "FloatValue" }, // 1958761227
-		{ &Z_Construct_UFunction_UFirestoreValue_GeoPointValue, "GeoPointValue" }, // 1967012820
+		{ &Z_Construct_UFunction_UFirestoreValue_GeoPointValue, "GeoPointValue" }, // 2422481560
 		{ &Z_Construct_UFunction_UFirestoreValue_IntegerValue, "IntegerValue" }, // 2481107086
 		{ &Z_Construct_UFunction_UFirestoreValue_MapValue, "MapValue" }, // 275414147
 		{ &Z_Construct_UFunction_UFirestoreValue_ReferenceValue, "ReferenceValue" }, // 4073311038
@@ -790,7 +790,7 @@ static struct FScriptStruct_FirebaseHelper_StaticRegisterNativesFLatLng
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(UFirestoreValue, 3648303540);
+	IMPLEMENT_CLASS(UFirestoreValue, 2963165920);
 	template<> FIREBASEHELPER_API UClass* StaticClass<UFirestoreValue>()
 	{
 		return UFirestoreValue::StaticClass();

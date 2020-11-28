@@ -18,9 +18,9 @@ TArray<FJsonValueB> UFirestoreValue::ArrayValue(FJsonValueB Value)
     return TArray<FJsonValueB>();
 }
 
-FLatLng UFirestoreValue::GeoPointValue(FJsonValueB Value)
+FGeoPoint UFirestoreValue::GeoPointValue(FJsonValueB Value)
 {
-    return FLatLng(
+    return FGeoPoint(
         Value.Value->AsObject()->GetNumberField("latitude"),Value.Value->AsObject()->GetNumberField("longitude")
     );
 }

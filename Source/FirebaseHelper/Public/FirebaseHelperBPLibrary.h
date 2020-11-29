@@ -1,5 +1,5 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
-
+// Copyright 2020. Author Jica. All Rights Reserved.
 #pragma once
 
 #include "CloudFirestore.h"
@@ -23,6 +23,7 @@ public:
     static FString DatabaseURL;
     static FString APIKey;
     static FString AuthToken;
+    static FString OAuthAccessToken;
     static FString AuthEndPoint;
     static FString FirestoreEndPoint;
     static FString ProjectId;
@@ -34,6 +35,9 @@ public:
 
     static TMap<FString, TSharedPtr<FJsonValue>> DeserializeData(const FString Content);
     static FString SerializeData(const TMap<FString, FRealtimeValue> Map);
+
+    UFUNCTION(BlueprintCallable, meta = (DisplayName = "Get Auth ID", Keywords = "Firebase Helper Auth ID"), Category = "FirebaseHelper")
+    static FString GetAuthID();
 
     /*
     * Firebase HELPER FUNCTIONS

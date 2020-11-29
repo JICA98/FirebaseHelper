@@ -1,4 +1,5 @@
-﻿#include "RealtimeDatabase.h"
+﻿// Copyright 2020. Author Jica. All Rights Reserved.
+#include "RealtimeDatabase.h"
 
 #include "FirebaseHelperBPLibrary.h"
 

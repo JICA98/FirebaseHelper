@@ -1,4 +1,5 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
+// Copyright 2020. Author Jica. All Rights Reserved.
 
 #include "FirebaseHelper.h"
 

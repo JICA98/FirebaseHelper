@@ -1,4 +1,5 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
+// Copyright 2020. Author Jica. All Rights Reserved.
 
 #include "FirebaseHelperBPLibrary.h"
 
@@ -10,6 +11,7 @@ FString UFirebaseHelperBPLibrary::ProjectId = "";
 FString UFirebaseHelperBPLibrary::DatabaseURL = "";
 FString UFirebaseHelperBPLibrary::APIKey = "";
 FString UFirebaseHelperBPLibrary::AuthToken = "";
+FString UFirebaseHelperBPLibrary::OAuthAccessToken="";
 FString UFirebaseHelperBPLibrary::AuthEndPoint = "https://identitytoolkit.googleapis.com/v1/";
 FString UFirebaseHelperBPLibrary::FirestoreEndPoint = "https://firestore.googleapis.com/v1beta1/";
 TSharedPtr<FJsonValue> FRealtimeValue::Value;
@@ -30,6 +32,12 @@ UFirebaseHelperBPLibrary::UFirebaseHelperBPLibrary(const FObjectInitializer& Obj
     : Super(ObjectInitializer)
 {
 }
+
+FString UFirebaseHelperBPLibrary::GetAuthID()
+{
+    return AuthToken;
+}
+
 
 TMap<FString, TSharedPtr<FJsonValue>> UFirebaseHelperBPLibrary::DeserializeData(const FString Content)
 {

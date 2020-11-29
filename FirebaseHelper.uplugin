@@ -3,13 +3,13 @@
 	"Version": 1,
 	"VersionName": "1.0",
 	"FriendlyName": "FirebaseHelper",
-	"Description": "",
+	"Description": "A simple REST based Plugin for Firebase",
 	"Category": "Other",
 	"CreatedBy": "Jica",
-	"CreatedByURL": "",
-	"DocsURL": "",
+	"CreatedByURL": "jishnu-raj.web.app",
+	"DocsURL": "https://github.com/JICA98/FirebaseHelper",
 	"MarketplaceURL": "",
-	"SupportURL": "",
+	"SupportURL": "jica.etzc@gmail.com",
 	"CanContainContent": true,
 	"IsBetaVersion": false,
 	"IsExperimentalVersion": false,
@@ -18,7 +18,10 @@
 		{
 			"Name": "FirebaseHelper",
 			"Type": "Runtime",
-			"LoadingPhase": "PreLoadingScreen"
+			"LoadingPhase": "PreLoadingScreen",
+			"WhitelistPlatforms": [ "Win64", "Win32", "Mac", "Linux", "Android", "IOS" ]
 		}
-	]
+	],
+	"EngineVersion": "4.25.4"
+	
 }

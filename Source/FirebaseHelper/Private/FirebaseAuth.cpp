@@ -1,4 +1,5 @@
-﻿#include "FirebaseAuth.h"
+﻿// Copyright 2020. Author Jica. All Rights Reserved.
+#include "FirebaseAuth.h"
 
 #include "FirebaseHelperBPLibrary.h"
 

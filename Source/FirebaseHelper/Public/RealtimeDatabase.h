@@ -1,4 +1,5 @@
-﻿#pragma once
+﻿// Copyright 2020. Author Jica. All Rights Reserved.
+#pragma once
 
 #include "Kismet/BlueprintFunctionLibrary.h"
 #include "Runtime/Online/HTTP/Public/Http.h"

@@ -1,4 +1,5 @@
-﻿#include "FirestoreValue.h"
+﻿// Copyright 2020. Author Jica. All Rights Reserved.
+#include "FirestoreValue.h"
 
 
 ///TSharedPtr<FJsonValue> FJsonValueB::Value;

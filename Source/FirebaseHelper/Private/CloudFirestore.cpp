@@ -1,4 +1,5 @@
-﻿#include "CloudFirestore.h"
+﻿// Copyright 2020. Author Jica. All Rights Reserved.
+#include "CloudFirestore.h"
 
 
 #include "FirebaseHelperBPLibrary.h"

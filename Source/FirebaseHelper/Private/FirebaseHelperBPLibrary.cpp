@@ -3,7 +3,12 @@
 #include "FirebaseHelperBPLibrary.h"
 
 #include "Misc/FileHelper.h"
+#include "HAL/PlatformFilemanager.h"
 #include "JsonObjectConverter.h"
+#include "Dom/JsonValue.h"
+#include "Serialization/JsonReader.h"
+#include "Serialization/JsonSerializer.h"
+#include "Dom/JsonObject.h"
 #include "Templates/SharedPointer.h"
 
 FString UFirebaseHelperBPLibrary::ProjectId = "";

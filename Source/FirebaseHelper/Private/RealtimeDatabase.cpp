@@ -1,6 +1,9 @@
 ﻿// Copyright Name: Jica, Year of Intended Publishing 2020.
 #include "RealtimeDatabase.h"
-
+#include "Dom/JsonValue.h"
+#include "Serialization/JsonReader.h"
+#include "Serialization/JsonSerializer.h"
+#include "Dom/JsonObject.h"
 #include "FirebaseHelperBPLibrary.h"
 
 URealtimeDatabase::URealtimeDatabase(const FObjectInitializer& ObjectInitializer)
@@ -53,7 +56,7 @@ void URealtimeDatabase::OnReadReceived(FHttpRequestPtr Request, FHttpResponsePtr
     }
     else
     {
-        firebaseData.Status = "" + Response->GetResponseCode();
+        firebaseData.Status = "" + FString::FromInt(Response->GetResponseCode());
         UE_LOG(LogTemp, Error, TEXT("Error %d"), *firebaseData.Status);
     }
 }
@@ -161,10 +164,9 @@ void URealtimeDatabase::OnWriteReceived(FHttpRequestPtr Request, FHttpResponsePt
     }
     else
     {
-        int32 string = Response->GetResponseCode();
-        firebaseData.Status = "" + string;
+        firebaseData.Status = FString::FromInt(Response->GetResponseCode());
 
-        UE_LOG(LogTemp, Error, TEXT("Error %s"), string);
+        UE_LOG(LogTemp, Error, TEXT("Error %s"), *FString::FromInt(Response->GetResponseCode()));
     }
 }
 
@@ -244,15 +246,18 @@ void URealtimeDatabase::RealtimeDatabaseWrite(const FString& Path, const FString
 {
     if (Update && Options.WriteAsChild)
     {
-        throw "Cannot Update and Write as Child at the same time.";
+        UE_LOG(LogTemp, Error, TEXT("Cannot Update and Write as Child at the same time."));
+        return;
     }
     if (Update && Options.ReceiveExTag)
     {
-        throw "Cannot Update and Receive ExTag at the same time.";
+        UE_LOG(LogTemp, Error, TEXT("Cannot Update and Receive ExTag at the same time."));
+        return;
     }
     if (Update && Options.WriteExTag != "None")
     {
-        throw "Cannot Update and Write ExTag at the same time.";
+        UE_LOG(LogTemp, Error, TEXT("Cannot Update and Write ExTag at the same time."));
+        return;
     }
     TSharedRef<IHttpRequest> HttpRequest = FHttpModule::Get().CreateRequest();
     if (Update)
@@ -314,17 +319,20 @@ void URealtimeDatabase::RealtimeDatabaseListener(const FString& Path, const FRea
 {
     if (RealtimeOptions.OrderBy != "None" && RealtimeOptions.OrderByKeyOrValue != "None")
     {
-        throw "Cannot be ordered by both Key and Value. Change one of them to \"None\"";
+        UE_LOG(LogTemp, Error, TEXT("Cannot be ordered by both Key and Value. Change one of them to \"None\""));
+        return;
     }
     if ((RealtimeOptions.StartAt != "None" || RealtimeOptions.EndAt != "None" || RealtimeOptions.LimitToFirst != "None"
             || RealtimeOptions.LimitToLast != "None" || RealtimeOptions.EqualTo != "None")
         && (RealtimeOptions.OrderBy == "None" && RealtimeOptions.OrderByKeyOrValue == "None"))
     {
-        throw "orderBy must be defined when other query parameters are defined";
+        UE_LOG(LogTemp, Error, TEXT("orderBy must be defined when other query parameters are defined"));
+        return;
     }
     if (RealtimeOptions.LimitToFirst != "None" && RealtimeOptions.LimitToLast != "None")
     {
-        throw "Cannot use both limits together";
+        UE_LOG(LogTemp, Error, TEXT("Cannot use both limits together"));
+        return;
     }
 
     TSharedRef<IHttpRequest> HttpRequest = FHttpModule::Get().CreateRequest();
@@ -432,17 +440,20 @@ void URealtimeDatabase::RealtimeDatabaseRead(const FString& Path, const FRealtim
 {
     if (RealtimeOptions.OrderBy != "None" && RealtimeOptions.OrderByKeyOrValue != "None")
     {
-        throw "Cannot be ordered by both Key and Value. Change one of them to \"None\"";
+        UE_LOG(LogTemp, Error, TEXT("Cannot be ordered by both Key and Value. Change one of them to \"None\""));
+        return;
     }
     if ((RealtimeOptions.StartAt != "None" || RealtimeOptions.EndAt != "None" || RealtimeOptions.LimitToFirst != "None"
             || RealtimeOptions.LimitToLast != "None" || RealtimeOptions.EqualTo != "None")
         && (RealtimeOptions.OrderBy == "None" && RealtimeOptions.OrderByKeyOrValue == "None"))
     {
-        throw "orderBy must be defined when other query parameters are defined";
+        UE_LOG(LogTemp, Error, TEXT("orderBy must be defined when other query parameters are defined"));
+        return;
     }
     if (RealtimeOptions.LimitToFirst != "None" && RealtimeOptions.LimitToLast != "None")
     {
-        throw "Cannot use both limits together";
+        UE_LOG(LogTemp, Error, TEXT("Cannot use both limits together"));
+        return;
     }
 
     TSharedRef<IHttpRequest> HttpRequest = FHttpModule::Get().CreateRequest();

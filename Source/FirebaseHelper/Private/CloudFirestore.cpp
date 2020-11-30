@@ -1,7 +1,10 @@
 ﻿// Copyright Name: Jica, Year of Intended Publishing 2020.
 #include "CloudFirestore.h"
 
-
+#include "Dom/JsonValue.h"
+#include "Serialization/JsonReader.h"
+#include "Serialization/JsonSerializer.h"
+#include "Dom/JsonObject.h"
 #include "FirebaseHelperBPLibrary.h"
 #include "HttpModule.h"
 
@@ -364,7 +367,7 @@ void UCloudFirestore::OnBatchDocumentsFetch(FHttpRequestPtr Request, FHttpRespon
            }
        } else
        {
-           UE_LOG(LogTemp, Error, TEXT("Couldn't Parse"), );
+           UE_LOG(LogTemp, Error, TEXT("Couldn't Parse") );
        }
    }
     if(!bWasSuccessful)

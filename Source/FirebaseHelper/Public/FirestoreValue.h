@@ -1,6 +1,8 @@
 ﻿// Copyright Name: Jica, Year of Intended Publishing 2020.
 #pragma once
 
+#include "FirestoreValue.h"
+#include "Dom/JsonValue.h"
 #include "Templates/SharedPointer.h"
 #include "FirestoreValue.generated.h"
 

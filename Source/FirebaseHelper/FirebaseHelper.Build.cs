@@ -26,6 +26,9 @@ public class FirebaseHelper : ModuleRules
 			new string[]
 			{
 				"Core",
+				"Http",
+				"Json",
+				"JsonUtilities",
 				// ... add other public dependencies that you statically link with here ...
 			}
 			);
@@ -38,9 +41,6 @@ public class FirebaseHelper : ModuleRules
 				"Engine",
 				"Slate",
 				"SlateCore",
-				"Http",
-				"Json",
-				"JsonUtilities",
 				// ... add private dependencies that you statically link with here ...	
 			}
 			);

@@ -3,6 +3,10 @@
 
 #include "Kismet/BlueprintFunctionLibrary.h"
 #include "Runtime/Online/HTTP/Public/Http.h"
+#include "Dom/JsonValue.h"
+#include "Serialization/JsonReader.h"
+#include "Serialization/JsonSerializer.h"
+#include "Dom/JsonObject.h"
 #include "Templates/SharedPointer.h"
 #include "FirebaseAuth.generated.h"
 

@@ -1,4 +1,4 @@
-// Some copyright should be here...
+// Copyright Name: Jica, Year of Intended Publishing 2020.
 
 using UnrealBuildTool;
 

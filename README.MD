@@ -1,4 +1,5 @@
-﻿#### **Firebase Plugin for Unreal Engine (Blueprintable)**
+﻿<!--Copyright Name: Jica, Year of Intended Publishing 2020. -->
+#### **Firebase Plugin for Unreal Engine (Blueprintable)**
 
 A simple REST based Plugin for the Firebase API.
 

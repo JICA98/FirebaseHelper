@@ -1,4 +1,4 @@
-﻿// Copyright 2020. Author Jica. All Rights Reserved.
+﻿// Copyright Name: Jica, Year of Intended Publishing 2020.
 
 #pragma once
 

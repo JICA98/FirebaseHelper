@@ -21,42 +21,42 @@ struct FGeoPoint;
 #endif
 #define FIREBASEHELPER_CloudFirestore_generated_h
 
-#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_CloudFirestore_h_93_GENERATED_BODY \
+#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_CloudFirestore_h_97_GENERATED_BODY \
 	friend struct Z_Construct_UScriptStruct_FListOptions_Statics; \
 	FIREBASEHELPER_API static class UScriptStruct* StaticStruct();
 
 
 template<> FIREBASEHELPER_API UScriptStruct* StaticStruct<struct FListOptions>();
 
-#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_CloudFirestore_h_76_GENERATED_BODY \
+#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_CloudFirestore_h_80_GENERATED_BODY \
 	friend struct Z_Construct_UScriptStruct_FFireString_Statics; \
 	FIREBASEHELPER_API static class UScriptStruct* StaticStruct();
 
 
 template<> FIREBASEHELPER_API UScriptStruct* StaticStruct<struct FFireString>();
 
-#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_CloudFirestore_h_62_GENERATED_BODY \
+#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_CloudFirestore_h_66_GENERATED_BODY \
 	friend struct Z_Construct_UScriptStruct_FErrorData_Statics; \
 	FIREBASEHELPER_API static class UScriptStruct* StaticStruct();
 
 
 template<> FIREBASEHELPER_API UScriptStruct* StaticStruct<struct FErrorData>();
 
-#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_CloudFirestore_h_52_GENERATED_BODY \
+#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_CloudFirestore_h_56_GENERATED_BODY \
 	friend struct Z_Construct_UScriptStruct_FMultipleDocuments_Statics; \
 	FIREBASEHELPER_API static class UScriptStruct* StaticStruct();
 
 
 template<> FIREBASEHELPER_API UScriptStruct* StaticStruct<struct FMultipleDocuments>();
 
-#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_CloudFirestore_h_21_GENERATED_BODY \
+#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_CloudFirestore_h_25_GENERATED_BODY \
 	friend struct Z_Construct_UScriptStruct_FDocumentSnapshot_Statics; \
 	FIREBASEHELPER_API static class UScriptStruct* StaticStruct();
 
 
 template<> FIREBASEHELPER_API UScriptStruct* StaticStruct<struct FDocumentSnapshot>();
 
-#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_CloudFirestore_h_113_DELEGATE \
+#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_CloudFirestore_h_117_DELEGATE \
 struct _Script_FirebaseHelper_eventListDocumentsResult_Parms \
 { \
 	FMultipleDocuments FoundDocuments; \
@@ -75,7 +75,7 @@ static inline void FListDocumentsResult_DelegateWrapper(const FScriptDelegate& L
 }
 
 
-#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_CloudFirestore_h_111_DELEGATE \
+#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_CloudFirestore_h_115_DELEGATE \
 struct _Script_FirebaseHelper_eventDeleteDocumentResult_Parms \
 { \
 	FErrorData ErrorData; \
@@ -90,7 +90,7 @@ static inline void FDeleteDocumentResult_DelegateWrapper(const FScriptDelegate& 
 }
 
 
-#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_CloudFirestore_h_109_DELEGATE \
+#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_CloudFirestore_h_113_DELEGATE \
 struct _Script_FirebaseHelper_eventBatchDocumentsFetch_Parms \
 { \
 	FMultipleDocuments FoundDocuments; \
@@ -109,7 +109,7 @@ static inline void FBatchDocumentsFetch_DelegateWrapper(const FScriptDelegate& B
 }
 
 
-#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_CloudFirestore_h_107_DELEGATE \
+#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_CloudFirestore_h_111_DELEGATE \
 struct _Script_FirebaseHelper_eventGetDocumentResult_Parms \
 { \
 	FDocumentSnapshot DocumentSnapshot; \
@@ -126,8 +126,8 @@ static inline void FGetDocumentResult_DelegateWrapper(const FScriptDelegate& Get
 }
 
 
-#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_CloudFirestore_h_119_SPARSE_DATA
-#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_CloudFirestore_h_119_RPC_WRAPPERS \
+#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_CloudFirestore_h_123_SPARSE_DATA
+#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_CloudFirestore_h_123_RPC_WRAPPERS \
  \
 	DECLARE_FUNCTION(execUpdateDocument); \
 	DECLARE_FUNCTION(execListDocuments); \
@@ -150,7 +150,7 @@ static inline void FGetDocumentResult_DelegateWrapper(const FScriptDelegate& Get
 	DECLARE_FUNCTION(execSetDataAsMapFirestore);
 
 
-#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_CloudFirestore_h_119_RPC_WRAPPERS_NO_PURE_DECLS \
+#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_CloudFirestore_h_123_RPC_WRAPPERS_NO_PURE_DECLS \
  \
 	DECLARE_FUNCTION(execUpdateDocument); \
 	DECLARE_FUNCTION(execListDocuments); \
@@ -173,7 +173,7 @@ static inline void FGetDocumentResult_DelegateWrapper(const FScriptDelegate& Get
 	DECLARE_FUNCTION(execSetDataAsMapFirestore);
 
 
-#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_CloudFirestore_h_119_INCLASS_NO_PURE_DECLS \
+#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_CloudFirestore_h_123_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesUCloudFirestore(); \
 	friend struct Z_Construct_UClass_UCloudFirestore_Statics; \
@@ -182,7 +182,7 @@ public: \
 	DECLARE_SERIALIZER(UCloudFirestore)
 
 
-#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_CloudFirestore_h_119_INCLASS \
+#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_CloudFirestore_h_123_INCLASS \
 private: \
 	static void StaticRegisterNativesUCloudFirestore(); \
 	friend struct Z_Construct_UClass_UCloudFirestore_Statics; \
@@ -191,7 +191,7 @@ public: \
 	DECLARE_SERIALIZER(UCloudFirestore)
 
 
-#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_CloudFirestore_h_119_STANDARD_CONSTRUCTORS \
+#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_CloudFirestore_h_123_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API UCloudFirestore(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(UCloudFirestore) \
@@ -204,7 +204,7 @@ private: \
 public:
 
 
-#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_CloudFirestore_h_119_ENHANCED_CONSTRUCTORS \
+#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_CloudFirestore_h_123_ENHANCED_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API UCloudFirestore(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()) : Super(ObjectInitializer) { }; \
 private: \
@@ -217,28 +217,28 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(UCloudFirestore); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(UCloudFirestore)
 
 
-#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_CloudFirestore_h_119_PRIVATE_PROPERTY_OFFSET
-#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_CloudFirestore_h_116_PROLOG
-#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_CloudFirestore_h_119_GENERATED_BODY_LEGACY \
+#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_CloudFirestore_h_123_PRIVATE_PROPERTY_OFFSET
+#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_CloudFirestore_h_120_PROLOG
+#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_CloudFirestore_h_123_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_CloudFirestore_h_119_PRIVATE_PROPERTY_OFFSET \
-	SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_CloudFirestore_h_119_SPARSE_DATA \
-	SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_CloudFirestore_h_119_RPC_WRAPPERS \
-	SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_CloudFirestore_h_119_INCLASS \
-	SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_CloudFirestore_h_119_STANDARD_CONSTRUCTORS \
+	SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_CloudFirestore_h_123_PRIVATE_PROPERTY_OFFSET \
+	SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_CloudFirestore_h_123_SPARSE_DATA \
+	SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_CloudFirestore_h_123_RPC_WRAPPERS \
+	SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_CloudFirestore_h_123_INCLASS \
+	SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_CloudFirestore_h_123_STANDARD_CONSTRUCTORS \
 public: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_CloudFirestore_h_119_GENERATED_BODY \
+#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_CloudFirestore_h_123_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_CloudFirestore_h_119_PRIVATE_PROPERTY_OFFSET \
-	SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_CloudFirestore_h_119_SPARSE_DATA \
-	SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_CloudFirestore_h_119_RPC_WRAPPERS_NO_PURE_DECLS \
-	SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_CloudFirestore_h_119_INCLASS_NO_PURE_DECLS \
-	SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_CloudFirestore_h_119_ENHANCED_CONSTRUCTORS \
+	SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_CloudFirestore_h_123_PRIVATE_PROPERTY_OFFSET \
+	SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_CloudFirestore_h_123_SPARSE_DATA \
+	SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_CloudFirestore_h_123_RPC_WRAPPERS_NO_PURE_DECLS \
+	SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_CloudFirestore_h_123_INCLASS_NO_PURE_DECLS \
+	SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_CloudFirestore_h_123_ENHANCED_CONSTRUCTORS \
 static_assert(false, "Unknown access specifier for GENERATED_BODY() macro in class CloudFirestore."); \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 

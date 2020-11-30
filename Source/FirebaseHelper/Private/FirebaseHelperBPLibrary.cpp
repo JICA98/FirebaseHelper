@@ -75,8 +75,8 @@ FString UFirebaseHelperBPLibrary::SerializeData(const TMap<FString,  FRealtimeVa
 }
 
 void UFirebaseHelperBPLibrary::SetupFirebase() {
-    FString file = FPaths::ProjectDir();
-    file.Append(TEXT("google-services.json"));
+    FString file = FPaths::ProjectContentDir();
+    file.Append(TEXT("StreamedAssets/google-services.json"));
     IPlatformFile& FileManager = FPlatformFileManager::Get().GetPlatformFile();
     FString FileContent;
     TSharedPtr<FJsonObject> FirebaseConfig = MakeShareable(new FJsonObject());

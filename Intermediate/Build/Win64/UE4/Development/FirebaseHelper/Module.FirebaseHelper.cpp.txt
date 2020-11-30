@@ -1,0 +1,29 @@
+C:\data\Projects\Unreal4\SimpleProject\Plugins\FirebaseHelper\Intermediate\Build\Win64\UE4\Development\FirebaseHelper\Definitions.FirebaseHelper.h
+C:/data/Projects/Unreal4/SimpleProject/Plugins/FirebaseHelper/Source/FirebaseHelper/Private/CloudFirestore.cpp
+C:\data\Projects\Unreal4\SimpleProject\Plugins\FirebaseHelper\Source\FirebaseHelper\Public\CloudFirestore.h
+C:\data\Projects\Unreal4\SimpleProject\Plugins\FirebaseHelper\Source\FirebaseHelper\Public\FirebaseHelperBPLibrary.h
+C:\data\Projects\Unreal4\SimpleProject\Plugins\FirebaseHelper\Source\FirebaseHelper\Public\FirebaseAuth.h
+C:\Program Files\Epic Games\UE_4.25\Engine\Source\Runtime/Online/HTTP/Public/Http.h
+C:\Program Files\Epic Games\UE_4.25\Engine\Source\Runtime\Online\HTTP\Public\HttpModule.h
+C:\Program Files\Epic Games\UE_4.25\Engine\Source\Runtime\Online\HTTP\Public\Interfaces/IHttpRequest.h
+C:\Program Files\Epic Games\UE_4.25\Engine\Source\Runtime\Online\HTTP\Public\Interfaces/IHttpBase.h
+C:\Program Files\Epic Games\UE_4.25\Engine\Source\Runtime\Online\HTTP\Public\Interfaces/IHttpResponse.h
+C:\Program Files\Epic Games\UE_4.25\Engine\Source\Runtime\Online\HTTP\Public\PlatformHttp.h
+C:\Program Files\Epic Games\UE_4.25\Engine\Source\Runtime\Online\HTTP\Public\Windows/WindowsPlatformHttp.h
+C:\Program Files\Epic Games\UE_4.25\Engine\Source\Runtime\Online\HTTP\Public\GenericPlatform/GenericPlatformHttp.h
+C:\data\Projects\Unreal4\SimpleProject\Plugins\FirebaseHelper\Intermediate\Build\Win64\UE4\Inc\FirebaseHelper\FirebaseAuth.generated.h
+C:\data\Projects\Unreal4\SimpleProject\Plugins\FirebaseHelper\Source\FirebaseHelper\Public\RealtimeDatabase.h
+C:\data\Projects\Unreal4\SimpleProject\Plugins\FirebaseHelper\Intermediate\Build\Win64\UE4\Inc\FirebaseHelper\RealtimeDatabase.generated.h
+C:\data\Projects\Unreal4\SimpleProject\Plugins\FirebaseHelper\Intermediate\Build\Win64\UE4\Inc\FirebaseHelper\FirebaseHelperBPLibrary.generated.h
+C:\data\Projects\Unreal4\SimpleProject\Plugins\FirebaseHelper\Source\FirebaseHelper\Public\FirestoreValue.h
+C:\data\Projects\Unreal4\SimpleProject\Plugins\FirebaseHelper\Intermediate\Build\Win64\UE4\Inc\FirebaseHelper\FirestoreValue.generated.h
+C:\data\Projects\Unreal4\SimpleProject\Plugins\FirebaseHelper\Intermediate\Build\Win64\UE4\Inc\FirebaseHelper\CloudFirestore.generated.h
+C:/data/Projects/Unreal4/SimpleProject/Plugins/FirebaseHelper/Source/FirebaseHelper/Private/FirebaseAuth.cpp
+C:/data/Projects/Unreal4/SimpleProject/Plugins/FirebaseHelper/Source/FirebaseHelper/Private/FirebaseHelper.cpp
+C:\data\Projects\Unreal4\SimpleProject\Plugins\FirebaseHelper\Source\FirebaseHelper\Public\FirebaseHelper.h
+C:/data/Projects/Unreal4/SimpleProject/Plugins/FirebaseHelper/Source/FirebaseHelper/Private/FirebaseHelperBPLibrary.cpp
+C:\Program Files\Epic Games\UE_4.25\Engine\Source\Runtime\JsonUtilities\Public\JsonObjectConverter.h
+C:\Program Files\Epic Games\UE_4.25\Engine\Source\Runtime\JsonUtilities\Public\JsonObjectWrapper.h
+C:\Program Files\Epic Games\UE_4.25\Engine\Intermediate\Build\Win64\UE4\Inc\JsonUtilities\JsonObjectWrapper.generated.h
+C:/data/Projects/Unreal4/SimpleProject/Plugins/FirebaseHelper/Source/FirebaseHelper/Private/FirestoreValue.cpp
+C:/data/Projects/Unreal4/SimpleProject/Plugins/FirebaseHelper/Source/FirebaseHelper/Private/RealtimeDatabase.cpp

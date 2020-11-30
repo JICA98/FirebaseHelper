@@ -19,77 +19,77 @@ struct FFirebaseAuthResult;
 #endif
 #define FIREBASEHELPER_FirebaseAuth_generated_h
 
-#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_FirebaseAuth_h_208_GENERATED_BODY \
+#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_FirebaseAuth_h_212_GENERATED_BODY \
 	friend struct Z_Construct_UScriptStruct_FEventResult_Statics; \
 	FIREBASEHELPER_API static class UScriptStruct* StaticStruct();
 
 
 template<> FIREBASEHELPER_API UScriptStruct* StaticStruct<struct FEventResult>();
 
-#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_FirebaseAuth_h_195_GENERATED_BODY \
+#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_FirebaseAuth_h_199_GENERATED_BODY \
 	friend struct Z_Construct_UScriptStruct_FEmailPasswordResult_Statics; \
 	FIREBASEHELPER_API static class UScriptStruct* StaticStruct();
 
 
 template<> FIREBASEHELPER_API UScriptStruct* StaticStruct<struct FEmailPasswordResult>();
 
-#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_FirebaseAuth_h_180_GENERATED_BODY \
+#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_FirebaseAuth_h_184_GENERATED_BODY \
 	friend struct Z_Construct_UScriptStruct_FProviderInfo_Statics; \
 	FIREBASEHELPER_API static class UScriptStruct* StaticStruct();
 
 
 template<> FIREBASEHELPER_API UScriptStruct* StaticStruct<struct FProviderInfo>();
 
-#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_FirebaseAuth_h_167_GENERATED_BODY \
+#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_FirebaseAuth_h_171_GENERATED_BODY \
 	friend struct Z_Construct_UScriptStruct_FUserArray_Statics; \
 	FIREBASEHELPER_API static class UScriptStruct* StaticStruct();
 
 
 template<> FIREBASEHELPER_API UScriptStruct* StaticStruct<struct FUserArray>();
 
-#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_FirebaseAuth_h_136_GENERATED_BODY \
+#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_FirebaseAuth_h_140_GENERATED_BODY \
 	friend struct Z_Construct_UScriptStruct_FUsersDataContent_Statics; \
 	FIREBASEHELPER_API static class UScriptStruct* StaticStruct();
 
 
 template<> FIREBASEHELPER_API UScriptStruct* StaticStruct<struct FUsersDataContent>();
 
-#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_FirebaseAuth_h_101_GENERATED_BODY \
+#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_FirebaseAuth_h_105_GENERATED_BODY \
 	friend struct Z_Construct_UScriptStruct_FFirebaseOAuthResult_Statics; \
 	FIREBASEHELPER_API static class UScriptStruct* StaticStruct();
 
 
 template<> FIREBASEHELPER_API UScriptStruct* StaticStruct<struct FFirebaseOAuthResult>();
 
-#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_FirebaseAuth_h_80_GENERATED_BODY \
+#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_FirebaseAuth_h_84_GENERATED_BODY \
 	friend struct Z_Construct_UScriptStruct_FUserInfo_Statics; \
 	FIREBASEHELPER_API static class UScriptStruct* StaticStruct();
 
 
 template<> FIREBASEHELPER_API UScriptStruct* StaticStruct<struct FUserInfo>();
 
-#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_FirebaseAuth_h_47_GENERATED_BODY \
+#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_FirebaseAuth_h_51_GENERATED_BODY \
 	friend struct Z_Construct_UScriptStruct_FFirebaseAuthResult_Statics; \
 	FIREBASEHELPER_API static class UScriptStruct* StaticStruct();
 
 
 template<> FIREBASEHELPER_API UScriptStruct* StaticStruct<struct FFirebaseAuthResult>();
 
-#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_FirebaseAuth_h_27_GENERATED_BODY \
+#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_FirebaseAuth_h_31_GENERATED_BODY \
 	friend struct Z_Construct_UScriptStruct_FProviderUserInfo_Statics; \
 	FIREBASEHELPER_API static class UScriptStruct* StaticStruct();
 
 
 template<> FIREBASEHELPER_API UScriptStruct* StaticStruct<struct FProviderUserInfo>();
 
-#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_FirebaseAuth_h_15_GENERATED_BODY \
+#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_FirebaseAuth_h_19_GENERATED_BODY \
 	friend struct Z_Construct_UScriptStruct_FAuthError_Statics; \
 	FIREBASEHELPER_API static class UScriptStruct* StaticStruct();
 
 
 template<> FIREBASEHELPER_API UScriptStruct* StaticStruct<struct FAuthError>();
 
-#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_FirebaseAuth_h_225_DELEGATE \
+#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_FirebaseAuth_h_229_DELEGATE \
 struct _Script_FirebaseHelper_eventUsersDataComplete_Parms \
 { \
 	FUserArray UserDataArray; \
@@ -102,7 +102,7 @@ static inline void FUsersDataComplete_DelegateWrapper(const FScriptDelegate& Use
 }
 
 
-#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_FirebaseAuth_h_224_DELEGATE \
+#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_FirebaseAuth_h_228_DELEGATE \
 struct _Script_FirebaseHelper_eventEventComplete_Parms \
 { \
 	FEventResult EvenComplete; \
@@ -115,7 +115,7 @@ static inline void FEventComplete_DelegateWrapper(const FScriptDelegate& EventCo
 }
 
 
-#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_FirebaseAuth_h_223_DELEGATE \
+#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_FirebaseAuth_h_227_DELEGATE \
 struct _Script_FirebaseHelper_eventSendPasswordResetComplete_Parms \
 { \
 	FEmailPasswordResult ResetSentComplete; \
@@ -128,7 +128,7 @@ static inline void FSendPasswordResetComplete_DelegateWrapper(const FScriptDeleg
 }
 
 
-#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_FirebaseAuth_h_222_DELEGATE \
+#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_FirebaseAuth_h_226_DELEGATE \
 struct _Script_FirebaseHelper_eventFetchProviderComplete_Parms \
 { \
 	FProviderInfo FetchComplete; \
@@ -141,7 +141,7 @@ static inline void FFetchProviderComplete_DelegateWrapper(const FScriptDelegate&
 }
 
 
-#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_FirebaseAuth_h_221_DELEGATE \
+#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_FirebaseAuth_h_225_DELEGATE \
 struct _Script_FirebaseHelper_eventOAuthOperationComplete_Parms \
 { \
 	FFirebaseOAuthResult OAuthComplete; \
@@ -154,7 +154,7 @@ static inline void FOAuthOperationComplete_DelegateWrapper(const FScriptDelegate
 }
 
 
-#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_FirebaseAuth_h_220_DELEGATE \
+#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_FirebaseAuth_h_224_DELEGATE \
 struct _Script_FirebaseHelper_eventAuthOperationComplete_Parms \
 { \
 	FFirebaseAuthResult AuthComplete; \
@@ -167,8 +167,8 @@ static inline void FAuthOperationComplete_DelegateWrapper(const FScriptDelegate&
 }
 
 
-#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_FirebaseAuth_h_231_SPARSE_DATA
-#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_FirebaseAuth_h_231_RPC_WRAPPERS \
+#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_FirebaseAuth_h_235_SPARSE_DATA
+#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_FirebaseAuth_h_235_RPC_WRAPPERS \
  \
 	DECLARE_FUNCTION(execGetUserData); \
 	DECLARE_FUNCTION(execDeleteAccountFirebaseAuth); \
@@ -192,7 +192,7 @@ static inline void FAuthOperationComplete_DelegateWrapper(const FScriptDelegate&
 	DECLARE_FUNCTION(execExchangeCustomToken);
 
 
-#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_FirebaseAuth_h_231_RPC_WRAPPERS_NO_PURE_DECLS \
+#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_FirebaseAuth_h_235_RPC_WRAPPERS_NO_PURE_DECLS \
  \
 	DECLARE_FUNCTION(execGetUserData); \
 	DECLARE_FUNCTION(execDeleteAccountFirebaseAuth); \
@@ -216,7 +216,7 @@ static inline void FAuthOperationComplete_DelegateWrapper(const FScriptDelegate&
 	DECLARE_FUNCTION(execExchangeCustomToken);
 
 
-#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_FirebaseAuth_h_231_INCLASS_NO_PURE_DECLS \
+#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_FirebaseAuth_h_235_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesUFirebaseAuth(); \
 	friend struct Z_Construct_UClass_UFirebaseAuth_Statics; \
@@ -225,7 +225,7 @@ public: \
 	DECLARE_SERIALIZER(UFirebaseAuth)
 
 
-#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_FirebaseAuth_h_231_INCLASS \
+#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_FirebaseAuth_h_235_INCLASS \
 private: \
 	static void StaticRegisterNativesUFirebaseAuth(); \
 	friend struct Z_Construct_UClass_UFirebaseAuth_Statics; \
@@ -234,7 +234,7 @@ public: \
 	DECLARE_SERIALIZER(UFirebaseAuth)
 
 
-#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_FirebaseAuth_h_231_STANDARD_CONSTRUCTORS \
+#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_FirebaseAuth_h_235_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API UFirebaseAuth(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(UFirebaseAuth) \
@@ -247,7 +247,7 @@ private: \
 public:
 
 
-#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_FirebaseAuth_h_231_ENHANCED_CONSTRUCTORS \
+#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_FirebaseAuth_h_235_ENHANCED_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API UFirebaseAuth(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()) : Super(ObjectInitializer) { }; \
 private: \
@@ -260,28 +260,28 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(UFirebaseAuth); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(UFirebaseAuth)
 
 
-#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_FirebaseAuth_h_231_PRIVATE_PROPERTY_OFFSET
-#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_FirebaseAuth_h_228_PROLOG
-#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_FirebaseAuth_h_231_GENERATED_BODY_LEGACY \
+#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_FirebaseAuth_h_235_PRIVATE_PROPERTY_OFFSET
+#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_FirebaseAuth_h_232_PROLOG
+#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_FirebaseAuth_h_235_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_FirebaseAuth_h_231_PRIVATE_PROPERTY_OFFSET \
-	SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_FirebaseAuth_h_231_SPARSE_DATA \
-	SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_FirebaseAuth_h_231_RPC_WRAPPERS \
-	SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_FirebaseAuth_h_231_INCLASS \
-	SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_FirebaseAuth_h_231_STANDARD_CONSTRUCTORS \
+	SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_FirebaseAuth_h_235_PRIVATE_PROPERTY_OFFSET \
+	SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_FirebaseAuth_h_235_SPARSE_DATA \
+	SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_FirebaseAuth_h_235_RPC_WRAPPERS \
+	SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_FirebaseAuth_h_235_INCLASS \
+	SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_FirebaseAuth_h_235_STANDARD_CONSTRUCTORS \
 public: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_FirebaseAuth_h_231_GENERATED_BODY \
+#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_FirebaseAuth_h_235_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_FirebaseAuth_h_231_PRIVATE_PROPERTY_OFFSET \
-	SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_FirebaseAuth_h_231_SPARSE_DATA \
-	SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_FirebaseAuth_h_231_RPC_WRAPPERS_NO_PURE_DECLS \
-	SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_FirebaseAuth_h_231_INCLASS_NO_PURE_DECLS \
-	SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_FirebaseAuth_h_231_ENHANCED_CONSTRUCTORS \
+	SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_FirebaseAuth_h_235_PRIVATE_PROPERTY_OFFSET \
+	SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_FirebaseAuth_h_235_SPARSE_DATA \
+	SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_FirebaseAuth_h_235_RPC_WRAPPERS_NO_PURE_DECLS \
+	SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_FirebaseAuth_h_235_INCLASS_NO_PURE_DECLS \
+	SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_FirebaseAuth_h_235_ENHANCED_CONSTRUCTORS \
 static_assert(false, "Unknown access specifier for GENERATED_BODY() macro in class FirebaseAuth."); \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 

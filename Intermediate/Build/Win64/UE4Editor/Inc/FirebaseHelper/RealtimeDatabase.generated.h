@@ -18,35 +18,35 @@ struct FRealtimeWriteOptions;
 #endif
 #define FIREBASEHELPER_RealtimeDatabase_generated_h
 
-#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_RealtimeDatabase_h_71_GENERATED_BODY \
+#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_RealtimeDatabase_h_75_GENERATED_BODY \
 	friend struct Z_Construct_UScriptStruct_FRealtimeWriteOptions_Statics; \
 	FIREBASEHELPER_API static class UScriptStruct* StaticStruct();
 
 
 template<> FIREBASEHELPER_API UScriptStruct* StaticStruct<struct FRealtimeWriteOptions>();
 
-#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_RealtimeDatabase_h_44_GENERATED_BODY \
+#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_RealtimeDatabase_h_48_GENERATED_BODY \
 	friend struct Z_Construct_UScriptStruct_FRealtimeReadOptions_Statics; \
 	FIREBASEHELPER_API static class UScriptStruct* StaticStruct();
 
 
 template<> FIREBASEHELPER_API UScriptStruct* StaticStruct<struct FRealtimeReadOptions>();
 
-#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_RealtimeDatabase_h_27_GENERATED_BODY \
+#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_RealtimeDatabase_h_31_GENERATED_BODY \
 	friend struct Z_Construct_UScriptStruct_FFirebaseData_Statics; \
 	FIREBASEHELPER_API static class UScriptStruct* StaticStruct();
 
 
 template<> FIREBASEHELPER_API UScriptStruct* StaticStruct<struct FFirebaseData>();
 
-#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_RealtimeDatabase_h_12_GENERATED_BODY \
+#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_RealtimeDatabase_h_16_GENERATED_BODY \
 	friend struct Z_Construct_UScriptStruct_FRealtimeValue_Statics; \
 	FIREBASEHELPER_API static class UScriptStruct* StaticStruct();
 
 
 template<> FIREBASEHELPER_API UScriptStruct* StaticStruct<struct FRealtimeValue>();
 
-#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_RealtimeDatabase_h_86_DELEGATE \
+#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_RealtimeDatabase_h_90_DELEGATE \
 struct _Script_FirebaseHelper_eventOperationComplete_Parms \
 { \
 	FFirebaseData ResultCallback; \
@@ -59,8 +59,8 @@ static inline void FOperationComplete_DelegateWrapper(const FScriptDelegate& Ope
 }
 
 
-#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_RealtimeDatabase_h_92_SPARSE_DATA
-#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_RealtimeDatabase_h_92_RPC_WRAPPERS \
+#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_RealtimeDatabase_h_96_SPARSE_DATA
+#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_RealtimeDatabase_h_96_RPC_WRAPPERS \
  \
 	DECLARE_FUNCTION(execAsRealtimeObject); \
 	DECLARE_FUNCTION(execAsRealtimeArray); \
@@ -73,7 +73,7 @@ static inline void FOperationComplete_DelegateWrapper(const FScriptDelegate& Ope
 	DECLARE_FUNCTION(execRealtimeDatabaseDelete);
 
 
-#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_RealtimeDatabase_h_92_RPC_WRAPPERS_NO_PURE_DECLS \
+#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_RealtimeDatabase_h_96_RPC_WRAPPERS_NO_PURE_DECLS \
  \
 	DECLARE_FUNCTION(execAsRealtimeObject); \
 	DECLARE_FUNCTION(execAsRealtimeArray); \
@@ -86,7 +86,7 @@ static inline void FOperationComplete_DelegateWrapper(const FScriptDelegate& Ope
 	DECLARE_FUNCTION(execRealtimeDatabaseDelete);
 
 
-#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_RealtimeDatabase_h_92_INCLASS_NO_PURE_DECLS \
+#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_RealtimeDatabase_h_96_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesURealtimeDatabase(); \
 	friend struct Z_Construct_UClass_URealtimeDatabase_Statics; \
@@ -95,7 +95,7 @@ public: \
 	DECLARE_SERIALIZER(URealtimeDatabase)
 
 
-#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_RealtimeDatabase_h_92_INCLASS \
+#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_RealtimeDatabase_h_96_INCLASS \
 private: \
 	static void StaticRegisterNativesURealtimeDatabase(); \
 	friend struct Z_Construct_UClass_URealtimeDatabase_Statics; \
@@ -104,7 +104,7 @@ public: \
 	DECLARE_SERIALIZER(URealtimeDatabase)
 
 
-#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_RealtimeDatabase_h_92_STANDARD_CONSTRUCTORS \
+#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_RealtimeDatabase_h_96_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API URealtimeDatabase(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(URealtimeDatabase) \
@@ -117,7 +117,7 @@ private: \
 public:
 
 
-#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_RealtimeDatabase_h_92_ENHANCED_CONSTRUCTORS \
+#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_RealtimeDatabase_h_96_ENHANCED_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API URealtimeDatabase(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()) : Super(ObjectInitializer) { }; \
 private: \
@@ -130,28 +130,28 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(URealtimeDatabase); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(URealtimeDatabase)
 
 
-#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_RealtimeDatabase_h_92_PRIVATE_PROPERTY_OFFSET
-#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_RealtimeDatabase_h_88_PROLOG
-#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_RealtimeDatabase_h_92_GENERATED_BODY_LEGACY \
+#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_RealtimeDatabase_h_96_PRIVATE_PROPERTY_OFFSET
+#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_RealtimeDatabase_h_92_PROLOG
+#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_RealtimeDatabase_h_96_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_RealtimeDatabase_h_92_PRIVATE_PROPERTY_OFFSET \
-	SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_RealtimeDatabase_h_92_SPARSE_DATA \
-	SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_RealtimeDatabase_h_92_RPC_WRAPPERS \
-	SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_RealtimeDatabase_h_92_INCLASS \
-	SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_RealtimeDatabase_h_92_STANDARD_CONSTRUCTORS \
+	SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_RealtimeDatabase_h_96_PRIVATE_PROPERTY_OFFSET \
+	SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_RealtimeDatabase_h_96_SPARSE_DATA \
+	SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_RealtimeDatabase_h_96_RPC_WRAPPERS \
+	SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_RealtimeDatabase_h_96_INCLASS \
+	SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_RealtimeDatabase_h_96_STANDARD_CONSTRUCTORS \
 public: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_RealtimeDatabase_h_92_GENERATED_BODY \
+#define SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_RealtimeDatabase_h_96_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_RealtimeDatabase_h_92_PRIVATE_PROPERTY_OFFSET \
-	SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_RealtimeDatabase_h_92_SPARSE_DATA \
-	SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_RealtimeDatabase_h_92_RPC_WRAPPERS_NO_PURE_DECLS \
-	SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_RealtimeDatabase_h_92_INCLASS_NO_PURE_DECLS \
-	SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_RealtimeDatabase_h_92_ENHANCED_CONSTRUCTORS \
+	SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_RealtimeDatabase_h_96_PRIVATE_PROPERTY_OFFSET \
+	SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_RealtimeDatabase_h_96_SPARSE_DATA \
+	SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_RealtimeDatabase_h_96_RPC_WRAPPERS_NO_PURE_DECLS \
+	SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_RealtimeDatabase_h_96_INCLASS_NO_PURE_DECLS \
+	SimpleProject_Plugins_FirebaseHelper_Source_FirebaseHelper_Public_RealtimeDatabase_h_96_ENHANCED_CONSTRUCTORS \
 static_assert(false, "Unknown access specifier for GENERATED_BODY() macro in class RealtimeDatabase."); \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 

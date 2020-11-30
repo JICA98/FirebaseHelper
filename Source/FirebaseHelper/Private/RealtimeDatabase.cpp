@@ -168,6 +168,7 @@ void URealtimeDatabase::OnWriteReceived(FHttpRequestPtr Request, FHttpResponsePt
 
         UE_LOG(LogTemp, Error, TEXT("Error %s"), *FString::FromInt(Response->GetResponseCode()));
     }
+    if(ResultCallback.ExecuteIfBound(firebaseData)){}
 }
 
 float URealtimeDatabase::AsRealtimeNumber(const FRealtimeValue RealtimeValue)

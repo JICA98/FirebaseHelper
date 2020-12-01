@@ -9,6 +9,7 @@
 #include "Serialization/JsonReader.h"
 #include "Serialization/JsonSerializer.h"
 #include "Dom/JsonObject.h"
+#include "Misc/Paths.h"
 #include "Templates/SharedPointer.h"
 
 FString UFirebaseHelperBPLibrary::ProjectId = "";

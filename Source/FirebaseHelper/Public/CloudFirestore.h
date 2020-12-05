@@ -2,8 +2,6 @@
 
 #pragma once
 
-#include "FirebaseHelperBPLibrary.h"
-#include "FirestoreValue.h"
 #include "Runtime/Online/HTTP/Public/Http.h"
 #include "Dom/JsonValue.h"
 #include "Serialization/JsonReader.h"
@@ -11,6 +9,57 @@
 #include "Dom/JsonObject.h"
 #include "Templates/SharedPointer.h"
 #include "CloudFirestore.generated.h"
+
+USTRUCT(BlueprintType)
+struct FJsonValueB
+{
+    GENERATED_BODY()
+public:
+    UPROPERTY(BlueprintReadOnly)
+    FString FieldType;
+    TSharedPtr<FJsonValue> Value;
+    FJsonValueB(){}
+    FJsonValueB(const TSharedPtr<FJsonValue> Val,const FString FT)
+    {
+        Value = Val;
+        FieldType = FT;
+    }
+    FJsonValueB(const TSharedPtr<FJsonValue> Val)
+    {
+        Value = Val;
+        FieldType = "";
+    }
+	
+	
+};
+
+/*
+An object representing a latitude/longitude pair.
+This is expressed as a pair of doubles representing degrees latitude and degrees longitude.
+Unless specified otherwise, this must conform to the WGS84 standard. Values must be within normalized ranges.
+*/
+USTRUCT(BlueprintType)
+struct FGeoPoint
+{
+    GENERATED_BODY()
+	
+public:
+    FGeoPoint()
+    {
+        Latitude = 0.0;
+        Longitude = 0.0;
+    }
+    FGeoPoint(float Lat, float Lon)
+    {
+        Latitude = Lat;
+        Longitude = Lon;
+    }
+    UPROPERTY(BlueprintReadWrite)
+    float Latitude;			//The latitude in degrees. It must be in the range [-90.0, +90.0].
+    UPROPERTY(BlueprintReadWrite)
+    float Longitude;			//The longitude in degrees. It must be in the range [-180.0, +180.0].
+	
+};
 
 UENUM(BlueprintType)
 enum EOrderBy {None, Priority, Desc, Name };
@@ -50,6 +99,7 @@ public:
     FString UpdateTime ;
 };
 
+
 USTRUCT(BlueprintType)
 struct FMultipleDocuments
 {
@@ -82,12 +132,9 @@ public:
     UPROPERTY(BlueprintReadWrite)
     FString Object;
     FFireString()
-    {
-    }
+    {}
     FFireString(FString UObject)
-    {
-        Object = UObject;
-    }
+    { Object = UObject; }
     
 };
 

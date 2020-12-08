@@ -214,7 +214,7 @@ TMap<FString, FRealtimeValue> URealtimeDatabase::AsRealtimeObject(const FRealtim
 void URealtimeDatabase::RealtimeDatabaseDelete(const FString& Path, const bool UseAuth, bool ReceiveDataSent,
                                                       FOperationComplete ResultCallback)
 {
-    TSharedRef<IHttpRequest> HttpRequest = FHttpModule::Get().CreateRequest();
+    TSharedPtr<IHttpRequest> HttpRequest = FHttpModule::Get().CreateRequest();
 
     HttpRequest->SetHeader(TEXT("User-Agent"), TEXT("X-UnrealEngine-Agent"));
     HttpRequest->SetHeader(TEXT("Content-Type"), TEXT("application/json"));
@@ -260,7 +260,7 @@ void URealtimeDatabase::RealtimeDatabaseWrite(const FString& Path, const FString
         UE_LOG(LogTemp, Error, TEXT("Cannot Update and Write ExTag at the same time."));
         return;
     }
-    TSharedRef<IHttpRequest> HttpRequest = FHttpModule::Get().CreateRequest();
+    TSharedPtr<IHttpRequest> HttpRequest = FHttpModule::Get().CreateRequest();
     if (Update)
     {
         HttpRequest->SetVerb("PATCH");
@@ -336,7 +336,7 @@ void URealtimeDatabase::RealtimeDatabaseListener(const FString& Path, const FRea
         return;
     }
 
-    TSharedRef<IHttpRequest> HttpRequest = FHttpModule::Get().CreateRequest();
+    TSharedPtr<IHttpRequest> HttpRequest = FHttpModule::Get().CreateRequest();
 
     HttpRequest->SetVerb("GET");
 
@@ -457,7 +457,7 @@ void URealtimeDatabase::RealtimeDatabaseRead(const FString& Path, const FRealtim
         return;
     }
 
-    TSharedRef<IHttpRequest> HttpRequest = FHttpModule::Get().CreateRequest();
+    TSharedPtr<IHttpRequest> HttpRequest = FHttpModule::Get().CreateRequest();
     UE_LOG(LogTemp, Warning, TEXT("Read Request"));
     HttpRequest->SetVerb("GET");
     HttpRequest->SetHeader(TEXT("User-Agent"), TEXT("X-UnrealEngine-Agent"));

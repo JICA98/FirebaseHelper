@@ -100,7 +100,7 @@ void UFirebaseAuth::OnAuthResultReceived(FHttpRequestPtr Request, FHttpResponseP
 
 void UFirebaseAuth::ExchangeCustomToken(const FString& CustomToken, FAuthOperationComplete AuthResultCallback)
 {
-    TSharedPtr<IHttpRequest> HttpRequest = FHttpModule::Get().CreateRequest();
+    TSharedRef<IHttpRequest, ESPMode::ThreadSafe> HttpRequest = FHttpModule::Get().CreateRequest();
     HttpRequest->SetVerb("POST");
     HttpRequest->SetHeader(TEXT("User-Agent"), TEXT("X-UnrealEngine-Agent"));
     HttpRequest->SetHeader(TEXT("Content-Type"), TEXT("application/json"));
@@ -125,7 +125,7 @@ void UFirebaseAuth::ExchangeCustomToken(const FString& CustomToken, FAuthOperati
 
 void UFirebaseAuth::ExchangeRefreshToken(const FString& RefreshToken, FAuthOperationComplete AuthResultCallback)
 {
-    TSharedPtr<IHttpRequest> HttpRequest = FHttpModule::Get().CreateRequest();
+    TSharedRef<IHttpRequest, ESPMode::ThreadSafe> HttpRequest = FHttpModule::Get().CreateRequest();
     HttpRequest->SetVerb("POST");
     HttpRequest->SetHeader(TEXT("User-Agent"), TEXT("X-UnrealEngine-Agent"));
     HttpRequest->SetHeader(TEXT("Content-Type"), TEXT("application/x-www-form-urlencoded"));
@@ -142,7 +142,7 @@ void UFirebaseAuth::ExchangeRefreshToken(const FString& RefreshToken, FAuthOpera
 void UFirebaseAuth::SignUpWithEmailAndPassword(const FString& Email, const FString& Password,
                                                FAuthOperationComplete AuthResultCallback)
 {
-    TSharedPtr<IHttpRequest> HttpRequest = FHttpModule::Get().CreateRequest();
+    TSharedRef<IHttpRequest, ESPMode::ThreadSafe> HttpRequest = FHttpModule::Get().CreateRequest();
     HttpRequest->SetVerb("POST");
     HttpRequest->SetHeader(TEXT("User-Agent"), TEXT("X-UnrealEngine-Agent"));
     HttpRequest->SetHeader(TEXT("Content-Type"), TEXT("application/json"));
@@ -168,7 +168,7 @@ void UFirebaseAuth::SignUpWithEmailAndPassword(const FString& Email, const FStri
 void UFirebaseAuth::SignInWithEmailAndPassword(const FString& Email, const FString& Password,
                                                FAuthOperationComplete AuthResultCallback)
 {
-    TSharedPtr<IHttpRequest> HttpRequest = FHttpModule::Get().CreateRequest();
+    TSharedRef<IHttpRequest, ESPMode::ThreadSafe> HttpRequest = FHttpModule::Get().CreateRequest();
     HttpRequest->SetVerb("POST");
     HttpRequest->SetHeader(TEXT("User-Agent"), TEXT("X-UnrealEngine-Agent"));
     HttpRequest->SetHeader(TEXT("Content-Type"), TEXT("application/json"));
@@ -193,7 +193,7 @@ void UFirebaseAuth::SignInWithEmailAndPassword(const FString& Email, const FStri
 
 void UFirebaseAuth::SignInAnonymously(FAuthOperationComplete AuthResultCallback)
 {
-    TSharedPtr<IHttpRequest> HttpRequest = FHttpModule::Get().CreateRequest();
+    TSharedRef<IHttpRequest, ESPMode::ThreadSafe> HttpRequest = FHttpModule::Get().CreateRequest();
     HttpRequest->SetVerb("POST");
     HttpRequest->SetHeader(TEXT("User-Agent"), TEXT("X-UnrealEngine-Agent"));
     HttpRequest->SetHeader(TEXT("Content-Type"), TEXT("application/json"));
@@ -326,7 +326,7 @@ void UFirebaseAuth::OnOAuthResultReceived(FHttpRequestPtr Request, FHttpResponse
 void UFirebaseAuth::SignInWithOAuthCredential(FOAuthOperationComplete OAuthResultCallback, const FString& IdToken,
                                               const FString& RequestUri, const EFirebaseAuthIdp Provider)
 {
-    TSharedPtr<IHttpRequest> HttpRequest = FHttpModule::Get().CreateRequest();
+    TSharedRef<IHttpRequest, ESPMode::ThreadSafe> HttpRequest = FHttpModule::Get().CreateRequest();
     HttpRequest->SetVerb("POST");
     HttpRequest->SetHeader(TEXT("User-Agent"), TEXT("X-UnrealEngine-Agent"));
     HttpRequest->SetHeader(TEXT("Content-Type"), TEXT("application/json"));
@@ -402,7 +402,7 @@ void UFirebaseAuth::OnFetchProviderReceived(FHttpRequestPtr Request, FHttpRespon
 void UFirebaseAuth::FetchProvidersForEmail(const FString& Email, FFetchProviderComplete ResultCallback,
                                            const FString& ContinueUri)
 {
-    TSharedPtr<IHttpRequest> HttpRequest = FHttpModule::Get().CreateRequest();
+    TSharedRef<IHttpRequest, ESPMode::ThreadSafe> HttpRequest = FHttpModule::Get().CreateRequest();
     HttpRequest->SetVerb("POST");
     HttpRequest->SetHeader(TEXT("User-Agent"), TEXT("X-UnrealEngine-Agent"));
     HttpRequest->SetHeader(TEXT("Content-Type"), TEXT("application/json"));
@@ -468,7 +468,7 @@ void UFirebaseAuth::OnPasswordResetSentComplete(FHttpRequestPtr Request, FHttpRe
 
 void UFirebaseAuth::SendPasswordResetEmail(const FString& Email, FSendPasswordResetComplete ResultCallback)
 {
-    TSharedPtr<IHttpRequest> HttpRequest = FHttpModule::Get().CreateRequest();
+    TSharedRef<IHttpRequest, ESPMode::ThreadSafe> HttpRequest = FHttpModule::Get().CreateRequest();
     HttpRequest->SetVerb("POST");
     HttpRequest->SetHeader(TEXT("User-Agent"), TEXT("X-UnrealEngine-Agent"));
     HttpRequest->SetHeader(TEXT("Content-Type"), TEXT("application/json"));
@@ -494,7 +494,7 @@ void UFirebaseAuth::SendPasswordResetEmail(const FString& Email, FSendPasswordRe
 
 void UFirebaseAuth::VerifyPasswordResetCode(const FString& Code, FSendPasswordResetComplete ResultCallback)
 {
-    TSharedPtr<IHttpRequest> HttpRequest = FHttpModule::Get().CreateRequest();
+    TSharedRef<IHttpRequest, ESPMode::ThreadSafe> HttpRequest = FHttpModule::Get().CreateRequest();
     HttpRequest->SetVerb("POST");
     HttpRequest->SetHeader(TEXT("User-Agent"), TEXT("X-UnrealEngine-Agent"));
     HttpRequest->SetHeader(TEXT("Content-Type"), TEXT("application/json"));
@@ -520,7 +520,7 @@ void UFirebaseAuth::VerifyPasswordResetCode(const FString& Code, FSendPasswordRe
 void UFirebaseAuth::ConfirmPasswordReset(const FString& Code, const FString& NewPassword,
                                          FSendPasswordResetComplete ResultCallback)
 {
-    TSharedPtr<IHttpRequest> HttpRequest = FHttpModule::Get().CreateRequest();
+    TSharedRef<IHttpRequest, ESPMode::ThreadSafe> HttpRequest = FHttpModule::Get().CreateRequest();
     HttpRequest->SetVerb("POST");
     HttpRequest->SetHeader(TEXT("User-Agent"), TEXT("X-UnrealEngine-Agent"));
     HttpRequest->SetHeader(TEXT("Content-Type"), TEXT("application/json"));
@@ -547,7 +547,7 @@ void UFirebaseAuth::ConfirmPasswordReset(const FString& Code, const FString& New
 
 void UFirebaseAuth::ChangeEmail(const FString& IdToken, const FString& Email, FAuthOperationComplete ResultCallback)
 {
-    TSharedPtr<IHttpRequest> HttpRequest = FHttpModule::Get().CreateRequest();
+    TSharedRef<IHttpRequest, ESPMode::ThreadSafe> HttpRequest = FHttpModule::Get().CreateRequest();
     HttpRequest->SetVerb("POST");
     HttpRequest->SetHeader(TEXT("User-Agent"), TEXT("X-UnrealEngine-Agent"));
     HttpRequest->SetHeader(TEXT("Content-Type"), TEXT("application/json"));
@@ -575,7 +575,7 @@ void UFirebaseAuth::ChangeEmail(const FString& IdToken, const FString& Email, FA
 void UFirebaseAuth::ChangePassword(const FString& IdToken, const FString& Password,
                                    FAuthOperationComplete ResultCallback)
 {
-    TSharedPtr<IHttpRequest> HttpRequest = FHttpModule::Get().CreateRequest();
+    TSharedRef<IHttpRequest, ESPMode::ThreadSafe> HttpRequest = FHttpModule::Get().CreateRequest();
     HttpRequest->SetVerb("POST");
     HttpRequest->SetHeader(TEXT("User-Agent"), TEXT("X-UnrealEngine-Agent"));
     HttpRequest->SetHeader(TEXT("Content-Type"), TEXT("application/json"));
@@ -603,7 +603,7 @@ void UFirebaseAuth::ChangePassword(const FString& IdToken, const FString& Passwo
 void UFirebaseAuth::UpdateProfile(const FString& IdToken, const FString& DisplayName, const FString& PhotoUrl,
                                   FAuthOperationComplete ResultCallback, TArray<FString> ListOfAttributesToDelete)
 {
-    TSharedPtr<IHttpRequest> HttpRequest = FHttpModule::Get().CreateRequest();
+    TSharedRef<IHttpRequest, ESPMode::ThreadSafe> HttpRequest = FHttpModule::Get().CreateRequest();
     HttpRequest->SetVerb("POST");
     HttpRequest->SetHeader(TEXT("User-Agent"), TEXT("X-UnrealEngine-Agent"));
     HttpRequest->SetHeader(TEXT("Content-Type"), TEXT("application/json"));
@@ -641,7 +641,7 @@ void UFirebaseAuth::UpdateProfile(const FString& IdToken, const FString& Display
 void UFirebaseAuth::LinkWithEmailPassword(const FString& IdToken, const FString& Email, const FString& Password,
                                           FAuthOperationComplete ResultCallback)
 {
-    TSharedPtr<IHttpRequest> HttpRequest = FHttpModule::Get().CreateRequest();
+    TSharedRef<IHttpRequest, ESPMode::ThreadSafe> HttpRequest = FHttpModule::Get().CreateRequest();
     HttpRequest->SetVerb("POST");
     HttpRequest->SetHeader(TEXT("User-Agent"), TEXT("X-UnrealEngine-Agent"));
     HttpRequest->SetHeader(TEXT("Content-Type"), TEXT("application/json"));
@@ -671,7 +671,7 @@ void UFirebaseAuth::LinkWithOAuthCredential(FOAuthOperationComplete OAuthResultC
                                             const FString& ProviderAccessToken, const FString& RequestUri,
                                             const EFirebaseAuthIdp Provider)
 {
-    TSharedPtr<IHttpRequest> HttpRequest = FHttpModule::Get().CreateRequest();
+    TSharedRef<IHttpRequest, ESPMode::ThreadSafe> HttpRequest = FHttpModule::Get().CreateRequest();
     HttpRequest->SetVerb("POST");
     HttpRequest->SetHeader(TEXT("User-Agent"), TEXT("X-UnrealEngine-Agent"));
     HttpRequest->SetHeader(TEXT("Content-Type"), TEXT("application/json"));
@@ -703,7 +703,7 @@ void UFirebaseAuth::LinkWithOAuthCredential(FOAuthOperationComplete OAuthResultC
 void UFirebaseAuth::UnlinkProvider(FAuthOperationComplete ResultCallback, const FString& IdToken,
                                    const TArray<FString> ListOfProviders)
 {
-    TSharedPtr<IHttpRequest> HttpRequest = FHttpModule::Get().CreateRequest();
+    TSharedRef<IHttpRequest, ESPMode::ThreadSafe> HttpRequest = FHttpModule::Get().CreateRequest();
     HttpRequest->SetVerb("POST");
     HttpRequest->SetHeader(TEXT("User-Agent"), TEXT("X-UnrealEngine-Agent"));
     HttpRequest->SetHeader(TEXT("Content-Type"), TEXT("application/json"));
@@ -735,7 +735,7 @@ void UFirebaseAuth::UnlinkProvider(FAuthOperationComplete ResultCallback, const 
 
 void UFirebaseAuth::SendEmailVerification(const FString& IdToken, FSendPasswordResetComplete ResultCallback)
 {
-    TSharedPtr<IHttpRequest> HttpRequest = FHttpModule::Get().CreateRequest();
+    TSharedRef<IHttpRequest, ESPMode::ThreadSafe> HttpRequest = FHttpModule::Get().CreateRequest();
     HttpRequest->SetVerb("POST");
     HttpRequest->SetHeader(TEXT("User-Agent"), TEXT("X-UnrealEngine-Agent"));
     HttpRequest->SetHeader(TEXT("Content-Type"), TEXT("application/json"));
@@ -761,7 +761,7 @@ void UFirebaseAuth::SendEmailVerification(const FString& IdToken, FSendPasswordR
 
 void UFirebaseAuth::ConfirmEmailVerification(const FString& Code, FAuthOperationComplete ResultCallback)
 {
-    TSharedPtr<IHttpRequest> HttpRequest = FHttpModule::Get().CreateRequest();
+    TSharedRef<IHttpRequest, ESPMode::ThreadSafe> HttpRequest = FHttpModule::Get().CreateRequest();
     HttpRequest->SetVerb("POST");
     HttpRequest->SetHeader(TEXT("User-Agent"), TEXT("X-UnrealEngine-Agent"));
     HttpRequest->SetHeader(TEXT("Content-Type"), TEXT("application/json"));
@@ -815,7 +815,7 @@ void UFirebaseAuth::OnEventComplete(FHttpRequestPtr Request, FHttpResponsePtr Re
 
 void UFirebaseAuth::DeleteAccountFirebaseAuth(const FString& IdToken, FEventComplete ResultCallback)
 {
-    TSharedPtr<IHttpRequest> HttpRequest = FHttpModule::Get().CreateRequest();
+    TSharedRef<IHttpRequest, ESPMode::ThreadSafe> HttpRequest = FHttpModule::Get().CreateRequest();
     HttpRequest->SetVerb("POST");
     HttpRequest->SetHeader(TEXT("User-Agent"), TEXT("X-UnrealEngine-Agent"));
     HttpRequest->SetHeader(TEXT("Content-Type"), TEXT("application/json"));
@@ -947,7 +947,7 @@ void UFirebaseAuth::OnUserDataReceived(FHttpRequestPtr Request, FHttpResponsePtr
 
 void UFirebaseAuth::GetUserData(const FString& IdToken, FUsersDataComplete ResultCallback)
 {
-    TSharedPtr<IHttpRequest> HttpRequest = FHttpModule::Get().CreateRequest();
+    TSharedRef<IHttpRequest, ESPMode::ThreadSafe> HttpRequest = FHttpModule::Get().CreateRequest();
     HttpRequest->SetVerb("POST");
     HttpRequest->SetHeader(TEXT("User-Agent"), TEXT("X-UnrealEngine-Agent"));
     HttpRequest->SetHeader(TEXT("Content-Type"), TEXT("application/json"));

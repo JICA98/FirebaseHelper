@@ -453,7 +453,7 @@ void UCloudFirestore::OnDocumentReceived(FHttpRequestPtr Request, FHttpResponseP
 
 void UCloudFirestore::GetDocumentFirestoreString(FString DocumentPath, FGetDocumentResult ResultCallback, TArray<FString> FieldsToReturn)
 {
-    TSharedPtr<IHttpRequest> HttpRequest = FHttpModule::Get().CreateRequest();
+    TSharedRef<IHttpRequest, ESPMode::ThreadSafe> HttpRequest = FHttpModule::Get().CreateRequest();
     HttpRequest->SetVerb("GET");
     HttpRequest->SetHeader(TEXT("User-Agent"), TEXT("X-UnrealEngine-Agent"));
     HttpRequest->SetHeader(TEXT("Content-Type"), TEXT("application/json"));
@@ -482,7 +482,7 @@ void UCloudFirestore::GetDocumentFirestoreString(FString DocumentPath, FGetDocum
 
 void UCloudFirestore::GetMultipleDocumentsDifferent(TArray<FString> DocumentPaths, FBatchDocumentsFetch ResultCallback, TArray<FString> FieldsToReturn)
 {
-    TSharedPtr<IHttpRequest> HttpRequest = FHttpModule::Get().CreateRequest();
+    TSharedRef<IHttpRequest, ESPMode::ThreadSafe> HttpRequest = FHttpModule::Get().CreateRequest();
     HttpRequest->SetVerb("POST");
     HttpRequest->SetHeader(TEXT("User-Agent"), TEXT("X-UnrealEngine-Agent"));
     HttpRequest->SetHeader(TEXT("Content-Type"), TEXT("application/json"));
@@ -535,7 +535,7 @@ void UCloudFirestore::GetMultipleDocumentsDifferent(TArray<FString> DocumentPath
 
 void UCloudFirestore::CreateDocument(FFireString FirestoreData,FString CollectionPath, FGetDocumentResult ResultCallback, TArray<FString> FieldsToReturn,FString OptionalDocumentId)
 {
-    TSharedPtr<IHttpRequest> HttpRequest = FHttpModule::Get().CreateRequest();
+    TSharedRef<IHttpRequest, ESPMode::ThreadSafe> HttpRequest = FHttpModule::Get().CreateRequest();
     HttpRequest->SetVerb("POST");
     HttpRequest->SetHeader(TEXT("User-Agent"), TEXT("X-UnrealEngine-Agent"));
     HttpRequest->SetHeader(TEXT("Content-Type"), TEXT("application/json"));
@@ -613,7 +613,7 @@ void UCloudFirestore::OnDocumentDeleteReceived(FHttpRequestPtr Request, FHttpRes
 
 void UCloudFirestore::DeleteDocument(FString DocumentPath, FDeleteDocumentResult ResultCallback)
 {
-    TSharedPtr<IHttpRequest> HttpRequest = FHttpModule::Get().CreateRequest();
+    TSharedRef<IHttpRequest, ESPMode::ThreadSafe> HttpRequest = FHttpModule::Get().CreateRequest();
     HttpRequest->SetVerb("DELETE");
     HttpRequest->SetHeader(TEXT("User-Agent"), TEXT("X-UnrealEngine-Agent"));
     HttpRequest->SetHeader(TEXT("Content-Type"), TEXT("application/json"));
@@ -708,7 +708,7 @@ void UCloudFirestore::OnMultipleDocumentsReceived(FHttpRequestPtr Request, FHttp
 
 void UCloudFirestore::ListDocuments(FString CollectionPath, FListDocumentsResult ResultCallback, TArray<FString> FieldsToReturn, FListOptions ListOptions,  EOrderBy OrderBy)
 {
-    TSharedPtr<IHttpRequest> HttpRequest = FHttpModule::Get().CreateRequest();
+    TSharedRef<IHttpRequest, ESPMode::ThreadSafe> HttpRequest = FHttpModule::Get().CreateRequest();
     HttpRequest->SetVerb("GET");
     HttpRequest->SetHeader(TEXT("User-Agent"), TEXT("X-UnrealEngine-Agent"));
     HttpRequest->SetHeader(TEXT("Content-Type"), TEXT("application/json"));
@@ -749,7 +749,7 @@ void UCloudFirestore::ListDocuments(FString CollectionPath, FListDocumentsResult
 
 void UCloudFirestore::UpdateDocument(FFireString FirestoreData, FString CollectionPath, FString DocumentId, FGetDocumentResult ResultCallback, TArray<FString> FieldsToReturn, TArray<FString> FieldsToUpdate)
 {
-    TSharedPtr<IHttpRequest> HttpRequest = FHttpModule::Get().CreateRequest();
+    TSharedRef<IHttpRequest, ESPMode::ThreadSafe> HttpRequest = FHttpModule::Get().CreateRequest();
     HttpRequest->SetVerb("PATCH");
     HttpRequest->SetHeader(TEXT("User-Agent"), TEXT("X-UnrealEngine-Agent"));
     HttpRequest->SetHeader(TEXT("Content-Type"), TEXT("application/json"));

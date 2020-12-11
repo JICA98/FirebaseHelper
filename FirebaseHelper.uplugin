@@ -22,6 +22,6 @@
 			"WhitelistPlatforms": [ "Win64", "Win32", "Mac", "Linux", "Android", "IOS" ]
 		}
 	],
-	"EngineVersion": "4.25.4"
+	"EngineVersion": "4.26"
 	
 }
